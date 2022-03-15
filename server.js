@@ -1,0 +1,19 @@
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) =>{
+    res.send('Hello World!')
+});
+
+app.get('/kelompok', (req, res) =>{
+    res.send('Kelompok 4')
+});
+
+app.get('/project', (req, res) =>{
+    res.send('TUGAS BESAR PWEB')
+});
+app.listen(port, () =>{
+    console.log(`example app listening on port ${port}`)
+});
+
