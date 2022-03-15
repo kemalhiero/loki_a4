@@ -10,6 +10,9 @@ app.get('/kelompok', (req, res) =>{
     res.send('Kelompok 4')
 });
 
+app.get('/project', (req, res) =>{
+    res.send('TUGAS BESAR PWEB')
+});
 app.listen(port, () =>{
     console.log(`example app listening on port ${port}`)
 });
