@@ -13,6 +13,11 @@ app.get('/kelompok', (req, res) =>{
 app.get('/project', (req, res) =>{
     res.send('TUGAS BESAR PWEB')
 });
+
+app.get('/senggol', (req, res) =>{
+    res.send('SENGGOL DONG')
+});
+
 app.listen(port, () =>{
     console.log(`example app listening on port ${port}`)
 });
