@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require("path");
-const router = require("./router/router");
+const router = require("./Router/mahasiswa");
 
 app.use(router);
 
