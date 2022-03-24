@@ -4,7 +4,6 @@ const port = 3000
 const path = require("path");
 const router = require("./Router/mahasiswa");
 
-
 app.get("/", (req, res) => 
 {
     res.send("Welcome di Server JS");
@@ -12,6 +11,7 @@ app.get("/", (req, res) =>
   
 app.get("/login", (req, res) => 
 {
+
     res.send("Ini adalah Halaman Login");
 });
 
