@@ -8,7 +8,7 @@ router.post("inirps", (req, res) => {
   {
       "message": "Data diubah oleh Dosen",
       "Nama": "Doraemon S. Kom",
-      "Kode Matakuliah": "SIJJ3402",
+      "Kode Matakuliah": "SI1892",
       "Mata kuliah ": "Dasar Program",
       "RPS": "(Isi RPS)",
       "Ket": "BERHASIL",
