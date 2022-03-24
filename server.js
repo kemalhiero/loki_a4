@@ -2,7 +2,7 @@ const express = require('express')
 const app = express()
 const port = 3000
 const path = require("path");
-const router = require("./Router/mahasiswa");
+// const router = require("./Router/mahasiswa");
 
 app.get("/", (req, res) => 
 {
@@ -32,4 +32,8 @@ app.get("/print", (req, res) =>
 app.get("/lihatrps", (req, res) => 
 {
     res.send("RPS dapat dilihat di sini");
+});
+
+app.listen(port, () =>{
+ console.log(`hdhjsfhj`)
 });
