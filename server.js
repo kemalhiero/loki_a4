@@ -5,11 +5,11 @@ const path = require("path");
 const router = require("./Router/mahasiswa");
 
 //route awal
-x.get("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Welcome di Server JS");
   });
   
   //route untuk halaman login
-  x.get("/login", (req, res) => {
+ app.get("/login", (req, res) => {
     res.send("Ini adalah Halaman Login");
   });
