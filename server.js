@@ -4,9 +4,12 @@ const port = 3000
 const path = require("path");
 const router = require("./Router/mahasiswa");
 
-app.use(router);
-
-//
-app.listen(port, () =>{
-    console.log(`example app listening on port ${port}`)
-});
+//route awal
+x.get("/", (req, res) => {
+    res.send("Welcome di Server JS");
+  });
+  
+  //route untuk halaman login
+  x.get("/login", (req, res) => {
+    res.send("Ini adalah Halaman Login");
+  });
