@@ -1,23 +1,12 @@
 const express = require('express')
 const app = express()
 const port = 3000
+const path = require("path");
+const router = require("./router/router");
 
-app.get('/', (req, res) =>{
-    res.send('Hello World!')
-});
+app.use(router);
 
-app.get('/kelompok', (req, res) =>{
-    res.send('Kelompok 4')
-});
-
-app.get('/project', (req, res) =>{
-    res.send('TUGAS BESAR PWEB')
-});
-
-app.get('/senggol', (req, res) =>{
-    res.send('SENGGOL DONG')
-});
-
+//
 app.listen(port, () =>{
     console.log(`example app listening on port ${port}`)
 });
