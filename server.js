@@ -35,5 +35,5 @@ app.get("/lihatrps", (req, res) =>
 });
 
 app.listen(port, () =>{
- console.log(`hdhjsfhj`)
+ console.log(`Server Sedang Berjalan`)
 });
