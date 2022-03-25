@@ -16,9 +16,15 @@ router.get("/logout", (req, res) =>
 
 //dosen doang
 //    ---RPS---
-router.get("/tambahrps", (req, res) =>         //menambahkan RPS baru
+router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru
 {
-    res.send("Tambah RPS");
+    let obj ={
+        "Kode Matakuliah": "SI12",
+        "Nama": "P Web",
+        "SKS": 3,
+        "Semester": 3
+    }
+    res.json(obj);
 });
 
 router.put("/ubahrps", (req, res) =>             //mengubah RPS yang ada
