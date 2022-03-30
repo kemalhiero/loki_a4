@@ -1,55 +1,46 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize("mysql://root@localhost/loki_a6")
+const { Sequelize, DataTypes, DatabaseError } = require('sequelize');
+const sequelize = new Sequelize("mysql://root@localhost/loki")
 
-sequelize.define('courses' , {
-    id:{
+sequalize.define('users', {
+
+    id : {
         type : DataTypes.BIGINT,
-        allowNull: false,
+        allowNull : false,
         primaryKey : id
     },
-
-    curriculum_id:{
-        type : DataTypes.STRING,
-        allowNull: false,
-        foreignKey : curriculum_id
-    },
-
-    code:{
-        type : DataTypes.STRING,
-        allowNull: false 
-    }, 
-
-    name:{
-        type : DataTypes.STRING,
-        allowNull: false 
-    },
-
-    alias_name:{
-        type : DataTypes.STRING,
-        allowNull: false 
-    },
-
-    credit:{
-        type : DataTypes.INTEGER,
-        allowNull : false
-    },
-
-    semester:{
-        type : DataTypes.INTEGER,
-        allowNull : false
-    },
-
-    description:{
+    name : {
         type : DataTypes.STRING,
         allowNull : false
     },
+    email : {
+        type : DataTypes.STRING,
+        allowNull : false,
+        foreignKey : email
 
-    created_at:{
-        type : DataTypes.DATE,
     },
-
-    updated_at:{
-        type : DataTypes.DATE,
-    }
+    email_verified_at : {
+        type : DataTypes.STRING,
+        allowNull : false
+    },
+    password : {
+        type : DataTypes.STRING,
+        allowNull : false
+    },
+    remember_token : {
+        type : DataTypes.STRING,
+        allowNull : false
+    },
+    type : {
+        type : DataTypes.ENUM,
+        allowNull : false,
+    },
+    created_at : {
+        type : DataTypes.DATE
+       
+    },
+    upadated_at : {
+        type : DataTypes.DATE
+        
+    },
 
 });
