@@ -1,54 +1,65 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize("mysql://root@localhost/loki_a6")
+const sequelize = new Sequelize("mysql://root@localhost/loki")
 
-sequelize.define('courses' , {
-    id:{
+sequelize.define('courses' ,
+{
+    id:
+    {
         type : DataTypes.BIGINT,
         allowNull: false,
         primaryKey : id
     },
 
-    curriculum_id:{
+    curriculum_id:
+    {
         type : DataTypes.STRING,
         allowNull: false,
         foreignKey : curriculum_id
     },
 
-    code:{
+    code:
+    {
         type : DataTypes.STRING,
         allowNull: false 
     }, 
 
-    name:{
+    name:
+    {
         type : DataTypes.STRING,
         allowNull: false 
     },
 
-    alias_name:{
+    alias_name:
+    {
         type : DataTypes.STRING,
         allowNull: false 
     },
 
-    credit:{
+    credit:
+    {
         type : DataTypes.INTEGER,
         allowNull : false
     },
 
-    semester:{
+    semester:
+    {
         type : DataTypes.INTEGER,
         allowNull : false
     },
 
-    description:{
+    description:
+    {
         type : DataTypes.STRING,
         allowNull : false
     },
 
-    created_at:{
+    created_at:
+    {
         type : DataTypes.DATE,
     },
 
-    updated_at:{
+    updated_at:
+    {
         type : DataTypes.DATE,
     }
 
