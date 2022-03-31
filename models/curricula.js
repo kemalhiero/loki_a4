@@ -1,12 +1,13 @@
 const { Sequelize, DataTypes, DatabaseError } = require('sequelize');
 const sequelize = new Sequelize("mysql://root@localhost/loki")
 
-sequalize.define('curricula', {
+sequelize.define('curricula', {
 
   id: {
     type: DataTypes.BIGINT,
     allowNull: false,
-    primaryKey: id
+    primaryKey : true,
+    autoIncrement: true
   },
   name: {
     type: DataTypes.STRING,
@@ -30,7 +31,7 @@ sequalize.define('curricula', {
     type: DataTypes.TEXT,
   },
   created_at: {
-    type: DataTypes.TIME
+    type: DataTypes.DATE
   },
   update_at: {
     type: DataTypes.DATE

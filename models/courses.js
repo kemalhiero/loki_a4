@@ -1,20 +1,28 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize("mysql://root@localhost/loki")
 
+try {
+    sequelize.authenticate();
+    console.log('Connection has been established successfully.');   //tes koneksi
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+  
 sequelize.define('courses' ,
 {
     id:
     {
         type : DataTypes.BIGINT,
         allowNull: false,
-        primaryKey : id
+        primaryKey : true,
+        autoIncrement: true
     },
 
     curriculum_id:
     {
-        type : DataTypes.STRING,
+        type : DataTypes.BIGINT,
         allowNull: false,
-        foreignKey : curriculum_id
+        // foreignKey : curriculum_id
     },
 
     code:
@@ -25,14 +33,13 @@ sequelize.define('courses' ,
 
     name:
     {
-        type : DataTypes.STRING,
+        type : DataTypes.TEXT,
         allowNull: false 
     },
 
     alias_name:
     {
-        type : DataTypes.STRING,
-        allowNull: false 
+        type : DataTypes.TEXT
     },
 
     credit:
@@ -49,8 +56,7 @@ sequelize.define('courses' ,
 
     description:
     {
-        type : DataTypes.STRING,
-        allowNull : false
+        type : DataTypes.TEXT
     },
 
     created_at:

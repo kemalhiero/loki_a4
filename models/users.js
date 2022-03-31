@@ -1,12 +1,13 @@
 const { Sequelize, DataTypes, DatabaseError } = require('sequelize');
 const sequelize = new Sequelize("mysql://root@localhost/loki")
 
-sequalize.define('users', {
+sequelize.define('users', {
 
     id : {
         type : DataTypes.BIGINT,
         allowNull : false,
-        primaryKey : id
+        primaryKey : true,
+        autoIncrement: true
     },
     name : {
         type : DataTypes.STRING,
@@ -19,16 +20,14 @@ sequalize.define('users', {
 
     },
     email_verified_at : {
-        type : DataTypes.STRING,
-        allowNull : false
+        type : DataTypes.STRING
     },
     password : {
         type : DataTypes.STRING,
         allowNull : false
     },
     remember_token : {
-        type : DataTypes.STRING,
-        allowNull : false
+        type : DataTypes.STRING
     },
     type : {
         type : DataTypes.ENUM,
