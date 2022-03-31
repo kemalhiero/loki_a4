@@ -1,7 +1,14 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = new Sequelize("mysql://root@localhost/loki")
-  
-sequelize.define('courses' ,
+
+try {
+    sequelize.authenticate();
+    console.log('Connection has been established successfully.');   //tes koneksi
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+
+sequelize.define('course_plan_references' ,
 {
     id:
     {
@@ -11,37 +18,31 @@ sequelize.define('courses' ,
         autoIncrement: true
     },
 
-    curriculum_id:
+    course_plan_id:
     {
         type : DataTypes.BIGINT,
-        allowNull: false,
-        // foreignKey : curriculum_id
+        allowNull: false
     },
 
-    code:
+    title:
     {
         type : DataTypes.STRING,
         allowNull: false 
     }, 
 
-    name:
+    author:
     {
-        type : DataTypes.TEXT,
+        type : DataTypes.STRING,
         allowNull: false 
     },
 
-    alias_name:
+    publisher:
     {
-        type : DataTypes.TEXT
+        type : DataTypes.STRING,
+        allowNull: false 
     },
 
-    credit:
-    {
-        type : DataTypes.INTEGER,
-        allowNull : false
-    },
-
-    semester:
+    year:
     {
         type : DataTypes.INTEGER,
         allowNull : false
@@ -49,7 +50,8 @@ sequelize.define('courses' ,
 
     description:
     {
-        type : DataTypes.TEXT
+        type : DataTypes.TEXT,
+        allowNull: false 
     },
 
     created_at:
