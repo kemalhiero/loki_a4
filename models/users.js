@@ -1,5 +1,5 @@
-const { Sequelize, DataTypes, DatabaseError } = require('sequelize');
-const sequelize = new Sequelize("mysql://root@localhost/loki")
+const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = require("./dbconfig");
 
 sequelize.define('users', {
 
@@ -15,8 +15,7 @@ sequelize.define('users', {
     },
     email : {
         type : DataTypes.STRING,
-        allowNull : false,
-        foreignKey : email
+        allowNull : false
 
     },
     email_verified_at : {
@@ -30,7 +29,7 @@ sequelize.define('users', {
         type : DataTypes.STRING
     },
     type : {
-        type : DataTypes.ENUM,
+        type : DataTypes.ENUM('M','D','T'),
         allowNull : false,
     },
     created_at : {

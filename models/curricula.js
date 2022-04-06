@@ -1,5 +1,5 @@
-const { Sequelize, DataTypes, DatabaseError } = require('sequelize');
-const sequelize = new Sequelize("mysql://root@localhost/loki")
+const { Sequelize, DataTypes} = require('sequelize');
+const sequelize = require("./dbconfig");
 
 sequelize.define('curricula', {
 
@@ -15,8 +15,7 @@ sequelize.define('curricula', {
   },
   active: {
     type: DataTypes.STRING,
-    allowNull: false,
-    foreignKey: email
+    allowNull: false
 
   },
   year_start: {

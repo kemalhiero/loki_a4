@@ -1,12 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize("mysql://root@localhost/loki")
+const sequelize = require("./dbconfig");
 
-try {
-    sequelize.authenticate();
-    console.log('Connection has been established successfully.');   //tes koneksi
-  } catch (error) {
-    console.error('Unable to connect to the database:', error);
-  }
 
 sequelize.define('course_plan_references' ,
 {

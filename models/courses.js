@@ -1,5 +1,5 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize("mysql://root@localhost/loki")
+const sequelize = require("./dbconfig");
   
 sequelize.define('courses' ,
 {
@@ -14,8 +14,7 @@ sequelize.define('courses' ,
     curriculum_id:
     {
         type : DataTypes.BIGINT,
-        allowNull: false,
-        // foreignKey : curriculum_id
+        allowNull: false
     },
 
     code:
