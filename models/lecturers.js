@@ -5,7 +5,8 @@ sequelize.define('lecturers' , {
     id:{
         type : DataTypes.BIGINT,
         autoIncrement : true,
-        primaryKey : id
+        allowNull : false,
+        primaryKey : true
     },
     name:{
         type : DataTypes.STRING,
