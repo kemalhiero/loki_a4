@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
 
 
-const curriculum_los = sequelize.define('curriculum_profiles',
+const curriculum_profiles = sequelize.define('curriculum_profiles',
   {
     id:
     {

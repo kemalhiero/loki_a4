@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
   
-const courses = sequelize.define('course_los' ,
+const course_los = sequelize.define('course_los' ,
 {
     id:
     {
@@ -17,7 +17,7 @@ const courses = sequelize.define('course_los' ,
         allowNull : false
     },
     
-    type
+    type:
     {
         type: DataTypes.INTEGER,
         allowNull: false
