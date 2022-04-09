@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
 
 
-sequelize.define('course_requirements',
+const course_requirements = sequelize.define('course_requirements',
   {
     id:
     {
@@ -40,4 +40,12 @@ sequelize.define('course_requirements',
       type: DataTypes.DATE,
     },
 
-  });
+  }, {
+    tableName: 'course_requirements',
+    timestamps: true,
+    updatedAt: 'updated_at',
+    createdAt: 'created_at'
+
+});
+
+  module.exports = course_requirements;

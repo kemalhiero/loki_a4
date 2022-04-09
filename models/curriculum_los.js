@@ -2,7 +2,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
 
 
-sequelize.define('curriculum_los',
+const curriculum_los = sequelize.define('curriculum_los',
   {
     id:
     {
@@ -51,4 +51,11 @@ sequelize.define('curriculum_los',
       type: DataTypes.DATE,
     },
     
-  });
+  }, {
+    tableName: 'curriculum_los',
+    timestamps: true,
+    updatedAt: 'updated_at',
+    createdAt: 'created_at'
+});
+
+module.exports = curriculum_los;

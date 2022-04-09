@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
 
-sequelize.define('lecturers' , {
+const lecturers = sequelize.define('lecturers' , {
     id:{
         type : DataTypes.BIGINT,
         autoIncrement : true,
@@ -24,10 +24,18 @@ sequelize.define('lecturers' , {
         type : DataTypes.INTEGER,
         allowNull : false
     },
-    created_id : {
+    created_at : {
         type : DataTypes.DATE
     },
-    updated_id : {
+    updated_at : {
         type : DataTypes.DATE
     }
+}, {
+    tableName: 'lecturers',
+    timestamps: true,
+    updatedAt: 'updated_at',
+    createdAt: 'created_at'
+    
 });
+
+module.exports = lecturers;
