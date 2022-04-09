@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const controller = require(`../controllers/indexcontroller`);
 
 // login sama logout
 // dosen sama admin sama2 punya
@@ -12,6 +13,9 @@ router.get("/logout", (req, res) =>
 {
     res.send("Ini merupakan halaman logout Dosen:)");
 });
+
+//lihat daftar dosen
+router.get("/", controller.lecturers.retrieveAll);
 
 
 //dosen doang
@@ -56,6 +60,8 @@ router.delete("/hapuscpmk", (req, res) =>         //menghapus CPMK mata kuliah
 
 
 //    ---REFERENSI---
+router.get("/referensi", controller.course_plan_references.retrieveAll); //lihat daftar referensi
+
 router.get("/tambahreferensi", (req, res) =>         //menambahkan referensi baru
 {
     res.send("Tambah Referensi");
