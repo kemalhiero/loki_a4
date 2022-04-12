@@ -17,6 +17,7 @@ router.get("/lihatdetailrps", (req, res) => {
   res.json(obj);
 });
 
+
 router.get("/caridirps", (req, res) => 
 {
     res.send("Ni halaman cari RPS");

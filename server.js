@@ -28,6 +28,7 @@ app.get("/print", (req, res) =>         //semua pengguna bisa menggunakannya
     res.send("Cetak RPS");
 });
 
+
 app.use('/', (req, res) => {
     res.send('Salah alamat');
 });
