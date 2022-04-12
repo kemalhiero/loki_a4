@@ -1,39 +1,38 @@
-const express = require('express')
+const express = require('express');
 const app = express()
 const port = 3000
-const path = require("path");
-// const router = require("./Router/mahasiswa");
+const controller = require(`./controllers/indexcontroller`);
 
+//router
+const mahasiswa = require("./Router/mahasiswa");
+app.use('/mahasiswa',mahasiswa)
+
+const dosen = require("./Router/dosen");
+app.use('/dosen',dosen)
+
+const admin = require("./Router/admin");
+app.use('/admin',admin)
+
+
+//--------------------------------
 app.get("/", (req, res) => 
 {
-    res.send("Welcome di Server JS");
-});
-  
-app.get("/login", (req, res) => 
-{
-    res.send("Ini adalah Halaman Login");
+    res.send("Welcome to Server JS Kelompok 4");
 });
 
-app.get("/logout", (req, res) => 
-{
-    res.send("Ini merupakan halaman logout :)");
-});
-  
-app.get("/daftarrps", (req, res) => 
-{
-    res.send("Daftar RPS");
-});
+//lihat daftar user
+app.get("/user", controller.users.retrieveAll);
 
-app.get("/print", (req, res) => 
+app.get("/print", (req, res) =>         //semua pengguna bisa menggunakannya
 {
     res.send("Cetak RPS");
 });
 
-app.get("/lihatrps", (req, res) => 
-{
-    res.send("RPS dapat dilihat di sini");
+
+app.use('/', (req, res) => {
+    res.send('Salah alamat');
 });
 
 app.listen(port, () =>{
- console.log(`hdhjsfhjPort lagi jalan`)
+ console.log(`Server Sedang Berjalan di port ${port}`)
 });
