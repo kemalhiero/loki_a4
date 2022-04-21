@@ -2,23 +2,9 @@ const express = require("express");
 const router = express.Router();
 const controller = require(`../controllers/indexcontroller`);
 
-// login sama logout
-// dosen sama admin sama2 punya
-router.get("/login", (req, res) => 
-{
-    res.send("Ini adalah Halaman Login Dosen");
-});
-
-router.get("/logout", (req, res) => 
-{
-    res.send("Ini merupakan halaman logout Dosen:)");
-});
-
 //lihat daftar dosen
 router.get("/", controller.lecturers.retrieveAll);
 
-
-//dosen doang
 //    ---RPS---
 router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru
 {

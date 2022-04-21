@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const controller = require(`../controllers/indexcontroller`);
 
 //route mengubah/membuat RPS yang sudah ada didalam Web
 router.get("/lihatdetailrps", (req, res) => {

@@ -1,20 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const controller = require(`../controllers/indexcontroller`);
 
-// login sama logout
-// dosen sama admin sama2 punya
-router.get("/login", (req, res) => 
-{
-    res.send("Ini adalah Halaman Login Admin");
-});
-
-router.get("/logout", (req, res) => 
-{
-    res.send("Ini merupakan halaman logout Admin :V");
-});
-
-
-// admin doang
 router.get("/menentukandosen", (req, res) =>       //menentukan dosen yang akan membuat/memperbaharui RPS
 {
     res.send("menentukan dosen");

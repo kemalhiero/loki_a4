@@ -2,6 +2,8 @@ const express = require('express');
 const app = express()
 const port = 3000
 const controller = require(`./controllers/indexcontroller`);
+const dotenv = require('dotenv');
+dotenv.config();
 
 //router
 const mahasiswa = require("./Router/mahasiswa");
@@ -12,6 +14,9 @@ app.use('/dosen',dosen)
 
 const admin = require("./Router/admin");
 app.use('/admin',admin)
+
+const auth = require("./Router/auth");
+app.use('/auth',auth)
 
 
 //--------------------------------
