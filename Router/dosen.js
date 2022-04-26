@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const controller = require(`../controllers/indexcontroller`);
+const authenticateToken = require(`../middleware/authToken`);
 
 //lihat daftar dosen
-router.get("/", controller.lecturers.retrieveAll);
+router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 
 //    ---RPS---
 router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru

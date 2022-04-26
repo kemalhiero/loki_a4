@@ -3,7 +3,12 @@ const app = express()
 const port = 3000
 const controller = require(`./controllers/indexcontroller`);
 const dotenv = require('dotenv');
+const bodyParser = require('body-parser')
 dotenv.config();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
 //router
 const mahasiswa = require("./Router/mahasiswa");
@@ -33,11 +38,9 @@ app.get("/print", (req, res) =>         //semua pengguna bisa menggunakannya
     res.send("Cetak RPS");
 });
 
-
-app.use('/', (req, res) => {
-    res.send('Salah alamat');
-});
+//----------------------------------
+app.use('/', (req, res) => {res.send('Salah alamat')});
 
 app.listen(port, () =>{
- console.log(`Server Sedang Berjalan di port ${port}`)
+    console.log(`Server Sedang Berjalan di port ${port}`)
 });
