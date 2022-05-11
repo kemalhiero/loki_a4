@@ -1,10 +1,10 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
 
-const curriculum_los = require("./curriculum_los");
-const course_los = require("./course_los");
+const course_plans_details = require("./course_plans_details");
+const course_plan_assessments = require("./course_plan_assessments");
 
-const course_lo_details = sequelize.define('courses',
+const course_plan_detail_assessments = sequelize.define('courses',
   {
     id:
     {
@@ -14,24 +14,30 @@ const course_lo_details = sequelize.define('courses',
       autoIncrement: true
     },
 
-    curriculum_lo_id:
+    course_plan_detail_id:
     {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
-        model: curriculum_los,
+        model: course_plans_details,
         key: 'id'
       }
     },
 
-    course_lo_id:
+    course_plan_assessment_id:
     {
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
-        model: course_los,
+        model: course_plan_assessments,
         key: 'id'
       }
+    },
+
+    percentage:
+    {
+      type: DataTypes.DOUBLE,
+      allowNull: false
     },
 
     created_at:
@@ -45,11 +51,11 @@ const course_lo_details = sequelize.define('courses',
     }
 
   }, {
-  tableName: 'course_lo_details',
+  tableName: 'course_plan_detail_assessments',
   timestamps: true,
   updatedAt: 'updated_at',
   createdAt: 'created_at'
 
 });
 
-module.exports = course_lo_details;
+module.exports = course_plan_detail_assessments;
