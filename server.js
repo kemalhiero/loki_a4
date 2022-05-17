@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
+app.set('view engine', 'ejs');
+app.use( express.static( "views" ) );
+
 //router
 const mahasiswa = require("./Router/mahasiswa");
 app.use('/mahasiswa',mahasiswa)
@@ -29,7 +32,7 @@ app.use('/auth',auth)
 //--------------------------------
 app.get("/", (req, res) => 
 {
-    res.send("Welcome to Server JS Kelompok 4");
+    res.render('index');
 });
 
 //lihat daftar user
