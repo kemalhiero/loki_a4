@@ -1,6 +1,8 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
   
+const course_plans = require("./course_plans");
+
 const course_los = sequelize.define('course_los' ,
 {
     id:
@@ -14,7 +16,11 @@ const course_los = sequelize.define('course_los' ,
     course_plan_id:
     {
         type: DataTypes.BIGINT,
-        allowNull : false
+        allowNull : false,
+        references: {
+          model: course_plans,
+          key: 'id'
+        }
     },
     
     type:

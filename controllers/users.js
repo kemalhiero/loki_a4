@@ -75,8 +75,6 @@ controller.login = async function(req, res){
     if(!validPass) return res.status(400).send('Password Salah');
     
     const token = generateAccessToken({email: user.email});
-    // return res.json(token).cookie('access_token', 'Bearer ' + token, { httpOnly: true });
-    // return res.json({token:token});    
 
     await model.update({remember_token : token}, {
         where : {email : req.body.email}
@@ -92,7 +90,6 @@ controller.login = async function(req, res){
 }
 
 controller.logout = async function(req, res){
-    // return res.clearCookie('access_token').send("Udah logout!!");
 
     const token = req.cookies.token 
     if (!token) return res.status(200).json("Token tidak ada")
