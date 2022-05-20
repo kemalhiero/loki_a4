@@ -1,7 +1,10 @@
 const express = require("express");
-const router = express.Router();
+const router = express();
 const controller = require(`../controllers/indexcontroller`);
 const authenticateToken = require(`../middleware/authToken`);
+
+app.set('view engine', 'ejs');
+app.use( express.static( "views" ) );
 
 //lihat daftar dosen
 router.get("/", authenticateToken, controller.lecturers.retrieveAll);

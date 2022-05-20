@@ -1,6 +1,9 @@
 const express = require('express');
-const router = express.Router()
+const router = express()
 const controller = require(`../controllers/indexcontroller`);
+
+app.set('view engine', 'ejs');
+app.use( express.static( "views" ) );
 
 router.post("/register", controller.users.register);
 router.post("/login", controller.users.login);

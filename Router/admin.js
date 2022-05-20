@@ -1,7 +1,10 @@
 const express = require("express");
-const router = express.Router();
+const router = express();
 const controller = require(`../controllers/indexcontroller`);
 const authenticateToken = require(`../middleware/authToken`);
+
+app.set('view engine', 'ejs');
+app.use( express.static( "views" ) );
 
 router.get("/menentukandosen", (req, res) =>       //menentukan dosen yang akan membuat/memperbaharui RPS
 {
