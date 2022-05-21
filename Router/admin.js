@@ -3,8 +3,8 @@ const router = express();
 const controller = require(`../controllers/indexcontroller`);
 const authenticateToken = require(`../middleware/authToken`);
 
-app.set('view engine', 'ejs');
-app.use( express.static( "views" ) );
+router.set('view engine', 'ejs');
+router.use( express.static( "views" ) );
 
 router.get("/menentukandosen", (req, res) =>       //menentukan dosen yang akan membuat/memperbaharui RPS
 {

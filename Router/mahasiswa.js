@@ -3,8 +3,8 @@ const router = express();
 const controller = require(`../controllers/indexcontroller`);
 const authenticateToken = require(`../middleware/authToken`);
 
-app.set('view engine', 'ejs');
-app.use( express.static( "views" ) );
+router.set('view engine', 'ejs');
+router.use( express.static( "views" ) );
 
 //route mengubah/membuat RPS yang sudah ada didalam Web
 router.get("/lihatdetailrps", (req, res) => {
