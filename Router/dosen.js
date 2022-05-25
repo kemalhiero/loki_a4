@@ -50,7 +50,7 @@ router.delete("/hapuscpmk", (req, res) =>         //menghapus CPMK mata kuliah
 
 
 //    ---REFERENSI---
-router.get("/referensi", controller.course_plan_references.retrieveAll); //lihat daftar referensi
+router.get("/referensi", controller.referensi.retrieveAll); //lihat daftar referensi
 
 router.get("/tambahreferensi", (req, res) =>         //menambahkan referensi baru
 {
