@@ -6,9 +6,14 @@ const authenticateToken = require(`../middleware/authToken`);
 router.set('view engine', 'ejs');
 router.use( express.static( "views" ) );
 
+router.get("/rps", (req, res) =>
+{
+    res.render('rpsadmin');
+});
+
 router.get("/menentukandosen", (req, res) =>       //menentukan dosen yang akan membuat/memperbaharui RPS
 {
-    res.send("menentukan dosen");
+    res.render('menentukandosen');
 });
 
 router.get("/lihat-laporan-rps", (req, res) =>         //melihat laporan terkait RPS yang ada

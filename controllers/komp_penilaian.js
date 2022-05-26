@@ -1,4 +1,4 @@
-// const model = require('../models/');
-// const controller = {};
+const model = require('../models/course_plan_assessments');
+const controller = {};
 
-// module.exports = controller;
+module.exports = controller;
