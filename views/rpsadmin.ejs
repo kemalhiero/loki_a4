@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPS Admin</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    
+<link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
+<link rel="stylesheet" href="assets/vendors/sweetalert2/sweetalert2.min.css">
+
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+
+         <!-- sidebar -->
+         <%- include('layout/sidebar') %> 
+         
+         <!-- headerr -->
+         <%- include('layout/header') %> 
+         
+         <div id="main">
+             
+<div class="page-heading">
+    <div class="page-title">
+        <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+                <h3>Rencana Pembelajaran Semester</h3>
+                <p class="text-subtitle text-muted"> </p>
+            </div>
+            <!-- <div class="col-12 col-md-6 order-md-2 order-first">
+                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                    </ol>
+                </nav>
+            </div> -->
+        </div>
+    </div>
+    <section class="section">
+        <div class="card">
+            <!-- <div class="card-header">
+                Simple Datatable
+            </div> -->
+            <div class="card-body">
+                <table class="table table-striped" id="table1">
+                    <thead>
+                        <tr>
+                            <th>Kode Mata Kuliah</th>
+                            <th>Nama Mata Kuliah</th>
+                            <!-- <th>Phone</th>
+                            <th>City</th> -->
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JSI123</td>
+                            <td>Perancangan Basis Data</td>
+                            <!-- <td>076 4820 8838</td>
+                            <td>Offenburg</td> -->
+                            <td>
+                                <a href="/admin/menentukandosen" class="btn btn-primary rounded-pill">Dosen</a>
+                                <a href="#" class="btn btn-primary rounded-pill">Laporan</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JSI124</td>
+                            <td>Pemrograman Web</td>
+                            <!-- <td>076 4820 8838</td>
+                            <td>Offenburg</td> -->
+                            <td>
+                                <a href="/admin/menentukandosen" class="btn btn-primary rounded-pill">Dosen</a>
+                                <a href="#" class="btn btn-primary rounded-pill">Laporan</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JSI151</td>
+                            <td>Analisis Visualisasi Data</td>
+                            <!-- <td>076 4820 8838</td>
+                            <td>Offenburg</td> -->
+                            <td>
+                                <a href="/admin/menentukandosen" class="btn btn-primary rounded-pill">Dosen</a>
+                                <a href="#" class="btn btn-primary rounded-pill">Laporan</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>JSI242</td>
+                            <td>Data Mining</td>
+                            <!-- <td>076 4820 8838</td>
+                            <td>Offenburg</td> -->
+                            <td>
+                                <a href="/admin/menentukandosen" class="btn btn-primary rounded-pill">Dosen</a>
+                                <a href="#" class="btn btn-primary rounded-pill">Laporan</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <span>
+                    <!-- Button trigger for login form modal -->
+                    <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#inlineForm">
+                        + Tambah Matkul
+                    </button>
+    
+                    <!--login form Modal -->
+                    <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel33" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel33">Tambah Mata Kuliah </h4>
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <form action="#">
+                                    <div class="modal-body">
+                                        <label>Kode Mata Kuliah </label>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Masukkan kode matkul"
+                                                class="form-control">
+                                        </div>
+                                        <label>Nama Mata Kuliah </label>
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Masukkan nama matkul"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary"
+                                            data-bs-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Close</span>
+                                        </button>
+                                        <button type="button" class="btn btn-primary ml-1"
+                                            data-bs-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Tambah</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+
+            </div>
+        </div>
+
+    </section>
+</div>
+
+
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/extensions/sweetalert2.js"></script>
+    <script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    
+<script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
+<script>
+    // Simple Datatable
+    let table1 = document.querySelector('#table1');
+    let dataTable = new simpleDatatables.DataTable(table1);
+</script>
+
+    <script src="assets/js/mazer.js"></script>
+</body>
+
+</html>
