@@ -75,6 +75,7 @@ controller.login = async function(req, res){
     if(!validPass) return res.status(400).send('Password Salah');
     
     const token = generateAccessToken({email: user.email});
+    const role = user.type;
 
     await model.update({remember_token : token}, {
         where : {email : req.body.email}
@@ -87,6 +88,11 @@ controller.login = async function(req, res){
     res.json({token})
 
     //redirect ke halaman utama atau dashboard
+    if (role=="T") {
+        res.redirect('/')
+    } else if(role=="D"){
+        res.redirect('/dosen')        
+    }
 }
 
 controller.logout = async function(req, res){
@@ -107,7 +113,7 @@ controller.logout = async function(req, res){
         }
     })
     res.clearCookie('token')
-    return res.sendStatus(200);
+    return res.sendStatus(200).redirect('/auth/login');
 
     //redirect ke halaman login
 }

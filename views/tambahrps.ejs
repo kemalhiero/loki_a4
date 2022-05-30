@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah RPS</title>
+    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <!-- sidebar -->
+        <%- include('layout/sidebar') %> 
+        
+        
+        <!-- headerr -->
+        <%- include('layout/header') %> 
+        <div id="main">
+            
+            <div class="page-heading">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-6 order-md-1 order-last">
+                            <h3>Tambah RPS</h3>
+                            <!-- <p class="text-subtitle text-muted">Give textual form controls like input upgrade with custom styles,
+                                sizing, focus states, and more.</p> -->
+                        </div>
+                        <!-- <div class="col-12 col-md-6 order-md-2 order-first">
+                            <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Input</li>
+                                </ol>
+                            </nav>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- Horizontal Input start -->
+                <section id="horizontal-input">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">RPS - Matkul</h4>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <!-- <p>To make label in center of form-control, use <code>.col-form-label</code> class with
+                                                <code>&lt;label&gt;</code> element. This is default bootstrap class.
+                                            </p> -->
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row align-items-center">
+                                                <div class="col-lg-4 col-3">
+                                                    <label class="col-form-label"><h6>Kode Matkul</h6></label>
+                                                </div>
+                                                <div class="col-lg-5 col-9">
+                                                    <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row align-items-center">
+                                                <div class="col-lg-4 col-3">
+                                                    <label class="col-form-label"><h6>Kurikulum</h6></label>
+                                                </div>
+                                                <div class="col-lg-6 col-9">
+                                                    <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row align-items-center">
+                                                <div class="col-lg-4 col-3">
+                                                    <label class="col-form-label"><h6>Nama Matkul</h6></label>
+                                                </div>
+                                                <div class="col-lg-5 col-9">
+                                                    <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group row align-items-center">
+                                                <div class="col-lg-4 col-3">
+                                                    <label class="col-form-label"><h6>SKS</h6></label>
+                                                </div>
+                                                <div class="col-lg-6 col-9">
+                                                    <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br><br><br>
+                                        <!-- <center>
+                                            <div class="buttons">
+                                                <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                                <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                                <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                                <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                            </div>
+                                        </center> -->
+                                        
+                                        <div>
+                                            <div class="list-group list-group-horizontal-sm mb-1 text-center" role="tablist">
+                                                <a class="list-group-item list-group-item-action active" id="list-sunday-list"
+                                                    data-bs-toggle="list" href="#list-sunday" role="tab">Option 1</a>
+                                                <a class="list-group-item list-group-item-action" id="list-monday-list"
+                                                    data-bs-toggle="list" href="#list-monday" role="tab">Option 2</a>
+                                                <a class="list-group-item list-group-item-action" id="list-tuesday-list"
+                                                    data-bs-toggle="list" href="#list-tuesday" role="tab">Option 3</a>
+                                                <a class="list-group-item list-group-item-action" id="list-wednesday-list"
+                                                    data-bs-toggle="list" href="#list-wednesday" role="tab">Option 4</a>
+                                            </div>
+                                            <div class="tab-content text-justify">
+                                                <div class="tab-pane fade show active" id="list-sunday" role="tabpanel"
+                                                    aria-labelledby="list-sunday-list">Irure enim occaecat labore sit qui aliquip
+                                                    reprehenderit amet
+                                                    velit. Deserunt ullamco ex elit nostrud ut dolore nisi officia magna sit occaecat
+                                                    laboris sunt dolor.
+                                                    Nisi eu minim cillum occaecat aute est cupidatat aliqua labore aute occaecat ea
+                                                    aliquip
+                                                    sunt amet.
+                                                    Aute mollit dolor ut exercitation irure commodo non amet consectetur quis amet
+                                                    culpa.
+                                                    Quis ullamco
+                                                    nisi amet qui aute irure eu. Magna labore dolor quis ex labore id nostrud deserunt
+                                                    dolor
+                                                    eiusmod eu
+                                                    pariatur culpa mollit in irure Lorem, ipsum dolor sit amet consectetur adipisicing
+                                                    elit.
+                                                    Iusto quis
+                                                    porro doloribus est natus doloremque, eos laudantium
+                                                    exercitationem impedit sapiente tenetur soluta reiciendis deserunt!</div>
+                                                <div class="tab-pane fade" id="list-monday" role="tabpanel"
+                                                    aria-labelledby="list-monday-list">Cupidatat
+                                                    quis ad sint excepteur laborum in esse qui. Et excepteur consectetur ex nisi eu do
+                                                    cillum ad laborum.
+                                                    Mollit et eu officia dolore sunt Lorem culpa qui commodo velit ex amet id ex.
+                                                    Officia
+                                                    anim incididunt
+                                                    laboris deserunt anim aute dolor incididunt veniam aute dolore do exercitation.
+                                                    Dolor
+                                                    nisi culpa ex ad
+                                                    irure in elit eu dolore. Ad laboris ipsum reprehenderit irure non commodo enim culpa
+                                                    commodo veniam
+                                                    incididunt veniam ad. Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                                    Exercitationem, porro!
+                                                    Amet soluta tempora eveniet blanditiis alias eos, dolor qui consectetur!
+                                                </div>
+                                                <div class="tab-pane fade" id="list-tuesday" role="tabpanel"
+                                                    aria-labelledby="list-tuesday-list">Ut ut
+                                                    do pariatur aliquip aliqua aliquip exercitation do nostrud commodo reprehenderit
+                                                    aute
+                                                    ipsum voluptate.
+                                                    Irure Lorem et laboris nostrud amet cupidatat cupidatat anim do ut velit mollit
+                                                    consequat enim tempor.
+                                                    Consectetur est minim nostrud nostrud consectetur irure labore voluptate irure.
+                                                    Ipsum id
+                                                    Lorem sit
+                                                    sint voluptate est pariatur eu ad cupidatat et deserunt culpa sit eiusmod deserunt.
+                                                    Consectetur et
+                                                    fugiat anim do eiusmod aliquip nulla laborum elit adipisicing pariatur cillum. Lorem
+                                                    ipsum dolor sit
+                                                    amet consectetur adipisicing elit. Molestias, inventore!
+                                                </div>
+                                                <div class="tab-pane fade" id="list-wednesday" role="tabpanel"
+                                                    aria-labelledby="list-wednesday-list">Utamonakosepaligagambung ut
+                                                    do bambang aliquip aliqua aliquip exercitation do nostrud commodo reprehenderit
+                                                    aute
+                                                    ipsum voluptate.
+                                                    Irure Lorem et laboratorium enterprise application nostrud amet cupidatat cupidatat anim do ut velit mollit
+                                                    consequat enim tempor.
+                                                    Consectetur est minim nostrud nostrud consectetur irure labore voluptate irure.
+                                                    Ipsum id
+                                                    Lorem sit
+                                                    sint volume tv est pariatur eu ad cupidatat et deserunt culpa sit eiusmod deserunt.
+                                                    Consectetur et
+                                                    fugiat anim do eiusmod aliquip nulla laborum elit adipisicing pariatur cillum. Lorem
+                                                    ipsum consectetur adipisicing elit. Molestias, inventoramenokasiambanggasedoruka!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Horizontal Input end -->
+
+            </div>
+
+        </div>
+    </div>
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="assets/js/mazer.js"></script>
+</body>
+
+</html>

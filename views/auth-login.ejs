@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
     <link rel="stylesheet" href="assets/css/pages/auth.css">
+
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -24,7 +26,7 @@
             <h1 class="auth-title">Log in.</h1>
             <p class="auth-subtitle mb-5">Silahkan Login terlebih dahulu.</p>
 
-            <form action="index.html">
+            <form method="POST" action="/auth/login">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <input type="text" class="form-control form-control-xl" placeholder="Username">
                     <div class="form-control-icon">

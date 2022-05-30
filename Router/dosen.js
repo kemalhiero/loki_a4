@@ -10,15 +10,25 @@ router.use( express.static( "views" ) );
 router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 
 //    ---RPS---
+
+router.get("/rps", (req, res) => 
+{
+    res.render('rpsdosen');
+});
+
+router.get("/tambahrps", (req, res) =>         //menambahkan RPS baru
+{
+    res.render('tambahrps');
+});
+
+router.get("/detailrps", (req, res) =>         //melihat detail RPS
+{
+    res.render('detailrps');
+});
+
 router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru
 {
-    let obj ={
-        "Kode Matakuliah": "SI12",
-        "Nama": "P Web",
-        "SKS": 3,
-        "Semester": 3
-    }
-    res.json(obj);
+    res.send('Tambah RPS');
 });
 
 router.put("/ubahrps", (req, res) =>             //mengubah RPS yang ada
