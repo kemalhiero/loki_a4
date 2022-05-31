@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -70,11 +70,13 @@
                             <td>Rahmatika Pratama Santi</td>
                             <td>076 4820 8838</td>
                             <!-- <td>Offenburg</td> -->
-                            <td>                                
-                                <i class="fas fa-user-edit" data-bs-toggle="modal"
+                            <td>    
+                                <button class="btn"><i class="fas fa-user-edit" data-bs-toggle="modal"
                                 data-bs-target="#inlineEditForm">
-                                </i>                            
-                                <!--login form Modal -->
+                                </i> </button>                            
+                                                           
+                                                          
+                                <!--edit form Modal -->
                                 <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
                                 aria-labelledby="myModalLabel33" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
@@ -91,13 +93,15 @@
                                                     <div class="modal-body">
                                                         <label>Nama </label>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan nama"
-                                                            class="form-control">
+                                                            <select class="form-select">
+                                                                <option value="Husnil Kamil">Husnil Kamil</option>
+                                                                <option value="Ricky Akbar">Ricky Akbar</option>
+                                                                <option value="Dwi Welly">Dwi Welly</option>
+                                                            </select>
                                                         </div>
                                                         <label>NIP </label>
                                                         <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan NIP"
-                                                            class="form-control">
+                                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -106,7 +110,7 @@
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Close</span>
                                                         </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
+                                                        <button type="submit" class="btn btn-primary ml-1"
                                                         data-bs-dismiss="modal">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Edit</span>
@@ -116,12 +120,12 @@
                                             </div>
                                         </div>
                                 </div>
-
-                                <i class="fas fa-trash" data-bs-toggle="modal"
-                                data-bs-target="#danger"></i>
+                                
+                                <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
+                                data-bs-target="#hapus"></i></button>
 
                                 <!--Danger theme Modal -->
-                                <div class="modal fade text-left" id="danger" tabindex="-1" role="dialog"
+                                <div class="modal fade text-left" id="hapus" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel120" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                         role="document">
@@ -143,7 +147,7 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Batal</span>
                                                 </button>
-                                                <button type="button" class="btn btn-danger ml-1"
+                                                <button type="submit" class="btn btn-danger ml-1"
                                                     data-bs-dismiss="modal">
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Hapus</span>
@@ -154,283 +158,17 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Husnil Kamil</td>
-                            <td>076 4820 8838</td>
-                            <!-- <td>Offenburg</td> -->
-                            <td>
-                                <i class="fas fa-user-edit" data-bs-toggle="modal"
-                                data-bs-target="#inlineEditForm">
-                                </i>                            
-                                <!--login form Modal -->
-                                <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel33" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <form action="#">
-                                                    <div class="modal-body">
-                                                        <label>Nama </label>
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan nama"
-                                                            class="form-control">
-                                                        </div>
-                                                        <label>NIP </label>
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan NIP"
-                                                            class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Edit</span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                </div>
 
-                                <i class="fas fa-trash" data-bs-toggle="modal"
-                                data-bs-target="#danger"></i>
-
-                                <!--Danger theme Modal -->
-                                <div class="modal fade text-left" id="danger" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel120" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-danger">
-                                                <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                                </h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Yakin Ingin menghapus?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Batal</span>
-                                                </button>
-                                                <button type="button" class="btn btn-danger ml-1"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Hapus</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Ricky Akbar</td>
-                            <td>076 4820 8838</td>
-                            <!-- <td>Offenburg</td> -->
-                            <td>
-                                <i class="fas fa-user-edit" data-bs-toggle="modal"
-                                data-bs-target="#inlineEditForm">
-                                </i>                            
-                                <!--login form Modal -->
-                                <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel33" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <form action="#">
-                                                    <div class="modal-body">
-                                                        <label>Nama </label>
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan nama"
-                                                            class="form-control">
-                                                        </div>
-                                                        <label>NIP </label>
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan NIP"
-                                                            class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Edit</span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <i class="fas fa-trash" data-bs-toggle="modal"
-                                data-bs-target="#danger"></i>
-
-                                <!--Danger theme Modal -->
-                                <div class="modal fade text-left" id="danger" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel120" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-danger">
-                                                <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                                </h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Yakin Ingin menghapus?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Batal</span>
-                                                </button>
-                                                <button type="button" class="btn btn-danger ml-1"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Hapus</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Wahyudi</td>
-                            <td>076 4820 8838</td>
-                            <!-- <td>Offenburg</td> -->
-                            <td>
-                                <i class="fas fa-user-edit" data-bs-toggle="modal"
-                                data-bs-target="#inlineEditForm">
-                                </i>                            
-                                <!--login form Modal -->
-                                <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel33" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <form action="#">
-                                                    <div class="modal-body">
-                                                        <label>Nama </label>
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan nama"
-                                                            class="form-control">
-                                                        </div>
-                                                        <label>NIP </label>
-                                                        <div class="form-group">
-                                                            <input type="text" placeholder="Masukkan NIP"
-                                                            class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Edit</span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                </div>
-
-                                <i class="fas fa-trash" data-bs-toggle="modal"
-                                data-bs-target="#danger"></i>
-
-                                <!--Danger theme Modal -->
-                                <div class="modal fade text-left" id="danger" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel120" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-danger">
-                                                <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                                </h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Yakin Ingin menghapus?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Batal</span>
-                                                </button>
-                                                <button type="button" class="btn btn-danger ml-1"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Hapus</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
 
-                <!-- Button trigger for login form modal -->
+                <!-- Button trigger for tambah dosen form modal -->
                 <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal"
                     data-bs-target="#inlineForm">
                     + Tambah Dosen
                 </button>
 
-                <!--login form Modal -->
+                <!--tambah dosen form Modal -->
                 <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel33" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
@@ -447,13 +185,16 @@
                                 <div class="modal-body">
                                     <label>Nama </label>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Masukkan nama"
-                                            class="form-control">
+                                        <select class="form-select">
+                                            <option value="Husnil Kamil">Husnil Kamil</option>
+                                            <option value="Ricky Akbar">Ricky Akbar</option>
+                                            <option value="Dwi Welly">Dwi Welly</option>
+                                        </select>
                                     </div>
                                     <label>NIP </label>
                                     <div class="form-group">
-                                        <input type="text" placeholder="Masukkan NIP"
-                                            class="form-control">
+                                        <input type="text" class="form-control" id="readonlyInput" readonly="readonly" 
+                                        value="disini NIP nya ntar, otomatis dari DB">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -462,7 +203,7 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Close</span>
                                     </button>
-                                    <button type="button" class="btn btn-primary ml-1"
+                                    <button type="submit" class="btn btn-primary ml-1"
                                         data-bs-dismiss="modal">
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Tambah</span>
@@ -489,6 +230,7 @@
  
     <script src="assets/js/extensions/sweetalert2.js"></script>
     <script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    
 
 <script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
 <script src="assets/vendors/fontawesome/all.min.js"></script>

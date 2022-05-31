@@ -8,12 +8,16 @@ router.use( express.static( "views" ) );
 
 router.get("/rps", (req, res) =>
 {
-    res.render('rpsadmin');
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('rpsadmin',{role:role, nama:nama});
 });
 
 router.get("/menentukandosen", (req, res) =>       //menentukan dosen yang akan membuat/memperbaharui RPS
 {
-    res.render('menentukandosen');
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('menentukandosen',{role:role, nama:nama});
 });
 
 router.get("/lihat-laporan-rps", (req, res) =>         //melihat laporan terkait RPS yang ada

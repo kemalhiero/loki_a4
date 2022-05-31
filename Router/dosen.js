@@ -10,15 +10,31 @@ router.use( express.static( "views" ) );
 router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 
 //    ---RPS---
+
+router.get("/rps", (req, res) => 
+{
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('rpsdosen',{role:role, nama:nama});
+});
+
+router.get("/tambahrps", (req, res) =>         //menambahkan RPS baru
+{
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('tambahrps',{role:role, nama:nama});
+});
+
+router.get("/detailrps", (req, res) =>         //melihat detail RPS
+{
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('detailrps',{role:role, nama:nama});
+});
+
 router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru
 {
-    let obj ={
-        "Kode Matakuliah": "SI12",
-        "Nama": "P Web",
-        "SKS": 3,
-        "Semester": 3
-    }
-    res.json(obj);
+    res.send('Tambah RPS');
 });
 
 router.put("/ubahrps", (req, res) =>             //mengubah RPS yang ada
