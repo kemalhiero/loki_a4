@@ -10,14 +10,14 @@ router.get("/rps", (req, res) =>
 {
     const role = req.cookies.role
     const nama = req.cookies.nama
-    res.render('rpsadmin',{role:role, nama:nama});
+    res.render('rpsadmin',{role:role, nama:nama, dasbordaktif:"", rpsaktif:"active"});
 });
 
 router.get("/menentukandosen", (req, res) =>       //menentukan dosen yang akan membuat/memperbaharui RPS
 {
     const role = req.cookies.role
     const nama = req.cookies.nama
-    res.render('menentukandosen',{role:role, nama:nama});
+    res.render('menentukandosen',{role:role, nama:nama, dasbordaktif:"", rpsaktif:"active"});
 });
 
 router.get("/lihat-laporan-rps", (req, res) =>         //melihat laporan terkait RPS yang ada

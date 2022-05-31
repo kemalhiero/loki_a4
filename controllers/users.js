@@ -125,8 +125,13 @@ controller.logout = async function (req, res) {
       },
     }
   );
-  res.clearCookie("token").clearCookie("role").redirect("/auth/login");
-  return res.sendStatus(200);
+  res
+    .clearCookie("token")
+    .clearCookie("role")
+    .clearCookie("nama")
+    .redirect("/auth/login");
+    
+  // res.sendStatus(200);
 
   //redirect ke halaman login
 };

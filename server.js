@@ -35,7 +35,7 @@ app.get("/", (req, res) =>
 {
     const role = req.cookies.role
     const nama = req.cookies.nama
-    res.render('index',{role:role,nama:nama});
+    res.render('index',{role:role,nama:nama, dasbordaktif:"active", rpsaktif:""});
 });
 
 //lihat daftar user

@@ -16,7 +16,7 @@
     <li class="sidebar-title">Menu</li>
     
     <li
-        class="sidebar-item  ">
+        class="sidebar-item <%= dasbordaktif %>  ">
         <a href="/" class='sidebar-link'>
             <i class="bi bi-grid-fill"></i>
             <span>Dashboard</span>
@@ -24,14 +24,14 @@
     </li>
   
     <li
-        class="sidebar-item  ">
+        class="sidebar-item <%= rpsaktif %> ">
         <!--linknya pakai if else, tergantung role -->
         <a href="<% if (role=="T") { %>
             /admin/rps
            <% } else if (role=="D") { %>
            /dosen/rps
            <% } else {%>
-           /mahasiswa/rps
+           /mahasiswa/lihatdetailrps
            <% } %> " class='sidebar-link'>
             <i class="bi bi-file-earmark-medical-fill"></i>
             <span>RPS</span>

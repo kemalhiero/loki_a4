@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const dbconfig = new Sequelize('loki', 'root', '', {
+const dbconfig = new Sequelize('loki', 'root', '12345', {
     host: 'localhost',
     dialect: 'mysql'
   });

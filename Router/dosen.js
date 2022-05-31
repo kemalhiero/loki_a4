@@ -15,21 +15,21 @@ router.get("/rps", (req, res) =>
 {
     const role = req.cookies.role
     const nama = req.cookies.nama
-    res.render('rpsdosen',{role:role, nama:nama});
+    res.render('rpsdosen',{role:role, nama:nama, dasbordaktif:"", rpsaktif:"active"});
 });
 
 router.get("/tambahrps", (req, res) =>         //menambahkan RPS baru
 {
     const role = req.cookies.role
     const nama = req.cookies.nama
-    res.render('tambahrps',{role:role, nama:nama});
+    res.render('tambahrps',{role:role, nama:nama, dasbordaktif:"", rpsaktif:"active"});
 });
 
 router.get("/detailrps", (req, res) =>         //melihat detail RPS
 {
     const role = req.cookies.role
     const nama = req.cookies.nama
-    res.render('detailrps',{role:role, nama:nama});
+    res.render('detailrps',{role:role, nama:nama, dasbordaktif:"", rpsaktif:"active"});
 });
 
 router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru
