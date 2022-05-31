@@ -26,7 +26,13 @@
     <li
         class="sidebar-item  ">
         <!--linknya pakai if else, tergantung role -->
-        <a href="/admin/rps" class='sidebar-link'>
+        <a href="<% if (role=="T") { %>
+            /admin/rps
+           <% } else if (role=="D") { %>
+           /dosen/rps
+           <% } else {%>
+           /mahasiswa/rps
+           <% } %> " class='sidebar-link'>
             <i class="bi bi-file-earmark-medical-fill"></i>
             <span>RPS</span>
         </a>

@@ -74,25 +74,34 @@ controller.login = async function(req, res){
     const validPass = await bcrypt.compare(req.body.password, user.password);
     if(!validPass) return res.status(400).send('Password Salah');
     
-    const token = generateAccessToken({email: user.email});
+    const nama = user.name;
+    const email = user.email;
     const role = user.type;
+
+    const token = generateAccessToken({email: email});
 
     await model.update({remember_token : token}, {
         where : {email : req.body.email}
     })
 
-    res.cookie('token', token, {
+    res
+    .cookie('token', token, {
         httpOnly    : true,
         maxAge      : 24 * 60 * 60 * 1000
     })
-    res.json({token})
+    .cookie('role', role, {
+        httpOnly    : true,
+        maxAge      : 24 * 60 * 60 * 1000
+    })
+    .cookie('nama', nama, {
+        httpOnly    : true,
+        maxAge      : 24 * 60 * 60 * 1000
+    })
+    // .json({token})
+    .redirect('/')
 
     //redirect ke halaman utama atau dashboard
-    if (role=="T") {
-        res.redirect('/')
-    } else if(role=="D"){
-        res.redirect('/dosen')        
-    }
+    // res.redirect('/')
 }
 
 controller.logout = async function(req, res){
@@ -112,8 +121,11 @@ controller.logout = async function(req, res){
             id : id
         }
     })
-    res.clearCookie('token')
-    return res.sendStatus(200).redirect('/auth/login');
+    res
+    .clearCookie('token')
+    .clearCookie('role')
+    .redirect('/auth/login')
+    return res.sendStatus(200);
 
     //redirect ke halaman login
 }

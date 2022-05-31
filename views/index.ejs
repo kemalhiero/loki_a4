@@ -49,10 +49,17 @@
     <section class="section">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Halo Jefri Nichole!</h4>
+                <h4 class="card-title">Halo <%= nama %> !</h4>
             </div>
             <div class="card-body">
-                Selamat Datang Admin!
+                Selamat Datang <% if (role=="T") { %>
+                 Admin
+                <% } else if (role=="D") { %>
+                Dosen
+                <% } else {%>
+                Mahasiswa
+                <% } %> 
+                !
             </div>
         </div>
     </section>

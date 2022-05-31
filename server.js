@@ -29,10 +29,13 @@ const auth = require("./Router/auth");
 app.use('/auth',auth)
 
 
+
 //--------------------------------
 app.get("/", (req, res) => 
 {
-    res.render('index');
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('index',{role:role,nama:nama});
 });
 
 //lihat daftar user

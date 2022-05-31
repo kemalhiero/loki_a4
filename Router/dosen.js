@@ -13,17 +13,23 @@ router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 
 router.get("/rps", (req, res) => 
 {
-    res.render('rpsdosen');
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('rpsdosen',{role:role, nama:nama});
 });
 
 router.get("/tambahrps", (req, res) =>         //menambahkan RPS baru
 {
-    res.render('tambahrps');
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('tambahrps',{role:role, nama:nama});
 });
 
 router.get("/detailrps", (req, res) =>         //melihat detail RPS
 {
-    res.render('detailrps');
+    const role = req.cookies.role
+    const nama = req.cookies.nama
+    res.render('detailrps',{role:role, nama:nama});
 });
 
 router.post("/tambahrps", (req, res) =>         //menambahkan RPS baru
