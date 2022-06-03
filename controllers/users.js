@@ -102,8 +102,6 @@ controller.login = async function (req, res) {
     // .json({token})
     .redirect("/");
 
-  //redirect ke halaman utama atau dashboard
-  // res.redirect('/')
 };
 
 controller.logout = async function (req, res) {

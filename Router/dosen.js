@@ -6,6 +6,14 @@ const authenticateToken = require(`../middleware/authToken`);
 router.set('view engine', 'ejs');
 router.use( express.static( "views" ) );
 
+router.use('/', (req, res, next) => 
+{
+    const role = req.cookies.role
+    if(role!="D") return res.render('error403');
+
+    next()
+});
+
 //lihat daftar dosen
 router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 

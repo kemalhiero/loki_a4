@@ -47,7 +47,7 @@ app.get("/print", (req, res) =>         //semua pengguna bisa menggunakannya
 });
 
 //----------------------------------
-app.use('/', (req, res) => {res.send('Salah alamat')});
+app.use('/', (req, res) => {res.render('error404')});
 
 app.listen(port, () =>{
     console.log(`Server Sedang Berjalan di http://localhost:${port}`)
