@@ -1,246 +1,189 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menentukan Dosen</title>
-    
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    
-<link rel="stylesheet" href="assets/vendors/simple-datatables/style.css">
-<link rel="stylesheet" href="assets/vendors/fontawesome/all.min.css">
-<link rel="stylesheet" href="assets/vendors/sweetalert2/sweetalert2.min.css">
-
-    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
-    <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-</head>
-
-<body>
-    <div id="app">
-
-         <!-- sidebar -->
-         <%- include('layout/sidebar') %> 
-         
-         <!-- headerr -->
-         <%- include('layout/header') %> 
-         
-         <div id="main">
-             
-<div class="page-heading">
-    <div class="page-title">
-        <div class="row">
-            <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Daftar Dosen - Matkul</h3>
-                <p class="text-subtitle text-muted"> </p>
+<%- include('layout/atas', {judul: 'Menentukan Dosen'}) %>
+                
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Daftar Dosen - Matkul</h3>
+                    <p class="text-subtitle text-muted"> </p>
+                </div>
+                <!-- <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                        </ol>
+                    </nav>
+                </div> -->
             </div>
-            <!-- <div class="col-12 col-md-6 order-md-2 order-first">
-                <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">DataTable</li>
-                    </ol>
-                </nav>
-            </div> -->
         </div>
-    </div>
-    <section class="section">
-        <div class="card">
-            <!-- <div class="card-header">
-                Simple Datatable
-            </div> -->
-            <div class="card-body">
-                <table class="table table-striped" id="table1">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>NIP</th>
-                            <!-- <th>City</th> -->
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rahmatika Pratama Santi</td>
-                            <td>076 4820 8838</td>
-                            <!-- <td>Offenburg</td> -->
-                            <td>    
-                                <!-- <button class="btn"><i class="fas fa-user-edit" data-bs-toggle="modal"
-                                data-bs-target="#inlineEditForm">
-                                </i> </button>                             -->
-                                                           
-                                                          
-                                <!--edit form Modal -->
-                                <!-- <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel33" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
+        <section class="section">
+            <div class="card">
+                <!-- <div class="card-header">
+                    Simple Datatable
+                </div> -->
+                <div class="card-body">
+                    <table class="table table-striped" id="table1">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama</th>
+                                <th>NIP</th>
+                                <!-- <th>City</th> -->
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Rahmatika Pratama Santi</td>
+                                <td>076 4820 8838</td>
+                                <!-- <td>Offenburg</td> -->
+                                <td>    
+                                    <!-- <button class="btn"><i class="fas fa-user-edit" data-bs-toggle="modal"
+                                    data-bs-target="#inlineEditForm">
+                                    </i> </button>                             -->
+                                                            
+                                                            
+                                    <!--edit form Modal -->
+                                    <!-- <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel33" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                    role="document">
+                                    <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <form action="#">
+                                                        <div class="modal-body">
+                                                            <label>Nama </label>
+                                                            <div class="form-group">
+                                                                <select class="form-select">
+                                                                    <option value="Husnil Kamil">Husnil Kamil</option>
+                                                                    <option value="Ricky Akbar">Ricky Akbar</option>
+                                                                    <option value="Dwi Welly">Dwi Welly</option>
+                                                                </select>
+                                                            </div>
+                                                            <label>NIP </label>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Close</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Edit</span>
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                    </div> -->
+                                    
+                                    <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
+                                    data-bs-target="#hapus"></i></button>
+
+                                    <!--Danger theme Modal -->
+                                    <div class="modal fade text-left" id="hapus" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel120" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                                            role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header bg-danger">
+                                                    <h5 class="modal-title white" id="myModalLabel120">Peringatan
+                                                    </h5>
                                                     <button type="button" class="close" data-bs-dismiss="modal"
                                                         aria-label="Close">
                                                         <i data-feather="x"></i>
                                                     </button>
                                                 </div>
-                                                <form action="#">
-                                                    <div class="modal-body">
-                                                        <label>Nama </label>
-                                                        <div class="form-group">
-                                                            <select class="form-select">
-                                                                <option value="Husnil Kamil">Husnil Kamil</option>
-                                                                <option value="Ricky Akbar">Ricky Akbar</option>
-                                                                <option value="Dwi Welly">Dwi Welly</option>
-                                                            </select>
-                                                        </div>
-                                                        <label>NIP </label>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
+                                                <div class="modal-body">
+                                                    Yakin Ingin menghapus?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary"
                                                         data-bs-dismiss="modal">
                                                         <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Close</span>
-                                                        </button>
-                                                        <button type="submit" class="btn btn-primary ml-1"
+                                                        <span class="d-none d-sm-block">Batal</span>
+                                                    </button>
+                                                    <button type="submit" class="btn btn-danger ml-1"
                                                         data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Edit</span>
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                </div> -->
-                                
-                                <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
-                                data-bs-target="#hapus"></i></button>
-
-                                <!--Danger theme Modal -->
-                                <div class="modal fade text-left" id="hapus" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel120" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header bg-danger">
-                                                <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                                </h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Yakin Ingin menghapus?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Batal</span>
-                                                </button>
-                                                <button type="submit" class="btn btn-danger ml-1"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Hapus</span>
-                                                </button>
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Hapus</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Button trigger for tambah dosen form modal -->
+                    <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal"
+                        data-bs-target="#inlineForm">
+                        + Tambah Dosen
+                    </button>
+
+                    <!--tambah dosen form Modal -->
+                    <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
+                        aria-labelledby="myModalLabel33" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel33">Tambah Dosen </h4>
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
                                 </div>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-                <!-- Button trigger for tambah dosen form modal -->
-                <button type="button" class="btn btn-secondary rounded-pill" data-bs-toggle="modal"
-                    data-bs-target="#inlineForm">
-                    + Tambah Dosen
-                </button>
-
-                <!--tambah dosen form Modal -->
-                <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
-                    aria-labelledby="myModalLabel33" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel33">Tambah Dosen </h4>
-                                <button type="button" class="close" data-bs-dismiss="modal"
-                                    aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
+                                <form action="#">
+                                    <div class="modal-body">
+                                        <label>Nama </label>
+                                        <div class="form-group">
+                                            <select class="form-select">
+                                                <option value="Husnil Kamil">Husnil Kamil</option>
+                                                <option value="Ricky Akbar">Ricky Akbar</option>
+                                                <option value="Dwi Welly">Dwi Welly</option>
+                                            </select>
+                                        </div>
+                                        <!-- <label>NIP </label> -->
+                                        <!-- <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" 
+                                            value="disini NIP nya ntar, otomatis dari DB">
+                                        </div> -->
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary"
+                                            data-bs-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Close</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1"
+                                            data-bs-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Tambah</span>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                            <form action="#">
-                                <div class="modal-body">
-                                    <label>Nama </label>
-                                    <div class="form-group">
-                                        <select class="form-select">
-                                            <option value="Husnil Kamil">Husnil Kamil</option>
-                                            <option value="Ricky Akbar">Ricky Akbar</option>
-                                            <option value="Dwi Welly">Dwi Welly</option>
-                                        </select>
-                                    </div>
-                                    <!-- <label>NIP </label> -->
-                                    <!-- <div class="form-group">
-                                        <input type="text" class="form-control" id="readonlyInput" readonly="readonly" 
-                                        value="disini NIP nya ntar, otomatis dari DB">
-                                    </div> -->
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary"
-                                        data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Close</span>
-                                    </button>
-                                    <button type="submit" class="btn btn-primary ml-1"
-                                        data-bs-dismiss="modal">
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Tambah</span>
-                                    </button>
-                                </div>
-                            </form>
                         </div>
-                    </div>
+                    </div>                    
                 </div>
-                
-            </div>
-        </div>
-        
-        
-        
-    </section>
-</div>
-
-
-        </div>
+            </div>                                    
+        </section>
     </div>
-    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
- 
-    <script src="assets/js/extensions/sweetalert2.js"></script>
-    <script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
-    
 
-<script src="assets/vendors/simple-datatables/simple-datatables.js"></script>
-<script src="assets/vendors/fontawesome/all.min.js"></script>
-<script>
-    // Simple Datatable
-    let table1 = document.querySelector('#table1');
-    let dataTable = new simpleDatatables.DataTable(table1);
-</script>
-
-    <script src="assets/js/mazer.js"></script>
-</body>
-
-</html>
+<%- include('layout/bawah') %> 

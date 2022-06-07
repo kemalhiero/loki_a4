@@ -17,94 +17,53 @@ router.use("/", (req, res, next) => {
 router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 
 //    ---RPS---
-
 router.get("/rps", (req, res) => {
   const role = req.cookies.role;
   const nama = req.cookies.nama;
   res.render("rpsdosen", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 });
 
-router.get(
-  "/tambahrps",
-  (
-    req,
-    res //menambahkan RPS baru
-  ) => {
+router.get("/tambahrps",(req,res) => {
     const role = req.cookies.role;
     const nama = req.cookies.nama;
     res.render("tambahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
   }
 );
 
-router.get(
-  "/detailrps",
-  (
-    req,
-    res //melihat detail RPS
-  ) => {
+router.get("/detailrps",(req,res) => {
     const role = req.cookies.role;
     const nama = req.cookies.nama;
     res.render("detailrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
   }
 );
 
-router.post(
-  "/tambahrps",
-  (
-    req,
-    res //menambahkan RPS baru
-  ) => {
+router.post("/tambahrps",(req,res) => {
     res.send("Tambah RPS");
   }
 );
 
-router.put(
-  "/ubahrps",
-  (
-    req,
-    res //mengubah RPS yang ada
-  ) => {
+router.put("/ubahrps",(req,res) => {
     res.send("Ubah RPS");
   }
 );
 
-router.put(
-  "/revisirps",
-  (
-    req,
-    res //melakukan revisi RPS lama menjadi RPS versi berikutnya
-  ) => {
+router.put("/revisirps",(req,res) => {
     res.send("Revisi RPS");
   }
 );
 
 //    ---CPMK---
-router.get(
-  "/tambahcpmk",
-  (
-    req,
-    res //menambahkan CPMK baru
-  ) => {
+router.get("/tambahcpmk",(req,res) => {
     res.send("Tambah CPMK");
   }
 );
 
-router.put(
-  "/ubahcpmk",
-  (
-    req,
-    res //mengubah CPMK yang ada
-  ) => {
+router.put("/ubahcpmk",(req,res) => {
     res.send("Ubah CPMK");
   }
 );
 
-router.delete(
-  "/hapuscpmk",
-  (
-    req,
-    res //menghapus CPMK mata kuliah
-  ) => {
+router.delete("/hapuscpmk",(req,res) => {
     res.send("Hapus CPMK");
   }
 );
@@ -112,94 +71,49 @@ router.delete(
 //    ---REFERENSI---
 router.get("/referensi", controller.referensi.retrieveAll); //lihat daftar referensi
 
-router.get(
-  "/tambahreferensi",
-  (
-    req,
-    res //menambahkan referensi baru
-  ) => {
+router.get("/tambahreferensi",(req,res) => {
     res.send("Tambah Referensi");
   }
 );
 
-router.put(
-  "/ubahreferensi",
-  (
-    req,
-    res //mengubah referensi yang ada
-  ) => {
+router.put("/ubahreferensi",(req,res) => {
     res.send("Ubah Referensi");
   }
 );
 
-router.delete(
-  "/hapusreferensi",
-  (
-    req,
-    res //menghapus referensi mata kuliah
-  ) => {
+router.delete("/hapusreferensi",(req,res) => {
     res.send("Hapus Referensi");
   }
 );
 
 //    ---KOMPONEN PENILAIAN---
-router.get(
-  "/tambahkomponen",
-  (
-    req,
-    res //menambahkan komponen penilaian baru
-  ) => {
+router.get("/tambahkomponen",(req,res) => {
     res.send("Tambah komponen");
   }
 );
 
-router.put(
-  "/ubahkomponen",
-  (
-    req,
-    res //mengubah komponen penilaian yang ada
-  ) => {
+router.put("/ubahkomponen", (req,res) => {
     res.send("Ubah komponen");
   }
 );
 
-router.delete(
-  "/hapuskomponen",
-  (
-    req,
-    res //menghapus komponen penilaian
-  ) => {
+router.delete("/hapuskomponen",(req,res) => {
     res.send("Hapus komponen");
   }
 );
 
 //    ---PERTEMUAN MINGGUAN---
-router.get(
-  "/tambahpertemuan-mingguan",
-  (
-    req,
-    res //menambahkan pertemuan mingguan
-  ) => {
+router.get("/tambahpertemuan-mingguan",(req,res) => {
     res.send("Tambah Pertemuan Mingguan");
   }
 );
 
-router.put(
-  "/ubahpertemuan-mingguan",
-  (
-    req,
-    res //mengubah pertemuan mingguan yang ada dalam RPS
-  ) => {
+router.put("/ubahpertemuan-mingguan",(req,res) => {
     res.send("Ubah Pertemuan Mingguan");
   }
 );
 
-router.delete(
-  "/hapuspertemuan-mingguan",
-  (
-    req,
-    res //menghapus pertemuan mingguan yang ada dalam RPS
-  ) => {
+router.delete("/hapuspertemuan-mingguan",(req,res) => {
     res.send("Hapus Pertemuan Mingguan");
   }
 );

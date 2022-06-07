@@ -38,15 +38,9 @@ app.get("/", (req, res) => {
 //lihat daftar user
 app.get("/user", controller.users.retrieveAll);
 
-app.get(
-  "/print",
-  (
-    req,
-    res //semua pengguna bisa menggunakannya
-  ) => {
+app.get("/print",(req,res) => {
     res.send("Cetak RPS");
-  }
-);
+  });
 
 //----------------------------------
 app.use("/", (req, res) => {

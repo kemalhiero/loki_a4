@@ -19,39 +19,23 @@ router.get("/rps", (req, res) => {
   res.render("rpsadmin", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 });
 
-router.get(
-  "/menentukandosen",
-  (
-    req,
-    res //menentukan dosen yang akan membuat/memperbaharui RPS
-  ) => {
+router.get("/menentukandosen",(req,res ) => {
     const role = req.cookies.role;
     const nama = req.cookies.nama;
     res.render("menentukandosen", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
   }
 );
 
-router.get(
-  "/lihat-laporan-rps",
-  (
-    req,
-    res //melihat laporan terkait RPS yang ada
-  ) => {
+router.get("/lihat-laporan-rps",(req,res) => {
     let obj = {
       "list-rps": ["rps ini", "rps itu"],
       "persentase-project-base": 40,
       "persentase-case-base": 60,
     };
-    res.json(obj);
-  }
+    res.json(obj);}
 );
 
-router.get(
-  "/cetaklaporan",
-  (
-    req,
-    res //mencetak laporan terkait
-  ) => {
+router.get("/cetaklaporan",(req,res) => {
     res.send("cetak laporan");
   }
 );
