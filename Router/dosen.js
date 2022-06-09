@@ -37,6 +37,13 @@ router.get("/detailrps",(req,res) => {
   }
 );
 
+router.get("/laporanrpsmatkul",(req,res) => {
+  const role = req.cookies.role;
+  const nama = req.cookies.nama;
+  res.render("laporanrpsmatkul", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
+);
+
 router.post("/tambahrps",(req,res) => {
     res.send("Tambah RPS");
   }
