@@ -32,7 +32,12 @@ app.use("/auth", auth);
 app.get("/", (req, res) => {
   const role = req.cookies.role;
   const nama = req.cookies.nama;
-  res.render("index", { role: role, nama: nama, dasbordaktif: "active", rpsaktif: "" });
+  if (role=="T"||role=="D") {
+    res.render("index", { role: role, nama: nama, dasbordaktif: "active", rpsaktif: "" });
+  } else {
+    res.redirect('/mahasiswa/rps')
+  }
+ 
 });
 
 //lihat daftar user

@@ -20,9 +20,16 @@ router.get("/rps", (req, res) => {
 });
 
 router.get("/menentukandosen",(req,res ) => {
+  // dosen:controller.lecturers.retrieveAll  
     const role = req.cookies.role;
     const nama = req.cookies.nama;
-    res.render("menentukandosen", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("menentukandosen", 
+    { role: role, 
+      nama: nama, 
+      dasbordaktif: "", 
+      rpsaktif: "active",
+      // dosen:dosen.result 
+    });
   }
 );
 
@@ -39,5 +46,6 @@ router.get("/cetaklaporan",(req,res) => {
     res.send("cetak laporan");
   }
 );
+router.get("/hmmm",controller.lecturers.retrieveAll);
 
 module.exports = router;

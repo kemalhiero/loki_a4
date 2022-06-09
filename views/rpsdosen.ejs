@@ -51,15 +51,18 @@
                                 <th>Kode Mata Kuliah</th>
                                 <th>Nama Mata Kuliah</th>
                                 <th>SKS</th>
+                                <th>Revisi</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <script>let no =1</script>
                             <tr>
                                 <td>1</td>
                                 <td>JSI123</td>
                                 <td>Perancangan Basis Data</td>
                                 <td>4</td>
+                                <td>2</td>
                                 <td>
                                     <a href="/dosen/detailrps" class="btn btn-primary rounded-pill">Detail</a>
                                     <button class="btn me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
@@ -67,7 +70,6 @@
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/dosen/tambahrps">Tambah</a>
                                         <a class="dropdown-item" href="#">Ubah</a>
                                         <a class="dropdown-item" href="#">Revisi</a>
                                     </div>
@@ -75,22 +77,15 @@
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>JSI124</td>
-                                <td>Pemrograman Web</td>
+                                <td>JSI122</td>
+                                <td>Pemorograman Web</td>
                                 <td>3</td>
+                                <td>0</td>
                                 <td>
-                                    <a href="/dosen/detailrps" class="btn btn-primary rounded-pill">Detail</a>
-                                    <button class="btn me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/dosen/tambahrps">Tambah</a>
-                                        <a class="dropdown-item" href="#">Ubah</a>
-                                        <a class="dropdown-item" href="#">Revisi</a>
-                                    </div>
+                                    <a href="/dosen/tambahrps" class="btn btn-primary rounded-pill">+ Tambah</a>                                    
                                 </td>
                             </tr>
+                            
                         </tbody>
                     </table>
 
