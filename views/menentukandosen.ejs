@@ -29,7 +29,6 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>NIP</th>
-                                <!-- <th>City</th> -->
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -38,7 +37,6 @@
                                 <td>1</td>
                                 <td>Rahmatika Pratama Santi</td>
                                 <td>076 4820 8838</td>
-                                <!-- <td>Offenburg</td> -->
                                 <td>    
                                     <!-- <button class="btn"><i class="fas fa-user-edit" data-bs-toggle="modal"
                                     data-bs-target="#inlineEditForm">
@@ -139,7 +137,7 @@
                     <!--tambah dosen form Modal -->
                     <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
                         aria-labelledby="myModalLabel33" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                        <div class="modal-dialog modal-dialog-scrollable"
                             role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -154,16 +152,11 @@
                                         <label>Nama </label>
                                         <div class="form-group">
                                             <select class="form-select">
-                                                <option value="Husnil Kamil">Husnil Kamil</option>
-                                                <option value="Ricky Akbar">Ricky Akbar</option>
-                                                <option value="Dwi Welly">Dwi Welly</option>
+                                                <% dosen.forEach(dsn => { %>                                                     
+                                                    <option value="<%= dsn.name %>"><%= dsn.name %> </option>
+                                                <% }) %>
                                             </select>
                                         </div>
-                                        <!-- <label>NIP </label> -->
-                                        <!-- <div class="form-group">
-                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" 
-                                            value="disini NIP nya ntar, otomatis dari DB">
-                                        </div> -->
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light-secondary"

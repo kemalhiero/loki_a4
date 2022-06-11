@@ -30,6 +30,10 @@ controller.retrieveAll = async function (req, res) {
   }
 };
 
+controller.tampilregister = async function (req, res) {
+  res.render("register");
+}
+
 controller.register = async function (req, res) {
   const { name, email, password, confPassword, role } = req.body;
   if (password !== confPassword) return res.status(400).json({ msg: "Password dan Confirm Password tidak cocok" });
@@ -63,6 +67,13 @@ controller.register = async function (req, res) {
 
   //redirect ke halaman login
 };
+
+controller.tampillogin = async function (req, res) {
+  const role = req.cookies.role;
+  if (role == "D" || role == "T") return res.redirect('/');
+  
+  res.render("auth-login");
+}
 
 controller.login = async function (req, res) {
   //Cek email

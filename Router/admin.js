@@ -9,43 +9,14 @@ router.use(express.static("views"));
 router.use("/", (req, res, next) => {
   const role = req.cookies.role;
   if (role != "T") return res.render("eror403");
-
   next();
 });
 
-router.get("/rps", (req, res) => {
-  const role = req.cookies.role;
-  const nama = req.cookies.nama;
-  res.render("rpsadmin", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-});
-
-router.get("/menentukandosen",(req,res ) => {
-  // dosen:controller.lecturers.retrieveAll  
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("menentukandosen", 
-    { role: role, 
-      nama: nama, 
-      dasbordaktif: "", 
-      rpsaktif: "active",
-      // dosen:dosen.result 
-    });
-  }
-);
-
-router.get("/lihat-laporan-rps",(req,res) => {
-    let obj = {
-      "list-rps": ["rps ini", "rps itu"],
-      "persentase-project-base": 40,
-      "persentase-case-base": 60,
-    };
-    res.json(obj);}
-);
-
-router.get("/cetaklaporan",(req,res) => {
-    res.send("cetak laporan");
-  }
-);
-router.get("/hmmm",controller.lecturers.retrieveAll);
+router.get("/rps", controller.rps.tampilRpsAdmin);
+router.get("/menentukandosen", controller.lecturers.tampilMenentukanDosen);
+router.get("/laporanrpsmatkul",controller.rps.tampilLaporanRpsMatkul);
+router.get("/persentaserps", controller.rps.tampilanPersentaseRPS);
+router.get("/cetaklaporan", controller.rps.cetakLaporan);
+router.get("/hmmm",controller.lecturers.retrieveAll); //untuk tezz
 
 module.exports = router;

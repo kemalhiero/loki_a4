@@ -17,32 +17,10 @@ router.use("/", (req, res, next) => {
 router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 
 //    ---RPS---
-router.get("/rps", (req, res) => {
-  const role = req.cookies.role;
-  const nama = req.cookies.nama;
-  res.render("rpsdosen", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-});
+router.get("/rps", controller.rps.rpsDosen);
+router.get("/tambahrps",controller.rps.tampilTambahRPS);
+router.get("/detailrps", controller.rps.detailRPS);
 
-router.get("/tambahrps",(req,res) => {
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("tambahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-  }
-);
-
-router.get("/detailrps",(req,res) => {
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("detailrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-  }
-);
-
-router.get("/laporanrpsmatkul",(req,res) => {
-  const role = req.cookies.role;
-  const nama = req.cookies.nama;
-  res.render("laporanrpsmatkul", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-}
-);
 
 router.post("/tambahrps",(req,res) => {
     res.send("Tambah RPS");

@@ -1,26 +1,27 @@
-const model = require('../models/lecturers');
+const model = require('../models/indexmodel');
 const controller = {};
 
-controller.retrieveAll = async function(req, res){
-    try{
-        await model.findAll().then((result) => {
-            if(result.length > 0){
-                res.status(200).json({
-                    message: 'data dosen berhasil didapatkan',
-                    data: result
-                })
-            }else{
-                res.status(200).json({
-                    message: 'data tidak ada',
-                    data: []
-                })
-            }
-        })
-    }catch(error){
-        res.status(404).json({
-            message: error,
-        })
-    }
+
+controller.tampilMenentukanDosen = async (req, res) => {
+    const namadsn = await model.lecturers.findAll({ order: ['name'] ,attributes: ['name', 'reg_id', 'phone']});
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("menentukandosen", 
+    { role: role, 
+      nama: nama, 
+      dasbordaktif: "", 
+      rpsaktif: "active",
+      dosen:namadsn
+    });
 }
+
+controller.retrieveAll = async (req, res) => {
+    try {
+      const dosen = await model.lecturers.findAll();
+      res.json(dosen);
+    } catch (error) {
+      res.json({ message: error.message });
+    }
+  };
 
 module.exports = controller;

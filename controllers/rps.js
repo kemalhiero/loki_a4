@@ -1,18 +1,65 @@
 const model = require('../models/course_plans');
 const controller = {};
 
-controller.listRPS = async function(req, res){
+//-----------------ADMIN------------------
+controller.tampilRpsAdmin = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("rpsadmin", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
 
+controller.tampilLaporanRpsMatkul = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("laporanrpsmatkul", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
+
+controller.tampilanPersentaseRPS = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("persentaserps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
+
+controller.cetakLaporan = async function(req, res){
+    res.send("cetak laporan");
+}
+
+//------------------DOSEN----------------
+controller.rpsDosen = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("rpsdosen", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
+
+controller.tampilTambahRPS = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("tambahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.detailRPS = async function(req, res){
-
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("detailrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 }
 
+//------------------MAHASISWA--------------------
+controller.rpsMahasiswa = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("rpsmahasiswa", { role: role, nama: nama, rpsaktif: "active" });
+}
+
+controller.detailRPSMahasiswa = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("detailrpsmhs", { role: role, nama: nama, rpsaktif: "active" });
+}
+
+// ---------------------🆖🆎----------------------------
 controller.tambahRPS = async function(req, res){
 
     const { kodeMatkul, nama, alias, bobotSKS, semester, deskripsi, materiPembelajaran } = req.body;
-    //revisi pakai auto increment aja keknya 🤔
     
     //cek apakah udah ada RPS untuk matkul yang bersangkutan
     const adaRPS = await model.findOne({ where:{course_id: req.body.email   } });
