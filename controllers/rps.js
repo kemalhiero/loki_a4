@@ -1,28 +1,5 @@
-const model = require('../models/course_plans');
+const model = require('../models/indexmodel');
 const controller = {};
-
-//-----------------ADMIN------------------
-controller.tampilRpsAdmin = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("rpsadmin", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-}
-
-controller.tampilLaporanRpsMatkul = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("laporanrpsmatkul", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-}
-
-controller.tampilanPersentaseRPS = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("persentaserps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
-}
-
-controller.cetakLaporan = async function(req, res){
-    res.send("cetak laporan");
-}
 
 //------------------DOSEN----------------
 controller.rpsDosen = async function(req, res){

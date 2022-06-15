@@ -1,17 +1,19 @@
-const model = require('../models/courses');
+const model = require('../models/indexmodel');
+const { Op } = require("sequelize");
 const controller = {};
 
 
 controller.tambahMatkul = async function(req, res){
 
-    const { kodeMatkul, nama, alias, bobotSKS, semester, deskripsi } = req.body;
+    const { kurikulum,  kodeMatkul, nama, alias, bobotSKS, semester, deskripsi } = req.body;
 
-    const matkulExist = await model.findOne({ 
+    const matkulExist = await model.courses.findOne({ 
         where:{[Op.or]: [{ code: req.body.kodeMatkul }, { name: req.body.nama }]} });
     if (matkulExist) return res.status(400).send('Mata Kuliah sudah ada');
 
     try {
-        await model.create({
+        await model.courses.create({
+            curriculum_id: kurikulum,
             code: kodeMatkul,
             name: nama,
             alias_name: alias,
@@ -19,16 +21,15 @@ controller.tambahMatkul = async function(req, res){
             semester: semester,
             description: deskripsi
         });
-        res.json({msg: "Berhasil Menambahkan RPS"});
+        res.redirect('/admin/rps');
     } catch (error) {
         console.log(error);
     }
 
+    
 }
 
 controller.editMatkul = async function(req, res){
-
-    const id = req.params.id;
 
     const { kodeMatkul, nama, alias, bobotSKS, semester, deskripsi, materiPembelajaran } = req.body;
 
@@ -44,26 +45,34 @@ controller.editMatkul = async function(req, res){
         },{
             where : {id : id}
         });
-        res.json({msg: "Berhasil Mengubah RPS"});
+        res.redirect('/admin/rps');
     } catch (error) {
         console.log(error);
     }
 }
 
-controller.get_menentukanDosen = async function(req, res){
-
+controller.tampilRpsAdmin = async function(req, res){
+    const kurikulum = await model.curricula.findAll({attributes: ['id', 'name']});
+    const matkul = await model.courses.findAll();
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("rpsadmin", { role, nama, kurikulum, matkul ,dasbordaktif: "", rpsaktif: "active" });
 }
 
-controller.post_menentukanDosen = async function(req, res){
-
+controller.tampilLaporanRpsMatkul = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("laporanrpsmatkul", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 }
 
-controller.laporanRPS = async function(req, res){
-
+controller.tampilanPersentaseRPS = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("persentaserps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.cetakLaporan = async function(req, res){
-
+    res.send("cetak laporan");
 }
 
 

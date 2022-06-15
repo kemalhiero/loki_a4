@@ -12,11 +12,14 @@ router.use("/", (req, res, next) => {
   next();
 });
 
-router.get("/rps", controller.rps.tampilRpsAdmin);
+router.get("/rps", controller.admin.tampilRpsAdmin);
 router.get("/menentukandosen", controller.lecturers.tampilMenentukanDosen);
-router.get("/laporanrpsmatkul",controller.rps.tampilLaporanRpsMatkul);
-router.get("/persentaserps", controller.rps.tampilanPersentaseRPS);
-router.get("/cetaklaporan", controller.rps.cetakLaporan);
+router.get("/laporanrpsmatkul",controller.admin.tampilLaporanRpsMatkul);
+router.get("/persentaserps", controller.admin.tampilanPersentaseRPS);
+router.get("/cetaklaporan", controller.admin.cetakLaporan);
 router.get("/hmmm",controller.lecturers.retrieveAll); //untuk tezz
+
+router.post("/tambahmatkul",controller.admin.tambahMatkul);
+router.post("/editmatkul",controller.admin.editMatkul);
 
 module.exports = router;
