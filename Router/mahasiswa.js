@@ -4,7 +4,7 @@ const controller = require(`../controllers/indexcontroller`);
 const authenticateToken = require(`../middleware/authToken`);
 
 router.set("view engine", "ejs");
-router.use(express.static("views"));
+router.use(express.static("public"));
 
 //route mengubah/membuat RPS yang sudah ada didalam Web
 router.get("/rps", controller.rps.rpsMahasiswa);
