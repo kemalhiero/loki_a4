@@ -3,7 +3,7 @@ const router = express();
 const controller = require(`../controllers/indexcontroller`);
 
 router.set("view engine", "ejs");
-router.use(express.static("views"));
+router.use(express.static("public"));
 
 router.post("/register", controller.users.register);
 router.post("/login", controller.users.login);

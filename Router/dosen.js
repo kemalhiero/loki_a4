@@ -4,7 +4,7 @@ const controller = require(`../controllers/indexcontroller`);
 const authenticateToken = require(`../middleware/authToken`);
 
 router.set("view engine", "ejs");
-router.use(express.static("views"));
+router.use(express.static("public"));
 
 router.use("/", (req, res, next) => {
   const role = req.cookies.role;
