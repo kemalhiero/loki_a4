@@ -20,7 +20,8 @@ router.get("/", authenticateToken, controller.lecturers.retrieveAll);
 router.get("/rps", controller.rps.rpsDosen);
 router.get("/tambahrps",controller.rps.tampilTambahRPS);
 router.get("/detailrps", controller.rps.detailRPS);
-
+router.get("/ubahrps",controller.rps.tampilUbahRPS);
+router.get("/revisirps",controller.rps.tampilRevisiRPS);
 
 router.post("/tambahrps",(req,res) => {
     res.send("Tambah RPS");
@@ -28,6 +29,7 @@ router.post("/tambahrps",(req,res) => {
 );
 
 router.put("/ubahrps",(req,res) => {
+
     res.send("Ubah RPS");
   }
 );

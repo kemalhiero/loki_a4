@@ -7,6 +7,9 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 dotenv.config();
 
+const {print} = require("pdf-to-printer");
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -44,7 +47,8 @@ app.get("/", (req, res) => {
 app.get("/user", controller.users.retrieveAll);
 
 app.get("/print",(req,res) => {
-    res.send("Cetak RPS");
+    // res.render("RPS");
+    print("views/RPS.ejs");
   });
 
 //----------------------------------

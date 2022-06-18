@@ -1,0 +1,128 @@
+<%- include('layout/atas', {judul: 'Revisi RPS'}) %>
+            
+    <div class="page-heading">
+        <div class="page-title">
+            <div class="row">
+                <div class="col-12 col-md-6 order-md-1 order-last">
+                    <h3>Revisi RPS</h3>
+                    <!-- <p class="text-subtitle text-muted">Give textual form controls like input upgrade with custom styles,
+                        sizing, focus states, and more.</p> -->
+                </div>
+                <!-- <div class="col-12 col-md-6 order-md-2 order-first">
+                    <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Input</li>
+                        </ol>
+                    </nav>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Horizontal Input start -->
+        <section id="horizontal-input">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">RPS - Matkul</h4>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <!-- <p>To make label in center of form-control, use <code>.col-form-label</code> class with
+                                        <code>&lt;label&gt;</code> element. This is default bootstrap class.
+                                    </p> -->
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-lg-4 col-3">
+                                            <label class="col-form-label"><h6>Kode Matkul</h6></label>
+                                        </div>
+                                        <div class="col-lg-5 col-9">
+                                            <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-lg-4 col-3">
+                                            <label class="col-form-label"><h6>Kurikulum</h6></label>
+                                        </div>
+                                        <div class="col-lg-6 col-9">
+                                            <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-lg-4 col-3">
+                                            <label class="col-form-label"><h6>Nama Matkul</h6></label>
+                                        </div>
+                                        <div class="col-lg-5 col-9">
+                                            <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row align-items-center">
+                                        <div class="col-lg-4 col-3">
+                                            <label class="col-form-label"><h6>SKS</h6></label>
+                                        </div>
+                                        <div class="col-lg-6 col-9">
+                                            <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br><br>
+                                <!-- <center>
+                                    <div class="buttons">
+                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
+                                    </div>
+                                </center> -->
+                                
+                                <div>
+                                    <div class="list-group list-group-horizontal-sm mb-1 text-center" role="tablist">
+                                        <a class="list-group-item list-group-item-action active" id="list-cpmk-list"
+                                            data-bs-toggle="list" href="#list-cpmk" role="tab">CPMK</a>
+                                        <a class="list-group-item list-group-item-action" id="list-referensi-list"
+                                            data-bs-toggle="list" href="#list-referensi" role="tab">Referensi</a>
+                                        <a class="list-group-item list-group-item-action" id="list-penilaian-list"
+                                            data-bs-toggle="list" href="#list-penilaian" role="tab">Komponen Penilaian</a>
+                                        <a class="list-group-item list-group-item-action" id="list-pertmgg-list"
+                                            data-bs-toggle="list" href="#list-pertmgg" role="tab">Pertemuan Mingguan</a>
+                                    </div>
+                                    <div class="tab-content text-justify">
+                                        <div class="tab-pane fade show active" id="list-cpmk" role="tabpanel"
+                                            aria-labelledby="list-cpmk-list"><br>
+                                            <%- include ('kelolarps/kelolacpmk') %> 
+                                        </div>
+                                        <div class="tab-pane fade" id="list-referensi" role="tabpanel"
+                                            aria-labelledby="list-referensi-list"><br>
+                                            <%- include ('kelolarps/kelolareferensi') %> 
+                                        </div>
+                                        <div class="tab-pane fade" id="list-penilaian" role="tabpanel"
+                                        aria-labelledby="list-penilaian-list"><br>
+                                            <%- include ('kelolarps/kelolapenilaian') %>
+                                        </div>
+                                        <div class="tab-pane fade" id="list-pertmgg" role="tabpanel"
+                                            aria-labelledby="list-pertmgg-list"><br>
+                                            <%- include ('kelolarps/kelolapertmgg') %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Horizontal Input end -->
+
+    </div>
+
+<%- include('layout/bawah') %> 

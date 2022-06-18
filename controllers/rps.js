@@ -14,6 +14,18 @@ controller.tampilTambahRPS = async function(req, res){
     res.render("tambahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
 }
 
+controller.tampilUbahRPS = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("ubahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
+
+controller.tampilRevisiRPS = async function(req, res){
+    const role = req.cookies.role;
+    const nama = req.cookies.nama;
+    res.render("revisirps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+}
+
 controller.detailRPS = async function(req, res){
     const role = req.cookies.role;
     const nama = req.cookies.nama;
