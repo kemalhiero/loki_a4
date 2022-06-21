@@ -69,8 +69,8 @@ controller.register = async function (req, res) {
 };
 
 controller.tampillogin = async function (req, res) {
-  const role = req.cookies.role;
-  if (role == "D" || role == "T") return res.redirect('/');
+  const token = req.cookies.token;
+  if (token) return res.redirect('/');
   
   res.render("auth-login");
 }
@@ -88,7 +88,9 @@ controller.login = async function (req, res) {
   const email = user.email;
   const role = user.type;
 
-  const token = generateAccessToken({ email: email });
+  const token = generateAccessToken({ 
+    email,nama,role
+   });
 
   await model.update(
     { remember_token: token },
@@ -99,14 +101,6 @@ controller.login = async function (req, res) {
 
   res
     .cookie("token", token, {
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000,
-    })
-    .cookie("role", role, {
-      httpOnly: true,
-      maxAge: 24 * 60 * 60 * 1000,
-    })
-    .cookie("nama", nama, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     })
@@ -126,23 +120,17 @@ controller.logout = async function (req, res) {
   });
   if (!user) return res.status(200).json("User tidak ada");
   const id = user.id;
-  await model.update(
-    { remember_token: null },
-    {
-      where: {
-        id: id,
-      },
+  await model.update({ remember_token: null },
+       { where: {id: id,},
     }
   );
   res
     .clearCookie("token")
-    .clearCookie("role")
-    .clearCookie("nama")
-    .redirect("/auth/login");
+    .redirect("/auth/login")
+    // .locals = null;
     
   // res.sendStatus(200);
 
-  //redirect ke halaman login
 };
 
 module.exports = controller;

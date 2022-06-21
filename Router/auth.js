@@ -10,6 +10,6 @@ router.post("/login", controller.users.login);
 router.post("/logout", controller.users.logout);
 
 router.get("/login", controller.users.tampillogin);
-router.get("/register", controller.users.tampilregister);
+router.get("/register", controller.users.tampilregister); //ntar di nonaktifkan
 
 module.exports = router;

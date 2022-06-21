@@ -5,6 +5,8 @@ const controller = require(`./controllers/indexcontroller`);
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+
+const { isDosen, isAdmin , checkUser } = require(`./middleware/authToken`);
 dotenv.config();
 
 const {print} = require("pdf-to-printer");
@@ -18,27 +20,29 @@ app.use(cookieParser());
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+app.get("*", checkUser);
+
 //router
 const mahasiswa = require("./Router/mahasiswa");
 app.use("/mahasiswa", mahasiswa);
 
 const dosen = require("./Router/dosen");
-app.use("/dosen", dosen);
+app.use("/dosen", isDosen, dosen);
 
 const admin = require("./Router/admin");
-app.use("/admin", admin);
+app.use("/admin", isAdmin, admin);
 
 const auth = require("./Router/auth");
 app.use("/auth", auth);
 
 //--------------------------------
+
 app.get("/", (req, res) => {
-  const role = req.cookies.role;
-  const nama = req.cookies.nama;
-  if (role=="T"||role=="D") {
-    res.render("index", { role: role, nama: nama, dasbordaktif: "active", rpsaktif: "" });
-  } else {
+  const token = req.cookies.token;
+  if (!token) {
     res.redirect('/mahasiswa/rps')
+  } else{
+    res.render("index", { dasbordaktif: "active", rpsaktif: "" });
   }
  
 });
@@ -47,8 +51,8 @@ app.get("/", (req, res) => {
 app.get("/user", controller.users.retrieveAll);
 
 app.get("/print",(req,res) => {
-    // res.render("RPS");
-    print("views/RPS.ejs");
+    res.render("RPS");
+    // print("views/RPS.ejs");
   });
 
 //----------------------------------

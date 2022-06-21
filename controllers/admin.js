@@ -54,21 +54,15 @@ controller.editMatkul = async function(req, res){
 controller.tampilRpsAdmin = async function(req, res){
     const kurikulum = await model.curricula.findAll({attributes: ['id', 'name']});
     const matkul = await model.courses.findAll();
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("rpsadmin", { role, nama, kurikulum, matkul ,dasbordaktif: "", rpsaktif: "active" });
+    res.render("rpsadmin", { kurikulum, matkul ,dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.tampilLaporanRpsMatkul = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("laporanrpsmatkul", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("laporanrpsmatkul", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.tampilanPersentaseRPS = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("persentaserps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("persentaserps", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.cetakLaporan = async function(req, res){

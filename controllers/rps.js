@@ -3,46 +3,32 @@ const controller = {};
 
 //------------------DOSEN----------------
 controller.rpsDosen = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("rpsdosen", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("rpsdosen", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.tampilTambahRPS = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("tambahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.tampilUbahRPS = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("ubahrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("ubahrps", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.tampilRevisiRPS = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("revisirps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("revisirps", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 controller.detailRPS = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("detailrps", { role: role, nama: nama, dasbordaktif: "", rpsaktif: "active" });
+    res.render("detailrps", { dasbordaktif: "", rpsaktif: "active" });
 }
 
 //------------------MAHASISWA--------------------
 controller.rpsMahasiswa = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("rpsmahasiswa", { role: role, nama: nama, rpsaktif: "active" });
+    res.render("rpsmahasiswa", { rpsaktif: "active" });
 }
 
 controller.detailRPSMahasiswa = async function(req, res){
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
-    res.render("detailrpsmhs", { role: role, nama: nama, rpsaktif: "active" });
+    res.render("detailrpsmhs", { rpsaktif: "active" });
 }
 
 // ---------------------🆖🆎----------------------------

@@ -4,12 +4,8 @@ const controller = {};
 
 controller.tampilMenentukanDosen = async (req, res) => {
     const namadsn = await model.lecturers.findAll({ order: ['name'] ,attributes: ['name', 'reg_id', 'phone']});
-    const role = req.cookies.role;
-    const nama = req.cookies.nama;
     res.render("menentukandosen", 
-    { role: role, 
-      nama: nama, 
-      dasbordaktif: "", 
+    { dasbordaktif: "", 
       rpsaktif: "active",
       dosen:namadsn
     });

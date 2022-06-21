@@ -1,20 +1,13 @@
 const express = require("express");
 const router = express();
 const controller = require(`../controllers/indexcontroller`);
-const authenticateToken = require(`../middleware/authToken`);
 
 router.set("view engine", "ejs");
 router.use(express.static("public"));
 
-router.use("/", (req, res, next) => {
-  const role = req.cookies.role;
-  if (role != "D") return res.render("eror403");
-
-  next();
-});
 
 //lihat daftar dosen
-router.get("/", authenticateToken, controller.lecturers.retrieveAll);
+router.get("/", controller.lecturers.retrieveAll);
 
 //    ---RPS---
 router.get("/rps", controller.rps.rpsDosen);
