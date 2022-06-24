@@ -50,6 +50,13 @@ app.get("/", (req, res) => {
 //lihat daftar user
 app.get("/user", controller.users.retrieveAll);
 
+app.get("/profil",(req,res) => {
+  const token = req.cookies.token;
+  if (!token) return res.redirect('/auth/login')
+  
+  res.render("profil", { dasbordaktif: "", rpsaktif: "" });
+});
+
 app.get("/print",(req,res) => {
     res.render("RPS");
     // print("views/RPS.ejs");

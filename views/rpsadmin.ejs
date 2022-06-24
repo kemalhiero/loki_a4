@@ -43,103 +43,15 @@
                         <tbody>
                             <% matkul.forEach(mtkl => { %>
                                 <tr>
-                                    <!-- <input type="hidden" name="id" value="<%= mtkl.id %>"> -->
-                                    <td><%= mtkl.code %> </td>
-                                    <td><%= mtkl.name %> </td>
-                                    <td><%= mtkl.credit %> </td>
-                                    <td><%= mtkl.semester %> </td>
+                                    <td><%= mtkl.code %></td>
+                                    <td><%= mtkl.name %></td>
+                                    <td><%= mtkl.credit %></td>
+                                    <td><%= mtkl.semester %></td>
                                     <td>                                        
-                                        <button class="btn"><i class="fas fa-user-edit" data-bs-toggle="modal"
-                                        data-bs-target="#editdosen"></i></button>                            
-                                                                            
-                                        <!--edit form Modal -->
-                                        <div class="modal fade text-left" id="editdosen" tabindex="-1" role="dialog"
-                                        aria-labelledby="myModalLabel33" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h4 class="modal-title" id="myModalLabel33">Edit Mata Kuliah </h4>
-                                                            <button type="button" class="close" data-bs-dismiss="modal"
-                                                                aria-label="Close">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                        <!-- edit -->
-                                                        <form action="#" method="post">
-                                                            <div class="modal-body">
-                                                                <!-- <label>Pilih Kurikulum </label> -->
-                                                                
-                                                                <div class="form-group">
-                                                                    <select class="form-select" name="kurikulum" required>
-                                                                        <option value="">Pilih Kurikulum</option>
-                                                                        <% kurikulum.forEach(krklm => { %>                                                     
-                                                                            <option value="<%= krklm.id %>"><%= krklm.name %> </option>
-                                                                        <% }) %>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- <label>Kode Mata Kuliah </label> -->
-                                                                <div class="form-group">
-                                                                    <input type="text" placeholder="Masukkan kode mata kuliah" name="kodeMatkul" required
-                                                                        class="form-control" value="<%= mtkl.code %>">
-                                                                </div>
-                                                                <!-- <label>Nama Mata Kuliah </label> -->
-                                                                <div class="form-group">
-                                                                    <input type="text" placeholder="Masukkan nama mata kuliah" name="nama" required
-                                                                        class="form-control" value="<%= mtkl.name %>">
-                                                                </div>
-                                                                <!-- <label>Alias</label> -->
-                                                                <div class="form-group">
-                                                                    <input type="text" placeholder="Masukkan alias" name="alias" required
-                                                                        class="form-control" value="<%= mtkl.alias_name %>">
-                                                                </div>
-                                                                <!-- <label>Jumlah SKS</label> -->
-                                                                <div class="form-group">
-                                                                    <select class="form-select" name="bobotSKS" required>                                                    
-                                                                            <option >Pilih Jumlah SKS</option>
-                                                                            <option value="1">1</option>
-                                                                            <option value="2">2</option>
-                                                                            <option value="3">3</option>
-                                                                            <option value="4">4</option>
-                                                                            <option value="5">5</option>
-                                                                    </select>
-                                                                </div>
-                                                                <!-- <label>Semester</label> -->
-                                                                <div class="form-group">
-                                                                    <select class="form-select" name="semester" required>                                                    
-                                                                            <option >Pilih semester</option>
-                                                                            <option value="1">1</option>
-                                                                            <option value="2">2</option>
-                                                                            <option value="3">3</option>
-                                                                            <option value="4">4</option>
-                                                                            <option value="5">5</option>
-                                                                            <option value="6">6</option>
-                                                                            <option value="7">7</option>
-                                                                            <option value="8">8</option>
-                                                                    </select>
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <input type="text" placeholder="Masukkan deskripsi" name="deskripsi" required
-                                                                        class="form-control"  value="<%= mtkl.description %>">
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="reset" class="btn btn-light-secondary">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Batal</span>
-                                                                </button>
-                                                                <button type="submit" class="btn btn-primary ml-1">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Edit</span>
-                                                                </button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                        </div>
+                                        
 
-                                        <a href="/admin/menentukandosen" class="btn btn-primary rounded-pill">Dosen</a>
-                                        <a href="/admin/laporanrpsmatkul" class="btn btn-primary rounded-pill">Laporan</a>          
+                                        <a href="/admin/menentukandosen-<%= mtkl.id %>" class="btn btn-primary rounded-pill">Dosen</a>
+                                        <a href="/admin/laporanrpsmatkul-<%= mtkl.id %>" class="btn btn-primary rounded-pill">Laporan</a>          
                                     </td>
                                 </tr>
                             <% }) %>
@@ -169,16 +81,17 @@
                                         <!-- <label>Pilih Kurikulum </label> -->
                                         <div class="form-group">
                                             <select class="form-select" name="kurikulum" required>
-                                                <option value="">Pilih Kurikulum</option>
                                                 <% kurikulum.forEach(krklm => { %>                                                     
                                                     <option value="<%= krklm.id %>"><%= krklm.name %> </option>
                                                 <% }) %>
                                             </select>
                                         </div>
                                         <!-- <label>Kode Mata Kuliah </label> -->
-                                        <div class="form-group">
-                                            <input type="text" placeholder="Masukkan kode mata kuliah" name="kodeMatkul" required
-                                                class="form-control">
+                                        <div class="input-group mb-3">
+                                            <!-- <input type="text" placeholder="Masukkan kode mata kuliah" name="kodeMatkul" required
+                                                class="form-control"> -->
+                                                <span class="input-group-text" id="basic-addon1">JSI</span>
+                                                <input type="text" class="form-control" placeholder="Masukkan kode mata kuliah" name="kodeMatkul" required>
                                         </div>
                                         <!-- <label>Nama Mata Kuliah </label> -->
                                         <div class="form-group">

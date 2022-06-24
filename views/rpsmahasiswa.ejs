@@ -23,73 +23,29 @@
                       Simple Datatable
                   </div> -->
         <div class="card-body">
-          <!-- <div class="form-group row align-items-center">
-                          <div class="col-lg-2 col-3">
-                              <label class="col-form-label"><h6>Dosen</h6></label>
-                          </div>
-                          <div class="col-lg-10 col-9">
-                              <p class="form-control-static" id="staticInput">Husnil Kamil</p>
-                          </div>
-                      </div> -->
-          <!-- <div class="form-group row align-items-center">
-                          <div class="col-lg-2 col-3">
-                              <label class="col-form-label"><h6>NIP</h6></label>
-                          </div>
-                          <div class="col-lg-10 col-9">
-                              <p class="form-control-static" id="staticInput">198410062012121001</p>
-                          </div>
-                      </div> -->
-
-          <br />
-
           <!-- <h4 class="card-title">Mata Kuliah yang Diampu</h4> -->
           <table class="table table-striped" id="table1">
             <thead>
               <tr>
                 <th>Kode Mata Kuliah</th>
                 <th>Nama Mata Kuliah</th>
-                <th>Dosen Pengampu</th>
+                <th>Semester</th>
                 <th>SKS</th>
                 <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>JSI123</td>
-                <td>Perancangan Basis Data</td>
-                <td>Rahmatika Pratama Santi</td>
-                <td>4</td>
-                <td>
-                  <a href="/mahasiswa/detailrps" class="btn btn-primary rounded-pill">Detail</a>
-                  <!-- <button class="btn me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                          aria-expanded="false">
-                                          <i class="bi bi-three-dots-vertical"></i>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" href="/dosen/tambahrps">Tambah</a>
-                                          <a class="dropdown-item" href="#">Ubah</a>
-                                          <a class="dropdown-item" href="#">Revisi</a>
-                                      </div> -->
-                </td>
-              </tr>
-              <tr>
-                <td>JSI124</td>
-                <td>Pemrograman Web</td>
-                <td>Husnil Kamil</td>
-                <td>3</td>
-                <td>
-                  <a href="/mahasiswa/detailrps" class="btn btn-primary rounded-pill">Detail</a>
-                  <!-- <button class="btn me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                          aria-expanded="false">
-                                          <i class="bi bi-three-dots-vertical"></i>
-                                      </button>
-                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                          <a class="dropdown-item" href="/dosen/tambahrps">Tambah</a>
-                                          <a class="dropdown-item" href="#">Ubah</a>
-                                          <a class="dropdown-item" href="#">Revisi</a>
-                                      </div> -->
-                </td>
-              </tr>
+              <% rpsmhs.forEach(function(rps, index) { %>
+                <tr>
+                  <td><%= rps.code %></td>
+                  <td><%= rps.name %></td>
+                  <td><%= rps.semester %></td>
+                  <td><%= rps.credit %></td>
+                  <td>
+                    <a href="/mahasiswa/detailrps-<%= rps.id %> " class="btn btn-primary rounded-pill">Detail</a>
+                  </td>
+                </tr>
+              <% }) %> 
             </tbody>
           </table>
         </div>

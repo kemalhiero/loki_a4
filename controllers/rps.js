@@ -1,34 +1,56 @@
 const model = require('../models/indexmodel');
 const controller = {};
+const jwt = require('jsonwebtoken');
+const { Op, QueryTypes  } = require("sequelize");
+const sequelize = model.dbconfig;
 
 //------------------DOSEN----------------
 controller.rpsDosen = async function(req, res){
-    res.render("rpsdosen", { dasbordaktif: "", rpsaktif: "active" });
+
+    const token = req.cookies.token
+    if (!token) return res.status(200).send("tidak ada token")
+
+    const nip = jwt.verify(token, process.env.TOKEN)
+
+    const matkuldosen = await sequelize.query(
+        'SELECT course_plans.code, course_plans.name, course_plans.credit, course_plans.rev, course_plans.semester, course_plans.id FROM course_plan_lecturers JOIN course_plans ON course_plan_lecturers.course_plan_id = course_plans.id JOIN lecturers ON course_plan_lecturers.lecturer_id = lecturers.id WHERE lecturers.reg_id= :nipDosen;',
+        {
+            replacements: { nipDosen: nip.email },
+            type: QueryTypes.SELECT
+        }
+    );
+
+    // res.send(matkuldosen)
+    res.render("rpsdosen", { dasbordaktif: "", rpsaktif: "active", matkuldosen});
+    
 }
 
 controller.tampilTambahRPS = async function(req, res){
-    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active" });
+    const id = req.params.id
+    const rps = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit']});
+
+    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps });
 }
 
 controller.tampilUbahRPS = async function(req, res){
-    res.render("ubahrps", { dasbordaktif: "", rpsaktif: "active" });
+    const id = req.params.id
+    const rps = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit']});
+
+    res.render("ubahrps", { dasbordaktif: "", rpsaktif: "active", rps });
 }
 
 controller.tampilRevisiRPS = async function(req, res){
-    res.render("revisirps", { dasbordaktif: "", rpsaktif: "active" });
+    const id = req.params.id
+    const rps = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit']});
+
+    res.render("revisirps", { dasbordaktif: "", rpsaktif: "active", rps });
 }
 
 controller.detailRPS = async function(req, res){
-    res.render("detailrps", { dasbordaktif: "", rpsaktif: "active" });
-}
+    const id = req.params.id
+    const rps = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit','description']});
 
-//------------------MAHASISWA--------------------
-controller.rpsMahasiswa = async function(req, res){
-    res.render("rpsmahasiswa", { rpsaktif: "active" });
-}
-
-controller.detailRPSMahasiswa = async function(req, res){
-    res.render("detailrpsmhs", { rpsaktif: "active" });
+    res.render("detailrps", { dasbordaktif: "", rpsaktif: "active", rps });
 }
 
 // ---------------------🆖🆎----------------------------

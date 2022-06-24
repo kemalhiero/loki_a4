@@ -7,8 +7,8 @@ router.set("view engine", "ejs");
 router.use(express.static("public"));
 
 //route mengubah/membuat RPS yang sudah ada didalam Web
-router.get("/rps", controller.rps.rpsMahasiswa);
+router.get("/rps", controller.mahasiswa_dll.rpsMahasiswa);
 
-router.get("/detailrps", controller.rps.detailRPSMahasiswa);
+router.get("/detailrps-:id", controller.mahasiswa_dll.detailRPSMahasiswa);
 
 module.exports = router;

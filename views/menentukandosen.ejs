@@ -3,8 +3,8 @@
     <div class="page-heading">
         <div class="page-title">
             <div class="row">
-                <div class="col-12 col-md-6 order-md-1 order-last">
-                    <h3>Daftar Dosen - Matkul</h3>
+                <div class="col-12 col-md-10 order-md-1 order-last">
+                    <h3>Daftar Dosen - <%= matkul.name %> </h3>
                     <p class="text-subtitle text-muted"> </p>
                 </div>
                 <!-- <div class="col-12 col-md-6 order-md-2 order-first">
@@ -33,60 +33,13 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <% dosenMatkul.forEach(function(dsn, index) { %>
                             <tr>
-                                <td>1</td>
-                                <td>Rahmatika Pratama Santi</td>
-                                <td>076 4820 8838</td>
+                                <td><%= index+1 %> </td>
+                                <td><%= dsn.name %></td>
+                                <td><%= dsn.reg_id %></td>
                                 <td>    
-                                    <!-- <button class="btn"><i class="fas fa-user-edit" data-bs-toggle="modal"
-                                    data-bs-target="#inlineEditForm">
-                                    </i> </button>                             -->
-                                                                         
-                                    <!--edit form Modal -->
-                                    <!-- <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel33" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                    role="document">
-                                    <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <form action="#">
-                                                        <div class="modal-body">
-                                                            <label>Nama </label>
-                                                            <div class="form-group">
-                                                                <select class="form-select">
-                                                                    <option value="Husnil Kamil">Husnil Kamil</option>
-                                                                    <option value="Ricky Akbar">Ricky Akbar</option>
-                                                                    <option value="Dwi Welly">Dwi Welly</option>
-                                                                </select>
-                                                            </div>
-                                                            <label>NIP </label>
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
-                                                            </div>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Close</span>
-                                                            </button>
-                                                            <button type="submit" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Edit</span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                    </div> -->
-                                    
+
                                     <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
                                     data-bs-target="#hapus"></i></button>
 
@@ -96,34 +49,38 @@
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
                                             role="document">
                                             <div class="modal-content">
-                                                <div class="modal-header bg-danger">
-                                                    <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                                    </h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Yakin Ingin menghapus?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Batal</span>
-                                                    </button>
-                                                    <button type="submit" class="btn btn-danger ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Hapus</span>
-                                                    </button>
-                                                </div>
+                                                <form action="/admin/hapusdosen" method="post">
+                                                    <div class="modal-header bg-danger">
+                                                        <h5 class="modal-title white" id="myModalLabel120">Peringatan
+                                                        </h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" name="idrps" value="<%= dsn.course_plan_id %>">
+                                                        <input type="hidden" name="iddosen" value="<%= dsn.lecturer_id %>">
+                                                        Yakin Ingin menghapus?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Batal</span>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-danger ml-1">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Hapus</span>
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </td>
                             </tr>
+                            <% }) %>                            
                         </tbody>
                     </table>
 
@@ -146,25 +103,24 @@
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>
-                                <form action="#">
+                                <form action="/admin/tambahdosen" method="post">
                                     <div class="modal-body">
                                         <label>Nama </label>
                                         <div class="form-group">
-                                            <select class="form-select">
+                                            <input type="hidden" name="id_rps" value="<%= rps.id %>">
+                                            <select class="form-select" name="id_dosen">
                                                 <% dosen.forEach(dsn => { %>                                                     
-                                                    <option value="<%= dsn.name %>"><%= dsn.name %> </option>
+                                                    <option value="<%= dsn.id %>"><%= dsn.name %> </option>
                                                 <% }) %>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary"
-                                            data-bs-dismiss="modal">
+                                        <button type="reset" class="btn btn-light-secondary" data-bs-dismiss="modal">
                                             <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Close</span>
+                                            <span class="d-none d-sm-block">Batal</span>
                                         </button>
-                                        <button type="submit" class="btn btn-primary ml-1"
-                                            data-bs-dismiss="modal">
+                                        <button type="submit" class="btn btn-primary ml-1">
                                             <i class="bx bx-check d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block">Tambah</span>
                                         </button>

@@ -33,7 +33,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h4 class="card-title">RPS - Matkul</h4>
+              <h4 class="card-title">RPS - <%= detailrpsmhs.name %></h4>
             </div>
 
             <div class="card-body">
@@ -49,17 +49,17 @@
                       <label class="col-form-label"><h6>Kode Matkul</h6></label>
                     </div>
                     <div class="col-lg-5 col-9">
-                      <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                      <p class="form-control-static" id="staticInput"><%= detailrpsmhs.code %></p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row align-items-center">
                     <div class="col-lg-4 col-3">
-                      <label class="col-form-label"><h6>Kurikulum</h6></label>
+                      <label class="col-form-label"><h6>Semester</h6></label>
                     </div>
                     <div class="col-lg-6 col-9">
-                      <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                      <p class="form-control-static" id="staticInput"><%= detailrpsmhs.semester %></p>
                     </div>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                       <label class="col-form-label"><h6>Nama Matkul</h6></label>
                     </div>
                     <div class="col-lg-5 col-9">
-                      <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                      <p class="form-control-static" id="staticInput"><%= detailrpsmhs.name %></p>
                     </div>
                   </div>
                 </div>
@@ -79,7 +79,7 @@
                       <label class="col-form-label"><h6>SKS</h6></label>
                     </div>
                     <div class="col-lg-6 col-9">
-                      <p class="form-control-static" id="staticInput">Qwertyyyyyyyyyyyy</p>
+                      <p class="form-control-static" id="staticInput"><%= detailrpsmhs.credit %></p>
                     </div>
                   </div>
                 </div>
@@ -89,8 +89,8 @@
 
             <div class="card-body">
               <div class="form-group mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label"><h6>Detail</h6></label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly="readonly"></textarea>
+                <label for="exampleFormControlTextarea1" class="form-label"><h6>Deskripsi</h6></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" readonly="readonly"><%= detailrpsmhs.description %></textarea>
               </div>
               <div class="form-group mb-3">
                 <label for="exampleFormControlTextarea1" class="form-label"><h6>CP</h6></label>

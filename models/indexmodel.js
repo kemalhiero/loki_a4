@@ -18,5 +18,6 @@ indexmodel.curriculum_los = require('./curriculum_los.js')
 indexmodel.curriculum_profiles = require('./curriculum_profiles.js')
 indexmodel.lecturers = require('./lecturers.js')
 indexmodel.users = require('./users.js')
+indexmodel.dbconfig = require('./dbconfig.js')
 
 module.exports = indexmodel;

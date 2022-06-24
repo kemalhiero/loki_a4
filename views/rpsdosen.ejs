@@ -29,7 +29,7 @@
                             <label class="col-form-label"><h6>Dosen</h6></label>
                         </div>
                         <div class="col-lg-10 col-9">
-                            <p class="form-control-static" id="staticInput">Husnil Kamil</p>
+                            <p class="form-control-static" id="staticInput"><%= nama %> </p>
                         </div>
                     </div>
                     <div class="form-group row align-items-center">
@@ -37,7 +37,7 @@
                             <label class="col-form-label"><h6>NIP</h6></label>
                         </div>
                         <div class="col-lg-10 col-9">
-                            <p class="form-control-static" id="staticInput">198410062012121001</p>
+                            <p class="form-control-static" id="staticInput"><%= email %> </p>
                         </div>
                     </div>
                 
@@ -51,41 +51,37 @@
                                 <th>Kode Mata Kuliah</th>
                                 <th>Nama Mata Kuliah</th>
                                 <th>SKS</th>
-                                <th>Revisi</th>
+                                <!-- <th>Revisi</th> -->
+                                <th>Semester</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <script>let no =1</script>
-                            <tr>
-                                <td>1</td>
-                                <td>JSI123</td>
-                                <td>Perancangan Basis Data</td>
-                                <td>4</td>
-                                <td>2</td>
-                                <td>
-                                    <a href="/dosen/detailrps" class="btn btn-primary rounded-pill">Detail</a>
-                                    <button class="btn me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="/dosen/ubahrps">Ubah</a>
-                                        <a class="dropdown-item" href="/dosen/revisirps">Revisi</a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>JSI122</td>
-                                <td>Pemorograman Web</td>
-                                <td>3</td>
-                                <td>0</td>
-                                <td>
-                                    <a href="/dosen/tambahrps" class="btn btn-primary rounded-pill">+ Tambah</a>                                    
-                                </td>
-                            </tr>
-                            
+                            <% matkuldosen.forEach(function(md, index) { %>
+                                <tr>
+                                    <td><%= index+1 %></td>
+                                    <td><%= md.code %></td>
+                                    <td><%= md.name %></td>
+                                    <td><%= md.credit %></td>
+                                    <!-- <td><%= md.rev %></td> -->
+                                    <td><%= md.semester %></td>
+                                    <td>
+                                        <% if (md.rev<=-1) { %>                                         
+                                            <a href="/dosen/tambahrps-<%= md.id %> " class="btn btn-primary rounded-pill">+ Tambah</a>
+                                        <% } else {%>
+                                        <a href="/dosen/detailrps-<%= md.id %>" class="btn btn-primary rounded-pill">Detail</a>
+                                        <button class="btn me-1" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="/dosen/ubahrps-<%= md.id %>">Ubah</a>
+                                            <a class="dropdown-item" href="/dosen/revisirps-<%= md.id %>">Revisi</a>
+                                        </div>
+                                        <% } %> 
+                                    </td>
+                                </tr>
+                            <% }) %> 
                         </tbody>
                     </table>
 

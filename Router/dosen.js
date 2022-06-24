@@ -11,10 +11,10 @@ router.get("/", controller.lecturers.retrieveAll);
 
 //    ---RPS---
 router.get("/rps", controller.rps.rpsDosen);
-router.get("/tambahrps",controller.rps.tampilTambahRPS);
-router.get("/detailrps", controller.rps.detailRPS);
-router.get("/ubahrps",controller.rps.tampilUbahRPS);
-router.get("/revisirps",controller.rps.tampilRevisiRPS);
+router.get("/tambahrps-:id",controller.rps.tampilTambahRPS);
+router.get("/detailrps-:id", controller.rps.detailRPS);
+router.get("/ubahrps-:id",controller.rps.tampilUbahRPS);
+router.get("/revisirps-:id",controller.rps.tampilRevisiRPS);
 
 router.post("/tambahrps",(req,res) => {
     res.send("Tambah RPS");
