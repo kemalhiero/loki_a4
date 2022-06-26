@@ -24,6 +24,7 @@
                     <div class="modal-dialog modal-dialog-centered "
                     role="document">
                     <div class="modal-content">
+                        <form action="/dosen/ubahcpmk" method="post">
                                     <div class="modal-header">
                                         <h4 class="modal-title" id="myModalLabel33">Edit CPMK </h4>
                                         <button type="button" class="close" data-bs-dismiss="modal"
@@ -55,13 +56,13 @@
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block">Close</span>
                                             </button>
-                                            <button type="submit" class="btn btn-primary ml-1"
-                                            data-bs-dismiss="modal">
+                                            <button type="submit" class="btn btn-primary ml-1">
                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block">Edit</span>
                                             </button>
                                         </div>
                                     </form>
+                                </form>
                                 </div>
                             </div>
                     </div>
@@ -74,29 +75,31 @@
                         aria-labelledby="myModalLabel120" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
-                                <div class="modal-header bg-danger">
-                                    <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                    </h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                        aria-label="Close">
-                                        <i data-feather="x"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Yakin Ingin menghapus?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary"
-                                        data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Batal</span>
-                                    </button>
-                                    <button type="submit" class="btn btn-danger ml-1"
-                                        data-bs-dismiss="modal">
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Hapus</span>
-                                    </button>
-                                </div>
+                                <form action="/dosen/hapuscpmk" method="post">
+                                    <div class="modal-header bg-danger">
+                                        <h5 class="modal-title white" id="myModalLabel120">Peringatan
+                                        </h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        
+                                        Yakin Ingin menghapus?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary"
+                                            data-bs-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Batal</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger ml-1">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Hapus</span>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

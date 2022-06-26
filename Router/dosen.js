@@ -35,12 +35,12 @@ router.get("/tambahcpmk",(req,res) => {
   }
 );
 
-router.put("/ubahcpmk",(req,res) => {
+router.post("/ubahcpmk",(req,res) => {
     res.send("Ubah CPMK");
   }
 );
 
-router.delete("/hapuscpmk",(req,res) => {
+router.post("/hapuscpmk",(req,res) => {
     res.send("Hapus CPMK");
   }
 );
@@ -52,12 +52,12 @@ router.get("/tambahreferensi",(req,res) => {
   }
 );
 
-router.put("/ubahreferensi",(req,res) => {
+router.post("/ubahreferensi",(req,res) => {
     res.send("Ubah Referensi");
   }
 );
 
-router.delete("/hapusreferensi",(req,res) => {
+router.post("/hapusreferensi",(req,res) => {
     res.send("Hapus Referensi");
   }
 );
@@ -68,28 +68,28 @@ router.get("/tambahkomponen",(req,res) => {
   }
 );
 
-router.put("/ubahkomponen", (req,res) => {
+router.post("/ubahkomponen", (req,res) => {
     res.send("Ubah komponen");
   }
 );
 
-router.delete("/hapuskomponen",(req,res) => {
+router.post("/hapuskomponen",(req,res) => {
     res.send("Hapus komponen");
   }
 );
 
 //    ---PERTEMUAN MINGGUAN---
-router.get("/tambahpertemuan-mingguan",(req,res) => {
+router.post("/tambahpertemuan-mingguan",(req,res) => {
     res.send("Tambah Pertemuan Mingguan");
   }
 );
 
-router.put("/ubahpertemuan-mingguan",(req,res) => {
+router.post("/ubahpertemuan-mingguan",(req,res) => {
     res.send("Ubah Pertemuan Mingguan");
   }
 );
 
-router.delete("/hapuspertemuan-mingguan",(req,res) => {
+router.post("/hapuspertemuan-mingguan",(req,res) => {
     res.send("Hapus Pertemuan Mingguan");
   }
 );
