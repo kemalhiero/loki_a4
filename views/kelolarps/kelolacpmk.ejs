@@ -21,11 +21,11 @@
                     <!--edit form Modal -->
                     <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
                     aria-labelledby="myModalLabel33" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
+                    <div class="modal-dialog modal-dialog-centered "
                     role="document">
                     <div class="modal-content">
                                     <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
+                                        <h4 class="modal-title" id="myModalLabel33">Edit CPMK </h4>
                                         <button type="button" class="close" data-bs-dismiss="modal"
                                             aria-label="Close">
                                             <i data-feather="x"></i>
@@ -33,15 +33,22 @@
                                     </div>
                                     <form action="#">
                                         <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="basicInput">CPMK</label>
-                                                <input type="text" class="form-control" id="basicInput" placeholder="Masukkan CPMK">
-                                            </div>
-                                            <label>NIP </label>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
-                                            </div>
-                                        </div>
+                            <label>Pilih CP Program Studi</label>
+                            <div class="form-group">
+                                <select class="choices form-select" multiple="multiple">
+                                    <option value="square">Square</option>
+                                    <option value="rectangle" selected>Rectangle</option>
+                                    <option value="rombo">Rombo</option>
+                                    <option value="traible" selected>Triangle</option>
+                                    <option value="polygon">Polygon</option>
+                                </select>
+                            </div
+                            <label>CPMK </label>
+                            <div class="form-group">
+                                <input type="text" placeholder="Masukkan cpmk"
+                                    class="form-control">
+                            </div>
+                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-light-secondary"
                                             data-bs-dismiss="modal">
