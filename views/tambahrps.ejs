@@ -75,21 +75,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <br><br><br>
-                                <!-- <center>
-                                    <div class="buttons">
-                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
-                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
-                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
-                                        <a href="#" class="btn btn-outline-secondary">Secondary</a>
-                                    </div>
-                                </center> -->
-                                
+                                <br><br><br>                                
                                 <div>
                                     <div class="list-group list-group-horizontal-sm mb-1 text-center" role="tablist">
-                                        <a class="list-group-item list-group-item-action active" id="list-cpmk-list"
+                                        <a class="list-group-item list-group-item-action" id="list-cpmk-list"
                                             data-bs-toggle="list" href="#list-cpmk" role="tab">CPMK</a>
-                                        <a class="list-group-item list-group-item-action" id="list-referensi-list"
+                                        <a class="list-group-item list-group-item-action show active" id="list-referensi-list"
                                             data-bs-toggle="list" href="#list-referensi" role="tab">Referensi</a>
                                         <a class="list-group-item list-group-item-action" id="list-penilaian-list"
                                             data-bs-toggle="list" href="#list-penilaian" role="tab">Komponen Penilaian</a>
@@ -97,11 +88,11 @@
                                             data-bs-toggle="list" href="#list-pertmgg" role="tab">Pertemuan Mingguan</a>
                                     </div>
                                     <div class="tab-content text-justify">
-                                        <div class="tab-pane fade show active" id="list-cpmk" role="tabpanel"
+                                        <div class="tab-pane fade" id="list-cpmk" role="tabpanel"
                                             aria-labelledby="list-cpmk-list"><br>
                                             <%- include ('kelolarps/kelolacpmk') %> 
                                         </div>
-                                        <div class="tab-pane fade" id="list-referensi" role="tabpanel"
+                                        <div class="tab-pane fade show active" id="list-referensi" role="tabpanel"
                                             aria-labelledby="list-referensi-list"><br>
                                             <%- include ('kelolarps/kelolareferensi') %> 
                                         </div>

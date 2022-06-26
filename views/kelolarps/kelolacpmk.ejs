@@ -63,10 +63,9 @@
                         data-bs-target="#hapuscpmk"></i></button>
 
                     <!--Danger theme Modal -->
-                    <div class="modal fade text-left" id="hapuscpmk" tabindex="-1" role="dialog"
+                    <div class="modal fade text-left modal-borderless" id="hapuscpmk" tabindex="-1" role="dialog"
                         aria-labelledby="myModalLabel120" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                            role="document">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header bg-danger">
                                     <h5 class="modal-title white" id="myModalLabel120">Peringatan
@@ -110,28 +109,31 @@
         <!--tambah form Modal -->
         <div class="modal fade text-left" id="inlineFormCpmk" tabindex="-1" role="dialog"
             aria-labelledby="myModalLabel33" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title" id="myModalLabel33">Tambah CPMK </h4>
-                        <button type="button" class="close" data-bs-dismiss="modal"
-                            aria-label="Close">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
                     </div>
                     <form action="#">
                         <div class="modal-body">
+                            <label>Pilih CP Program Studi</label>
+                            <div class="form-group">
+                                <select class="choices form-select" multiple="multiple">
+                                    <option value="square">Square</option>
+                                    <option value="rectangle" selected>Rectangle</option>
+                                    <option value="rombo">Rombo</option>
+                                    <option value="traible" selected>Triangle</option>
+                                    <option value="polygon">Polygon</option>
+                                </select>
+                            </div
                             <label>CPMK </label>
                             <div class="form-group">
                                 <input type="text" placeholder="Masukkan cpmk"
                                     class="form-control">
                             </div>
-                            <!-- <label>Nama Mata Kuliah </label>
-                            <div class="form-group">
-                                <input type="text" placeholder="Masukkan nama matkul"
-                                    class="form-control">
-                            </div> -->
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light-secondary"

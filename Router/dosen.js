@@ -6,15 +6,12 @@ router.set("view engine", "ejs");
 router.use(express.static("public"));
 
 
-//lihat daftar dosen
-router.get("/", controller.lecturers.retrieveAll);
-
 //    ---RPS---
-router.get("/rps", controller.rps.rpsDosen);
-router.get("/tambahrps-:id",controller.rps.tampilTambahRPS);
-router.get("/detailrps-:id", controller.rps.detailRPS);
-router.get("/ubahrps-:id",controller.rps.tampilUbahRPS);
-router.get("/revisirps-:id",controller.rps.tampilRevisiRPS);
+router.get("/rps", controller.dosen.rpsDosen);
+router.get("/tambahrps-:id",controller.dosen.tampilTambahRPS);
+router.get("/detailrps-:id", controller.dosen.detailRPS);
+router.get("/ubahrps-:id",controller.dosen.tampilUbahRPS);
+router.get("/revisirps-:id",controller.dosen.tampilRevisiRPS);
 
 router.post("/tambahrps",(req,res) => {
     res.send("Tambah RPS");
@@ -49,7 +46,6 @@ router.delete("/hapuscpmk",(req,res) => {
 );
 
 //    ---REFERENSI---
-router.get("/referensi", controller.referensi.retrieveAll); //lihat daftar referensi
 
 router.get("/tambahreferensi",(req,res) => {
     res.send("Tambah Referensi");

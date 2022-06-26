@@ -4,7 +4,8 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Referensi</th>
+                <th>Judul</th>
+                <th>Penulis</th>
                 <th>Kategori</th>
                 <th>Aksi</th>
             </tr>
@@ -12,55 +13,110 @@
         <tbody>
             <tr>
                 <td class="text-bold-500">1</td>
+                <td>Lorem ipsum dolor sit adipisicing elit. Quos, ea?</td>
+                <td>Tere Liye</td>
                 <td>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quis facilis cumque nemo 
+                    <span class="badge bg-primary">Utama</span>
+                    <!-- <span class="badge bg-secondary">Pendukung</span> -->
+                    
                 </td>
-                <td>Utama</td>
                 <td>
-                    <!-- <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" 
-                        data-bs-target="#inlineEditForm"></i> </button> -->
-                
+
+                    <button class="btn"><i class="fa-solid fa-rectangle-list" data-bs-toggle="modal" 
+                        data-bs-target="#detailreferensi"></i> </button>
                 
                     <!--edit form Modal -->
-                    <!-- <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                    aria-labelledby="myModalLabel33" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                    role="document">
-                    <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
-                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <i data-feather="x"></i>
+                    <div class="modal fade text-left" id="detailreferensi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel33">Detail Referensi</h4>
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <form action="#">
+                                    <div class="modal-body">
+                                        <label>Judul</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="Eliana">
+                                        </div>
+                                        <label>Penulis</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="Tere Liye">
+                                        </div>
+                                        <label>Penerbit</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="Gramed">
+                                        </div>
+                                        <label>Tahun</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="1213">
+                                        </div>
+                                        <label>Deskripsi</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="hmmmmmmmmmm">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary"
+                                        data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Close</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1"
+                                        data-bs-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Edit</span>
                                         </button>
                                     </div>
-                                    <form action="#">
-                                        <div class="modal-body">
-                                            <div class="form-group">
-                                                <label for="basicInput">CPMK</label>
-                                                <input type="text" class="form-control" id="basicInput" placeholder="Masukkan CPMK">
-                                            </div>
-                                            <label>NIP </label>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary"
-                                            data-bs-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1"
-                                            data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Edit</span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div>
+                                </form>
                             </div>
-                    </div> -->
+                        </div>
+                    </div>
+                    
+                    <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" 
+                        data-bs-target="#editreferensi"></i> </button>
+                
+                    <!--edit form Modal -->
+                    <div class="modal fade text-left" id="editreferensi" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel33">Edit Dosen </h4>
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <form action="#">
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <label for="basicInput">CPMK</label>
+                                            <input type="text" class="form-control" id="basicInput" placeholder="Masukkan CPMK">
+                                        </div>
+                                        <label>NIP </label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="readonlyInput" readonly="readonly" value="disini NIP nya ntar, otomatis dari DB">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary"
+                                        data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Close</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1"
+                                        data-bs-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Edit</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                     <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
                         data-bs-target="#hapusreferensi"></i></button>

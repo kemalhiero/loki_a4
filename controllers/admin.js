@@ -142,10 +142,6 @@ controller.tampilLaporanRpsMatkul = async function(req, res){
     res.render("laporanrpsmatkul", { dasbordaktif: "", rpsaktif: "active" });
 }
 
-controller.tampilanPersentaseRPS = async function(req, res){
-    res.render("persentaserps", { dasbordaktif: "", rpsaktif: "active" });
-}
-
 controller.cetakLaporan = async function(req, res){
     res.send("cetak laporan");
 }

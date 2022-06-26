@@ -66,7 +66,7 @@
                                     <!-- <td><%= md.rev %></td> -->
                                     <td><%= md.semester %></td>
                                     <td>
-                                        <% if (md.rev<=-1) { %>                                         
+                                        <% if (md.created_by==null) { %>                                         
                                             <a href="/dosen/tambahrps-<%= md.id %> " class="btn btn-primary rounded-pill">+ Tambah</a>
                                         <% } else {%>
                                         <a href="/dosen/detailrps-<%= md.id %>" class="btn btn-primary rounded-pill">Detail</a>
