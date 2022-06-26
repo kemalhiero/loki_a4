@@ -62,6 +62,11 @@ app.get("/print",(req,res) => {
     // print("views/RPS.ejs");
   });
 
+  app.get("/500",(req,res) => {
+    res.render("eror500");
+    // print("views/RPS.ejs");
+  });
+
 //----------------------------------
 app.use("/", (req, res) => {
   res.render("eror404");
