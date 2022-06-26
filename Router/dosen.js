@@ -40,7 +40,7 @@ router.put("/ubahcpmk",(req,res) => {
   }
 );
 
-router.delete("/hapuscpmk",(req,res) => {
+router.post("/hapuscpmk",(req,res) => {
     res.send("Hapus CPMK");
   }
 );
@@ -57,7 +57,7 @@ router.put("/ubahreferensi",(req,res) => {
   }
 );
 
-router.delete("/hapusreferensi",(req,res) => {
+router.post("/hapusreferensi",(req,res) => {
     res.send("Hapus Referensi");
   }
 );
@@ -73,7 +73,7 @@ router.put("/ubahkomponen", (req,res) => {
   }
 );
 
-router.delete("/hapuskomponen",(req,res) => {
+router.post("/hapuskomponen",(req,res) => {
     res.send("Hapus komponen");
   }
 );
@@ -89,7 +89,7 @@ router.put("/ubahpertemuan-mingguan",(req,res) => {
   }
 );
 
-router.delete("/hapuspertemuan-mingguan",(req,res) => {
+router.post("/hapuspertemuan-mingguan",(req,res) => {
     res.send("Hapus Pertemuan Mingguan");
   }
 );
