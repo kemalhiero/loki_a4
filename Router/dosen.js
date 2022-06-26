@@ -35,7 +35,7 @@ router.get("/tambahcpmk",(req,res) => {
   }
 );
 
-router.put("/ubahcpmk",(req,res) => {
+router.post("/ubahcpmk",(req,res) => {
     res.send("Ubah CPMK");
   }
 );
@@ -52,7 +52,7 @@ router.get("/tambahreferensi",(req,res) => {
   }
 );
 
-router.put("/ubahreferensi",(req,res) => {
+router.post("/ubahreferensi",(req,res) => {
     res.send("Ubah Referensi");
   }
 );
@@ -68,7 +68,7 @@ router.get("/tambahkomponen",(req,res) => {
   }
 );
 
-router.put("/ubahkomponen", (req,res) => {
+router.post("/ubahkomponen", (req,res) => {
     res.send("Ubah komponen");
   }
 );
@@ -79,12 +79,12 @@ router.post("/hapuskomponen",(req,res) => {
 );
 
 //    ---PERTEMUAN MINGGUAN---
-router.get("/tambahpertemuan-mingguan",(req,res) => {
+router.post("/tambahpertemuan-mingguan",(req,res) => {
     res.send("Tambah Pertemuan Mingguan");
   }
 );
 
-router.put("/ubahpertemuan-mingguan",(req,res) => {
+router.post("/ubahpertemuan-mingguan",(req,res) => {
     res.send("Ubah Pertemuan Mingguan");
   }
 );
