@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan RPS Mata Kuliah</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="assets/vendors/fontawesome/all.min.css">
+    
+    <link rel="stylesheet" href="assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" href="assets/vendors/bootstrap-icons/bootstrap-icons.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <br>
+    <div class="row">
+        <!-- <div class="col-12 col-md-6 order-md-1 order-last"> -->
+            <center><h3>Laporan RPS</h3></center>
+          
+        <!-- </div> -->
+    </div><br>
+
+    <div class="col-20 col-md-25 order-md-1">
+        <section id="horizontal-input">
+            <div class="row">
+              <div class="col-md-12">
+      
+                  <div class="card">
+                      <div class="card-header">
+                      <h4 class="card-title">Peta CPMK ke CPL</h4>
+                      </div>
+      
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table mb-0 table-lg">
+                                  <thead>
+                                      <tr>
+                                          <th>Kode CPMK</th>
+                                          <th>CPMK</th>
+                                          <th>Kode CPML</th>
+                                          <th>CPML</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td class="text-bold-500"></td>
+                                          <td></td>
+                                          <td class="text-bold-500"></td>
+                                          <td></td>
+      
+                                      </tr>
+                                      <tr>
+                                          <td class="text-bold-500"></td>
+                                          <td></td>
+                                          <td class="text-bold-500"></td>
+                                          <td></td>
+      
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>          
+                  </div>
+      
+                  <div class="card">
+                      <div class="card-header">
+                      <h4 class="card-title">Lihat Revisi RPS</h4>
+                      </div>
+      
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table mb-0 table-lg">
+                                  <thead>
+                                      <tr>
+                                          <th>KODE Matkul</th>
+                                          <th>Nama Matkul</th>
+                                          <th>sks</th>
+                                          <th>Jumlah Revisi</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td class="text-bold-500"></td>
+                                          <td></td>
+                                          <td class="text-bold-500"></td>
+                                          <td class="text-bold-500"></td>      
+                                      </tr>
+                                      <tr>
+                                          <td class="text-bold-500"></td>
+                                          <td></td>
+                                          <td class="text-bold-500"></td>
+                                          <td class="text-bold-500"></td>      
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                      </div>          
+                  </div>
+                
+                  <div class="card">
+                      <div class="card-header">
+                      <h4 class="card-title">Persentase RPS</h4>
+                      </div>
+      
+                      <div class="card-body">
+                          <!-- <p class="text-subtitle text-muted">Give textual form controls like input upgrade with custom styles,
+                          sizing, focus states, and more.</p> -->
+      
+                          <div id="piechart"></div>
+              
+                          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                          
+                          <script type="text/javascript">
+                          // Load google charts
+                          google.charts.load('current', {'packages':['corechart']});
+                          google.charts.setOnLoadCallback(drawChart);
+                          
+                          // Draw the chart and set the chart values
+                          function drawChart() {
+                          var data = google.visualization.arrayToDataTable([
+                          ['Task', 'Hours per Day'],
+                          ['Project Based', 8],
+                          ['Case Based Method', 2],
+                          
+                          ]);
+                          
+                          // Optional; add a title and set the width and height of the chart
+                          var options = {'title':'Persentase RPS yang menggunakan metode Project Based/Case Based Method', 'width':550, 'height':400};
+                          
+                          // Display the chart inside the <div> element with id="piechart"
+                          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                          chart.draw(data, options);
+                          }
+                          </script>   
+      
+                      </div>          
+                  </div>
+              </div>
+            </div>
+        </section>
+    </div>
+
+
+    <script src="assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/extensions/sweetalert2.js"></script>
+    <script src="assets/vendors/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="assets/vendors/fontawesome/all.min.js"></script>
+
+    <script src="assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="assets/js/pages/dashboard.js"></script>
+
+    <script src="https://kit.fontawesome.com/5a0f2b6c16.js" crossorigin="anonymous"></script>
+
+    <script src="assets/js/mazer.js"></script>
+    <script>
+        window.print()
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require("./dbconfig");
 
-const course_plans_details = require("./course_plans_details");
+const course_plan_details = require("./course_plan_details");
 const course_los = require("./course_los");
 
 const course_plan_detail_outcomes = sequelize.define('courses',
@@ -19,7 +19,7 @@ const course_plan_detail_outcomes = sequelize.define('courses',
       type: DataTypes.BIGINT,
       allowNull: false,
       references: {
-        model: course_plans_details,
+        model: course_plan_details,
         key: 'id'
       }
     },

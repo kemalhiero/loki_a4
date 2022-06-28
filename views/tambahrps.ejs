@@ -25,7 +25,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">RPS - Matkul</h4>
+                            <h4 class="card-title">RPS - <%= rps.name %></h4>
                         </div>
 
                         <div class="card-body">
@@ -80,7 +80,7 @@
                                     <div class="list-group list-group-horizontal-sm mb-1 text-center" role="tablist">
                                         <a class="list-group-item list-group-item-action" id="list-cpmk-list"
                                             data-bs-toggle="list" href="#list-cpmk" role="tab">CPMK</a>
-                                        <a class="list-group-item list-group-item-action show active" id="list-referensi-list"
+                                        <a class="list-group-item list-group-item-action" id="list-referensi-list"
                                             data-bs-toggle="list" href="#list-referensi" role="tab">Referensi</a>
                                         <a class="list-group-item list-group-item-action" id="list-penilaian-list"
                                             data-bs-toggle="list" href="#list-penilaian" role="tab">Komponen Penilaian</a>
@@ -92,7 +92,7 @@
                                             aria-labelledby="list-cpmk-list"><br>
                                             <%- include ('kelolarps/kelolacpmk') %> 
                                         </div>
-                                        <div class="tab-pane fade show active" id="list-referensi" role="tabpanel"
+                                        <div class="tab-pane fade" id="list-referensi" role="tabpanel"
                                             aria-labelledby="list-referensi-list"><br>
                                             <%- include ('kelolarps/kelolareferensi') %> 
                                         </div>

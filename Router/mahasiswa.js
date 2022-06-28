@@ -8,7 +8,10 @@ router.use(express.static("public"));
 
 //route mengubah/membuat RPS yang sudah ada didalam Web
 router.get("/rps", controller.mahasiswa_dll.rpsMahasiswa);
-
 router.get("/detailrps-:id", controller.mahasiswa_dll.detailRPSMahasiswa);
+
+router.get("/printrps",(req,res) => {
+    res.render("RPS");
+  });
 
 module.exports = router;

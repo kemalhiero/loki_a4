@@ -35,32 +35,25 @@
                         <tbody>
                             <% dosenMatkul.forEach(function(dsn, index) { %>
                             <tr>
-                                <td><%= index+1 %> </td>
+                                <td><%= index+1 %></td>
                                 <td><%= dsn.name %></td>
                                 <td><%= dsn.reg_id %></td>
                                 <td>    
 
-                                    <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
-                                    data-bs-target="#hapus"></i></button>
+                                    <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#hapus<%= index+1 %>"></i></button>
 
-                                    <!--Danger theme Modal -->
-                                    <div class="modal fade text-left" id="hapus" tabindex="-1" role="dialog"
-                                        aria-labelledby="myModalLabel120" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <form action="/admin/hapusdosen" method="post">
+                                    <form action="/admin/hapusdosen-<%- dsn.id %>" method="get">
+                                        <!--Danger theme Modal -->
+                                        <div class="modal fade text-left" id="hapus<%= index+1 %>" aria-labelledby="myModalLabel120">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
+                                                <div class="modal-content">
                                                     <div class="modal-header bg-danger">
-                                                        <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                                        </h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
+                                                        <h5 class="modal-title white" id="myModalLabel<%= index+1 %>">Peringatan</h5>
+                                                        <button type="button" class="close" aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <input type="hidden" name="idrps" value="<%= dsn.course_plan_id %>">
-                                                        <input type="hidden" name="iddosen" value="<%= dsn.lecturer_id %>">
                                                         Yakin Ingin menghapus?
                                                     </div>
                                                     <div class="modal-footer">
@@ -74,10 +67,10 @@
                                                             <span class="d-none d-sm-block">Hapus</span>
                                                         </button>
                                                     </div>
-                                                </form>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </td>
                             </tr>
                             <% }) %>                            
@@ -91,15 +84,13 @@
                     </button>
 
                     <!--tambah dosen form Modal -->
-                    <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
-                        aria-labelledby="myModalLabel33" aria-hidden="true">
+                    <div class="modal fade text-left" id="inlineForm" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable"
                             role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="myModalLabel33">Tambah Dosen </h4>
-                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                        aria-label="Close">
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>

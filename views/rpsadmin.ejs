@@ -6,22 +6,22 @@
                 <div class="col-12 col-md-6 order-md-1 order-last">
                     <h3>Rencana Pembelajaran Semester</h3>
                     <p class="text-subtitle text-muted"> </p>
-                <!-- </div> -->
-                <!-- <div class="col-12 col-md-6 order-md-2 order-first">
+                </div>
+                <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">DataTable</li>
+                            <li class="breadcrumb-item"> <a href="/admin/laporanrpsadmin" class="btn btn-primary">Laporan</a></li>
+                            <!-- <li class="breadcrumb-item active" aria-current="page">DataTable</li> -->
                         </ol>
                     </nav>
-                </div> -->
+                </div>
                 <!-- <div class="col-12 col-md-6 order-md-2 order-first">
                     <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                         <ol class="breadcrumb">
                             <a href="/admin/persentaserps" class="btn btn-primary">Persentase RPS</a>
-                        </ol> -->
-                    <!-- </nav> -->
-                </div>
+                        </ol>
+                    </nav>
+                </div> -->
             </div>
         </div>
         <section class="section">
@@ -47,11 +47,8 @@
                                     <td><%= mtkl.name %></td>
                                     <td><%= mtkl.credit %></td>
                                     <td><%= mtkl.semester %></td>
-                                    <td>                                        
-                                        
-
-                                        <a href="/admin/menentukandosen-<%= mtkl.id %>" class="btn btn-primary rounded-pill">Dosen</a>
-                                        <a href="/admin/laporanrpsmatkul-<%= mtkl.id %>" class="btn btn-primary rounded-pill">Laporan</a>          
+                                    <td>   
+                                        <a href="/admin/menentukandosen-<%= mtkl.id %>" class="btn btn-primary rounded-pill">Dosen</a>         
                                     </td>
                                 </tr>
                             <% }) %>

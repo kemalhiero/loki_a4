@@ -27,9 +27,12 @@ controller.rpsDosen = async function(req, res){
 
 controller.tampilTambahRPS = async function(req, res){
     const id = req.params.id
-    const rps = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit']});
+    const rps = await model.course_plans.findOne({where:{id} ,attributes: [ 'id', 'code', 'name', 'semester', 'credit']});
+    
+    const referensi = await model.course_plan_references.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'title', 'author', 'publisher', 'year', 'description']});
+    const pertMgg = await model.course_plan_details.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'week', 'material', 'method', 'student_experience']});
 
-    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps });
+    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps, referensi, pertMgg });
 }
 
 controller.tampilUbahRPS = async function(req, res){
@@ -106,5 +109,126 @@ controller.revisiRPS = async function(req, res){
 
     //revisi pakai auto increment aja keknya 🤔
 }
+
+// ------------referensi------------
+
+controller.tambahReferensi = async function(req, res){
+
+    const { course_plan_id, title, author, publisher, year, description } = req.body;
+
+    const referensiExist = await model.course_plan_references.findOne({ 
+        where:{[Op.and]: [{title}, {author}, {publisher}] }});
+    if (referensiExist) return res.status(400).send('Referensi sudah ada');
+
+    try {
+        await model.course_plan_references.create({
+            course_plan_id,
+            title,
+            author,
+            publisher,
+            year,
+            description
+        });
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+controller.ubahReferensi = async function(req, res){
+
+    const { id, title, author, publisher, year, description } = req.body;
+
+    try {
+        await model.course_plan_references.update({
+            title,
+            author,
+            publisher,
+            year,
+            description
+        }
+            ,{ where:{ id }
+        });
+        console.log("berhasil ubah referensi");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+controller.hapusReferensi = async function(req, res){
+
+    const id = req.params.idhapus;
+
+    try {
+        await model.course_plan_references.destroy({ where:{ id }
+        });
+        console.log("berhasil hapuss referensi");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+// ------------Pertemuan Mingguan------------
+
+controller.tambahPertMingguan = async function(req, res){
+
+    const { course_plan_id, week, material, method, student_experience } = req.body;
+
+    const weekExist = await model.course_plan_details.findOne({ where:{ week: req.body.week }});
+    if (weekExist) return res.status(400).send('Pertemuan sudah ada');
+
+    try {
+        await model.course_plan_details.create({
+            course_plan_id,
+            week,
+            material,
+            method,
+            student_experience
+        });
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+controller.ubahPertMingguan = async function(req, res){
+
+    const { id, week, material, method, student_experience } = req.body;
+
+    try {
+        await model.course_plan_details.update({
+            week,
+            material,
+            method,
+            student_experience
+        }
+            ,{ where:{ id }});
+        console.log("berhasil ubah pertemuan mingguan");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+controller.hapusPertMingguan = async function(req, res){
+
+    const id = req.params.idhapus;
+
+    try {
+        await model.course_plan_details.destroy({ where:{ id }
+        });
+        console.log("berhasil hapuss pertemuan mingguan");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+
 
 module.exports = controller;

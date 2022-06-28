@@ -35,32 +35,21 @@ router.get("/tambahcpmk",(req,res) => {
   }
 );
 
-router.post("/ubahcpmk",(req,res) => {
+router.get("/ubahcpmk",(req,res) => {
     res.send("Ubah CPMK");
   }
 );
 
-router.post("/hapuscpmk",(req,res) => {
+router.get("/hapuscpmk",(req,res) => {
     res.send("Hapus CPMK");
   }
 );
 
 //    ---REFERENSI---
 
-router.get("/tambahreferensi",(req,res) => {
-    res.send("Tambah Referensi");
-  }
-);
-
-router.post("/ubahreferensi",(req,res) => {
-    res.send("Ubah Referensi");
-  }
-);
-
-router.post("/hapusreferensi",(req,res) => {
-    res.send("Hapus Referensi");
-  }
-);
+router.post("/tambahreferensi",controller.dosen.tambahReferensi);
+router.post("/ubahreferensi",controller.dosen.ubahReferensi);
+router.get("/hapusreferensi-:idhapus", controller.dosen.hapusReferensi);
 
 //    ---KOMPONEN PENILAIAN---
 router.get("/tambahkomponen",(req,res) => {
@@ -68,30 +57,19 @@ router.get("/tambahkomponen",(req,res) => {
   }
 );
 
-router.post("/ubahkomponen", (req,res) => {
+router.get("/ubahkomponen", (req,res) => {
     res.send("Ubah komponen");
   }
 );
 
-router.post("/hapuskomponen",(req,res) => {
+router.get("/hapuskomponen",(req,res) => {
     res.send("Hapus komponen");
   }
 );
 
 //    ---PERTEMUAN MINGGUAN---
-router.post("/tambahpertemuan-mingguan",(req,res) => {
-    res.send("Tambah Pertemuan Mingguan");
-  }
-);
-
-router.post("/ubahpertemuan-mingguan",(req,res) => {
-    res.send("Ubah Pertemuan Mingguan");
-  }
-);
-
-router.post("/hapuspertemuan-mingguan",(req,res) => {
-    res.send("Hapus Pertemuan Mingguan");
-  }
-);
+router.post("/tambahpertemuan-mingguan", controller.dosen.tambahPertMingguan);
+router.post("/ubahpertemuan-mingguan", controller.dosen.ubahPertMingguan);
+router.get("/hapuspertemuan-mingguan-:idhapus", controller.dosen.hapusPertMingguan);
 
 module.exports = router;

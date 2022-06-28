@@ -5,11 +5,9 @@ const controller = require(`./controllers/indexcontroller`);
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-
-const { isDosen, isAdmin , checkUser } = require(`./middleware/authToken`);
 dotenv.config();
 
-const {print} = require("pdf-to-printer");
+const { isDosen, isAdmin , checkUser } = require(`./middleware/authToken`);
 
 
 app.use(bodyParser.json());
@@ -57,14 +55,9 @@ app.get("/profil",(req,res) => {
   res.render("profil", { dasbordaktif: "", rpsaktif: "" });
 });
 
-app.get("/print",(req,res) => {
-    res.render("RPS");
-    // print("views/RPS.ejs");
-  });
 
-  app.get("/500",(req,res) => {
+app.get("/500",(req,res) => {
     res.render("eror500");
-    // print("views/RPS.ejs");
   });
 
 //----------------------------------

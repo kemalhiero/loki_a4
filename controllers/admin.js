@@ -30,7 +30,7 @@ controller.tambahMatkul = async function(req, res){
         await model.course_plans.create({
             curriculum_id: kurikulum,
             course_id: id_course.id,
-            rev: -1,
+            rev: 0,
             code: kode,
             name: nama,
             alias_name: alias,
@@ -92,13 +92,10 @@ controller.tambahDosen = async function(req, res){
 
 controller.hapusDosen = async function(req, res){
 
-    const { idrps,  iddosen } = req.body;
+    const id = req.params.idhapus;
 
     try {
-        await model.course_plan_lecturers.destroy({ where:{
-            course_plan_id: idrps,
-            lecturer_id: iddosen
-        }
+        await model.course_plan_lecturers.destroy({ where:{ id:id }
         });
         console.log("berhasil hapuss");
         res.redirect('back');
@@ -125,7 +122,7 @@ controller.tampilMenentukanDosen = async (req, res) => {
     const rps = await model.course_plans.findOne({where: { course_id: id },attributes:['id']});
 
     const dosenMatkul = await sequelize.query(
-        'SELECT course_plan_lecturers.course_plan_id, course_plan_lecturers.lecturer_id, lecturers.name, lecturers.reg_id FROM lecturers LEFT JOIN course_plan_lecturers ON course_plan_lecturers.lecturer_id = lecturers.id WHERE course_plan_lecturers.course_plan_id= :idrps ORDER BY lecturers.name;',
+        'SELECT course_plan_lecturers.id, lecturers.name, lecturers.reg_id FROM lecturers LEFT JOIN course_plan_lecturers ON course_plan_lecturers.lecturer_id = lecturers.id WHERE course_plan_lecturers.course_plan_id= :idrps;',
         {
             replacements: { idrps: rps.id },
             type: QueryTypes.SELECT
@@ -143,7 +140,7 @@ controller.tampilLaporanRpsMatkul = async function(req, res){
 }
 
 controller.cetakLaporan = async function(req, res){
-    res.send("cetak laporan");
+    res.render("cetaklaporanrps");
 }
 
 
