@@ -72,16 +72,16 @@
         <div class="modal fade text-left" id="editreferensi<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form action="/dosen/ubahreferensi" method="post">
-              <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel33">Edit Referensi</h4>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              
+              <form action="/dosen/ubahreferensi" method="post">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel33">Edit Referensi</h4>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                  </button>
+                </div>
+
                 <div class="modal-body">
-                  <input type="hidden" name="id" value="<%= ref.id %>">
+                  <input type="hidden" name="id" value="<%= ref.id %>" />
                   <label>Judul</label>
                   <div class="form-group">
                     <input type="text" class="form-control" id="readonlyInput" value="<%= ref.title %>" name="title" required />
@@ -127,33 +127,31 @@
         <div class="modal fade text-left" id="hapusreferensi<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form action="/dosen/hapusreferensi-<%= ref.id %>" method="get">
-                    <div class="modal-header bg-danger">
-                        <h5 class="modal-title white" id="myModalLabel120">Peringatan</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <i data-feather="x"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Yakin Ingin menghapus?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary"D data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Batal</span>
-                        </button>
-                        <button type="submit" class="btn btn-danger ml-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Hapus</span>
-                        </button>
-                    </div>
-                </form>
+              <form action="/dosen/hapusreferensi-<%= ref.id %>" method="get">
+                <div class="modal-header bg-danger">
+                  <h5 class="modal-title white" id="myModalLabel120">Peringatan</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                  </button>
+                </div>
+                <div class="modal-body">Yakin Ingin menghapus?</div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light-secondary" D data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Batal</span>
+                  </button>
+                  <button type="submit" class="btn btn-danger ml-1">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Hapus</span>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </td>
     </tr>
-    <% }) %> 
+    <% }) %>
   </tbody>
 </table>
 <br />
@@ -174,26 +172,26 @@
         </div>
         <form action="/dosen/tambahreferensi" method="post">
           <div class="modal-body">
-            <input type="hidden" name="course_plan_id" value="<%= rps.id %>">
+            <input type="hidden" name="course_plan_id" value="<%= rps.id %>" />
             <label>Judul</label>
             <div class="form-group">
-              <input type="text" class="form-control" id="readonlyInput" name="title" required/>
+              <input type="text" class="form-control" id="readonlyInput" name="title" required />
             </div>
             <label>Penulis</label>
             <div class="form-group">
-              <input type="text" class="form-control" id="readonlyInput" name="author" required/>
+              <input type="text" class="form-control" id="readonlyInput" name="author" required />
             </div>
             <label>Penerbit</label>
             <div class="form-group">
-              <input type="text" class="form-control" id="readonlyInput" name="publisher" required/>
+              <input type="text" class="form-control" id="readonlyInput" name="publisher" required />
             </div>
             <label>Tahun</label>
             <div class="form-group">
-              <input type="number" class="form-control" id="readonlyInput" name="year" required/>
+              <input type="number" class="form-control" id="readonlyInput" name="year" required />
             </div>
             <label>Kategori</label>
             <div class="form-group">
-              <select class="form-select" id="basicSelect">
+              <select class="form-select" id="basicSelect" name="description">
                 <option value="Utama">Utama</option>
                 <option value="Pendukung">Pendukung</option>
               </select>
