@@ -12,8 +12,15 @@ controller.rpsMahasiswa = async function(req, res){
 
 controller.detailRPSMahasiswa = async function(req, res){
     const id = req.params.id;
-    const detailrpsmhs = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit', 'description']});
-    res.render("detailrpsmhs", { rpsaktif: "active", detailrpsmhs });
+    const rps = await model.course_plans.findOne({where:{id} ,attributes: ['code', 'name', 'semester', 'credit', 'description']});
+
+    const cpps = await model.curriculum_los.findAll({attributes: [ 'id', 'code', 'name', 'type']});
+    const referensi = await model.course_plan_references.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'title', 'author', 'publisher', 'year', 'description']});
+    const pertMgg = await model.course_plan_details.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'week', 'material', 'method', 'student_experience']});
+    const kompPenilaian = await model.course_plan_assessments.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'name', 'percentage']});
+
+    
+    res.render("detailrpsmhs", { rpsaktif: "active", rps, cpps , referensi, pertMgg, kompPenilaian });
 }
 
 // ---------DLL---------

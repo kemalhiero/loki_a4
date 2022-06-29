@@ -3,11 +3,31 @@
         <thead>
             <tr>
                 <th>#</th>
+                <th>CP Program Studi</th>
+                <!-- <th>Aksi</th> -->
+            </tr>
+        </thead>
+        <tbody>
+            <% cpps.forEach(function(cpl, index) { %>
+            <tr>
+                <td class="text-bold-500"><%= cpl.code %></td>
+                <td><%= cpl.name %></td>
+                <!-- <td> </td> -->
+            </tr>
+            <% }) %>
+        </tbody>
+    </table><br>
+
+    <table class="table table-hover mb-0">
+        <thead>
+            <tr>
+                <th>#</th>
                 <th>CPMK</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
+
             <tr>
                 <td class="text-bold-500">1</td>
                 <td>
@@ -19,10 +39,8 @@
                 
                 
                     <!--edit form Modal -->
-                    <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog"
-                    aria-labelledby="myModalLabel33" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered "
-                    role="document">
+                    <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered " role="document">
                     <div class="modal-content">
                         <form action="/dosen/ubahcpmk" method="get">
                                     <div class="modal-header">
@@ -37,11 +55,9 @@
                             <label>Pilih CP Program Studi</label>
                             <div class="form-group">
                                 <select class="choices form-select" multiple="multiple">
-                                    <option value="square">Square</option>
-                                    <option value="rectangle" selected>Rectangle</option>
-                                    <option value="rombo">Rombo</option>
-                                    <option value="traible" selected>Triangle</option>
-                                    <option value="polygon">Polygon</option>
+                                    <% cpps.forEach(function(cpl, index) { %>
+                                    <option value="<%= cpl.code %>"><%= cpl.code %></option>
+                                    <% }) %>
                                 </select>
                             </div
                             <label>CPMK </label>
@@ -106,6 +122,7 @@
 
                 </td>
             </tr>
+            
         </tbody>
     </table><br>
 

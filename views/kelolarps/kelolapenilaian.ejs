@@ -9,33 +9,34 @@
     </tr>
   </thead>
   <tbody>
+    <% kompPenilaian.forEach(function(pnln, index) { %>
     <tr>
-      <td class="text-bold-500">1</td>
-      <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-      <td>20</td>
+      <td class="text-bold-500"><%= index+1 %></td>
+      <td><%= pnln.name %></td>
+      <td><%= pnln.percentage %></td>
       <td>
-        <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editpenilaian"></i></button>
+        <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#editpenilaian<%= index+1 %>"></i></button>
 
         <!--edit form Modal -->
-        <div class="modal fade text-left" id="editpenilaian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+        <div class="modal fade text-left" id="editpenilaian<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form action="/dosen/ubahkomponen" method="get">
+                <form action="/dosen/ubahkomponen" method="post">
               <div class="modal-header">
                 <h4 class="modal-title" id="myModalLabel33">Edit Komponen Penilaian</h4>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                   <i data-feather="x"></i>
                 </button>
               </div>
-              <form action="#">
+              <form action="/dosen/ubahkomponen" method="post">
                 <div class="modal-body">
                   <label>Komponen Penilaian</label>
                   <div class="form-group">
-                    <input type="text" placeholder="Masukkan komponen penilaian" class="form-control" />
+                    <input type="text" placeholder="Masukkan komponen penilaian" class="form-control" name="name" value="<%= pnln.name %>"/>
                   </div>
                   <label>Bobot (%)</label>
                   <div class="form-group">
-                    <input type="number" placeholder="Masukkan bobot" class="form-control" />
+                    <input type="number" placeholder="Masukkan bobot" class="form-control"  min="1" max="100" name="percentage" value="<%= pnln.percentage %>"/>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -54,13 +55,13 @@
           </div>
         </div>
 
-        <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#hapusPenilaian"></i></button>
+        <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#hapusPenilaian<%= index+1 %>"></i></button>
 
         <!--Danger theme Modal -->
-        <div class="modal fade text-left" id="hapusPenilaian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+        <div class="modal fade text-left" id="hapusPenilaian<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
-              <form action="/dosen/hapuskomponen" method="get">
+              <form action="/dosen/hapuskomponen-<%= pnln.id %>" method="get">
                     <div class="modal-header bg-danger">
                         <h5 class="modal-title white" id="myModalLabel120">Peringatan
                         </h5>
@@ -70,7 +71,6 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        
                         Yakin Ingin menghapus?
                     </div>
                     <div class="modal-footer">
@@ -90,16 +90,17 @@
         </div>
       </td>
     </tr>
+    <% }) %>
   </tbody>
 </table>
 <br />
 
 <span>
   <!-- Button trigger for tambah form modal -->
-  <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#inlineFormpenilaian">+ Tambah</button>
+  <button type="button" class="btn btn-primary rounded-pill" data-bs-toggle="modal" data-bs-target="#FormTambahpenilaian">+ Tambah</button>
 
   <!--tambah form Modal -->
-  <div class="modal fade text-left" id="inlineFormpenilaian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+  <div class="modal fade text-left" id="FormTambahpenilaian" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -108,15 +109,16 @@
             <i data-feather="x"></i>
           </button>
         </div>
-        <form action="#">
+        <form action="/dosen/tambahkomponen" method="post">
           <div class="modal-body">
+            <input type="hidden" name="course_plan_id" value="<%= rps.id %>">
             <label>Komponen Penilaian</label>
             <div class="form-group">
-              <input type="text" placeholder="Masukkan komponen penilaian" class="form-control" />
+              <input type="text" placeholder="Masukkan komponen penilaian" class="form-control" name="name" required/>
             </div>
             <label>Bobot (%)</label>
             <div class="form-group">
-              <input type="number" placeholder="Masukkan bobot" class="form-control" />
+              <input type="number" placeholder="Masukkan bobot" class="form-control" min="1" max="100" name="percentage" required/>
             </div>
           </div>
           <div class="modal-footer">
@@ -124,7 +126,7 @@
               <i class="bx bx-x d-block d-sm-none"></i>
               <span class="d-none d-sm-block">Tutup</span>
             </button>
-            <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+            <button type="submit" class="btn btn-primary ml-1">
               <i class="bx bx-check d-block d-sm-none"></i>
               <span class="d-none d-sm-block">Tambah</span>
             </button>

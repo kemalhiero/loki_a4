@@ -19,7 +19,6 @@ router.post("/tambahrps",(req,res) => {
 );
 
 router.put("/ubahrps",(req,res) => {
-
     res.send("Ubah RPS");
   }
 );
@@ -46,26 +45,14 @@ router.get("/hapuscpmk",(req,res) => {
 );
 
 //    ---REFERENSI---
-
 router.post("/tambahreferensi",controller.dosen.tambahReferensi);
 router.post("/ubahreferensi",controller.dosen.ubahReferensi);
 router.get("/hapusreferensi-:idhapus", controller.dosen.hapusReferensi);
 
 //    ---KOMPONEN PENILAIAN---
-router.get("/tambahkomponen",(req,res) => {
-    res.send("Tambah komponen");
-  }
-);
-
-router.get("/ubahkomponen", (req,res) => {
-    res.send("Ubah komponen");
-  }
-);
-
-router.get("/hapuskomponen",(req,res) => {
-    res.send("Hapus komponen");
-  }
-);
+router.post("/tambahkomponen", controller.dosen.tambahKompPenilaian);
+router.post("/ubahkomponen", controller.dosen.ubahKompPenilaian);
+router.get("/hapuskomponen-:idhapus",controller.dosen.hapusKompPenilaian);
 
 //    ---PERTEMUAN MINGGUAN---
 router.post("/tambahpertemuan-mingguan", controller.dosen.tambahPertMingguan);

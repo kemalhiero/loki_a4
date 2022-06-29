@@ -29,10 +29,12 @@ controller.tampilTambahRPS = async function(req, res){
     const id = req.params.id
     const rps = await model.course_plans.findOne({where:{id} ,attributes: [ 'id', 'code', 'name', 'semester', 'credit']});
     
+    const cpps = await model.curriculum_los.findAll({attributes: [ 'id', 'code', 'name', 'type']});
     const referensi = await model.course_plan_references.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'title', 'author', 'publisher', 'year', 'description']});
     const pertMgg = await model.course_plan_details.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'week', 'material', 'method', 'student_experience']});
+    const kompPenilaian = await model.course_plan_assessments.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'name', 'percentage']});
 
-    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps, referensi, pertMgg });
+    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps, cpps , referensi, pertMgg, kompPenilaian });
 }
 
 controller.tampilUbahRPS = async function(req, res){
@@ -222,6 +224,65 @@ controller.hapusPertMingguan = async function(req, res){
         await model.course_plan_details.destroy({ where:{ id }
         });
         console.log("berhasil hapuss pertemuan mingguan");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+
+// ------------Komponen Penialaian------------
+
+controller.tambahKompPenilaian = async function(req, res){
+
+    const { course_plan_id, name, percentage } = req.body;
+
+    const weekExist = await model.course_plan_assessments.findOne({ where:{name} });
+    if (weekExist) return res.status(400).send('Komponen penilaian sudah ada');
+
+    const totalKompPenilaian = await model.course_plan_assessments.sum('percentage',{ where:{ course_plan_id }});
+    if (totalKompPenilaian+parseInt(percentage)>100) return res.status(400).send('Total bobot melebihi batas maksimum');
+
+    try {
+        await model.course_plan_assessments.create({
+            course_plan_id,
+            name,
+            percentage,
+            flag:0
+        });
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+controller.ubahKompPenilaian = async function(req, res){
+
+    const { id, name, percentage } = req.body;
+
+    try {
+        await model.course_plan_assessments.update({
+            name,
+            percentage
+        }
+            ,{ where:{ id }});
+        console.log("berhasil ubah komponen penilaian");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+
+}
+
+controller.hapusKompPenilaian = async function(req, res){
+
+    const id = req.params.idhapus;
+
+    try {
+        await model.course_plan_assessments.destroy({ where:{ id }
+        });
+        console.log("berhasil hapuss komponen penilaian");
         res.redirect('back');
     } catch (error) {
         console.log(error);
