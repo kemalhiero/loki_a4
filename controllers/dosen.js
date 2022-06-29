@@ -260,7 +260,13 @@ controller.tambahKompPenilaian = async function(req, res){
 
 controller.ubahKompPenilaian = async function(req, res){
 
-    const { id, name, percentage } = req.body;
+    const { id, course_plan_id, name, percentage } = req.body;
+
+    const komponenExist = await model.course_plan_assessments.findOne({ where:{name} });
+    if (komponenExist) return res.status(400).send('Komponen penilaian sudah ada');
+
+    // const totalKompPenilaian = await model.course_plan_assessments.sum('percentage',{ where:{ course_plan_id }});
+    // if (totalKompPenilaian+parseInt(percentage)>100) return res.status(400).send('Total bobot melebihi batas maksimum');
 
     try {
         await model.course_plan_assessments.update({
