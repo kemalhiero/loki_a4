@@ -23,45 +23,48 @@
         <div class="modal fade text-left" id="EditPertMingguan<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form action="/dosen/ubahpertemuan-mingguan" method="post">
-              <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel33">Edit Pertemuan Mingguan</h4>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                  <i data-feather="x"></i>
-                </button>
-              </div>
-              <form action="#">
-                <div class="modal-body">
-                  <input type="hidden" name="id" value="<%= pmgg.id %>">
-                  <label>Minggu Ke</label>
-                  <div class="form-group">
-                    <input type="number" class="form-control" id="readonlyInput" name="week" min="1" max="16" value="<%= pmgg.week %>" required/>
-                  </div>
-                  <label>Materi Ajar</label>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="readonlyInput" name="material" value="<%= pmgg.material %>" required/>
-                  </div>
-                  <label>Metode Pembelajaran</label>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="readonlyInput" name="method" value="<%= pmgg.method %>" required/>
-                  </div>
-                  <label>Pengalaman Belajar</label>
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="readonlyInput" name="student_experience" value="<%= pmgg.student_experience %>" required/>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                    <i class="bx bx-x d-block d-sm-none"></i>
-                    <span class="d-none d-sm-block">Close</span>
-                  </button>
-                  <button type="submit" class="btn btn-primary ml-1">
-                    <i class="bx bx-check d-block d-sm-none"></i>
-                    <span class="d-none d-sm-block">Edit</span>
+              <form action="/dosen/ubahpertemuan-mingguan" method="post">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel33">Edit Pertemuan Mingguan</h4>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
                   </button>
                 </div>
+                <form action="#">
+                  <div class="modal-body">
+                    <input type="hidden" name="id" value="<%= pmgg.id %>" />
+                    <label>Minggu Ke</label>
+                    <div class="form-group">
+                      <input type="number" class="form-control" id="readonlyInput" name="week" min="1" max="16" value="<%= pmgg.week %>" required />
+                    </div>
+                    <label>Materi Ajar</label>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="readonlyInput" name="material" value="<%= pmgg.material %>" required />
+                    </div>
+                    <label>Metode Pembelajaran</label>
+                    <div class="form-group">
+                      <select class="form-select" id="readonlyInput" placeholder="Masukkan Metode Pembelajaran" name="method" value="<%= pmgg.method %>" required>
+                        <option>Project Based</option>
+                        <option>Cased Based</option>
+                      </select>
+                    </div>
+                    <label>Pengalaman Belajar</label>
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="readonlyInput" name="student_experience" value="<%= pmgg.student_experience %>" required />
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                      <i class="bx bx-x d-block d-sm-none"></i>
+                      <span class="d-none d-sm-block">Close</span>
+                    </button>
+                    <button type="submit" class="btn btn-primary ml-1">
+                      <i class="bx bx-check d-block d-sm-none"></i>
+                      <span class="d-none d-sm-block">Edit</span>
+                    </button>
+                  </div>
+                </form>
               </form>
-            </form>
             </div>
           </div>
         </div>
@@ -72,36 +75,31 @@
         <div class="modal fade text-left" id="hapusPertMgg<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
             <div class="modal-content">
-                <form action="/dosen/hapuspertemuan-mingguan-<%= pmgg.id %>" method="get">
-                    <div class="modal-header bg-danger">
-                        <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                        </h5>
-                        <button type="button" class="close" data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <i data-feather="x"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">                        
-                        Yakin Ingin menghapus?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary"
-                            data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Batal</span>
-                        </button>
-                        <button type="submit" class="btn btn-danger ml-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Hapus</span>
-                        </button>
-                    </div>
-                </form>
+              <form action="/dosen/hapuspertemuan-mingguan-<%= pmgg.id %>" method="get">
+                <div class="modal-header bg-danger">
+                  <h5 class="modal-title white" id="myModalLabel120">Peringatan</h5>
+                  <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                  </button>
+                </div>
+                <div class="modal-body">Yakin Ingin menghapus?</div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                    <i class="bx bx-x d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Batal</span>
+                  </button>
+                  <button type="submit" class="btn btn-danger ml-1">
+                    <i class="bx bx-check d-block d-sm-none"></i>
+                    <span class="d-none d-sm-block">Hapus</span>
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </td>
     </tr>
-    <% }) %> 
+    <% }) %>
   </tbody>
 </table>
 <br />
@@ -122,22 +120,25 @@
         </div>
         <form action="/dosen/tambahpertemuan-mingguan" method="post">
           <div class="modal-body">
-            <input type="hidden" name="course_plan_id" value="<%= rps.id %>">
+            <input type="hidden" name="course_plan_id" value="<%= rps.id %>" />
             <label>Minggu Ke</label>
             <div class="form-group">
-              <input type="number" class="form-control" name="week" min="1" max="16" required/>
+              <input type="number" class="form-control" name="week" min="1" max="16" required />
             </div>
             <label>Materi Ajar</label>
             <div class="form-group">
-              <input type="text" class="form-control" name="material" required/>
+              <input type="text" class="form-control" name="material" required />
             </div>
             <label>Metode Pembelajaran</label>
             <div class="form-group">
-              <input type="text" class="form-control" name="method" required/>
+              <select class="form-select" id="basicSelect" placeholder="Masukkan Metode Pembelajaran" name="method" required>
+                <option>Project Based</option>
+                <option>Cased Based</option>
+              </select>
             </div>
             <label>Pengalaman Belajar</label>
             <div class="form-group">
-              <input type="text" class="form-control" name="student_experience" required/>
+              <input type="text" class="form-control" name="student_experience" required />
             </div>
           </div>
           <div class="modal-footer">
