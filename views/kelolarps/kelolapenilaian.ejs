@@ -30,6 +30,7 @@
               </div>
               <form action="/dosen/ubahkomponen" method="post">
                 <div class="modal-body">
+                  <input type="hidden" name="id" value="<%= pnln.id %>">
                   <label>Komponen Penilaian</label>
                   <div class="form-group">
                     <input type="text" placeholder="Masukkan komponen penilaian" class="form-control" name="name" value="<%= pnln.name %>"/>

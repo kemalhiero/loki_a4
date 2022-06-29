@@ -30,11 +30,12 @@ controller.tampilTambahRPS = async function(req, res){
     const rps = await model.course_plans.findOne({where:{id} ,attributes: [ 'id', 'code', 'name', 'semester', 'credit']});
     
     const cpps = await model.curriculum_los.findAll({attributes: [ 'id', 'code', 'name', 'type']});
+    const cpmk = await model.course_los.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'code', 'name', 'type']});
     const referensi = await model.course_plan_references.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'title', 'author', 'publisher', 'year', 'description']});
     const pertMgg = await model.course_plan_details.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'week', 'material', 'method', 'student_experience']});
     const kompPenilaian = await model.course_plan_assessments.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'name', 'percentage']});
 
-    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps, cpps , referensi, pertMgg, kompPenilaian });
+    res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps, cpps, cpmk, referensi, pertMgg, kompPenilaian });
 }
 
 controller.tampilUbahRPS = async function(req, res){
@@ -238,8 +239,8 @@ controller.tambahKompPenilaian = async function(req, res){
 
     const { course_plan_id, name, percentage } = req.body;
 
-    const weekExist = await model.course_plan_assessments.findOne({ where:{name} });
-    if (weekExist) return res.status(400).send('Komponen penilaian sudah ada');
+    const komponenExist = await model.course_plan_assessments.findOne({ where:{name} });
+    if (komponenExist) return res.status(400).send('Komponen penilaian sudah ada');
 
     const totalKompPenilaian = await model.course_plan_assessments.sum('percentage',{ where:{ course_plan_id }});
     if (totalKompPenilaian+parseInt(percentage)>100) return res.status(400).send('Total bobot melebihi batas maksimum');

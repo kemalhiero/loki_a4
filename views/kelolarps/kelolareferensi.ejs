@@ -98,9 +98,12 @@
                   <div class="form-group">
                     <input type="text" class="form-control" id="readonlyInput" value="<%= ref.year %>" name="year" required />
                   </div>
-                  <label>Deskripsi</label>
+                  <label>Kategori</label>
                   <div class="form-group">
-                    <input type="text" class="form-control" id="readonlyInput" value="<%= ref.description %>" name="description" required />
+                    <select class="form-select" id="basicSelect">
+                      <option value="Utama">Utama</option>
+                      <option value="Pendukung">Pendukung</option>
+                    </select>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -188,9 +191,12 @@
             <div class="form-group">
               <input type="number" class="form-control" id="readonlyInput" name="year" required/>
             </div>
-            <label>Deskripsi</label>
+            <label>Kategori</label>
             <div class="form-group">
-              <input type="text" class="form-control" id="readonlyInput" name="description" required/>
+              <select class="form-select" id="basicSelect">
+                <option value="Utama">Utama</option>
+                <option value="Pendukung">Pendukung</option>
+              </select>
             </div>
           </div>
           <div class="modal-footer">

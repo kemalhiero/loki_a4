@@ -27,67 +27,63 @@
             </tr>
         </thead>
         <tbody>
-
+            <% cpmk.forEach(function(cp, index) { %>
             <tr>
-                <td class="text-bold-500">1</td>
-                <td>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quis facilis cumque nemo 
-                </td>
+                <td class="text-bold-500"><%= index+1 %></td>
+                <td><%= cp.title %></td>
                 <td>
                     <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" 
-                        data-bs-target="#inlineEditForm"></i> </button>
+                        data-bs-target="#inlineEditForm<%= index+1 %>"></i> </button>
                 
                 
                     <!--edit form Modal -->
-                    <div class="modal fade text-left" id="inlineEditForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+                    <div class="modal fade text-left" id="inlineEditForm<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered " role="document">
-                    <div class="modal-content">
-                        <form action="/dosen/ubahcpmk" method="get">
-                                    <div class="modal-header">
-                                        <h4 class="modal-title" id="myModalLabel33">Edit CPMK </h4>
-                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
+                        <div class="modal-content">
+                            <form action="/dosen/ubahcpmk" method="post">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="myModalLabel33">Edit CPMK </h4>
+                                <button type="button" class="close" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>    
+                                <div class="modal-body">
+                                    <input type="hidden" name="id" value="<%= cp.id %>">
+                                    <label>Pilih CP Program Studi</label>
+                                    <div class="form-group">
+                                        <select class="choices form-select" multiple="multiple">
+                                            <% cpps.forEach(function(cpl, index) { %>
+                                            <option value="<%= cpl.code %>"><%= cpl.code %></option>
+                                            <% }) %>
+                                        </select>
+                                    </div
+                                    <label>CPMK </label>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Masukkan cpmk"
+                                            class="form-control">
                                     </div>
-                                    <form action="#">
-                                        <div class="modal-body">
-                            <label>Pilih CP Program Studi</label>
-                            <div class="form-group">
-                                <select class="choices form-select" multiple="multiple">
-                                    <% cpps.forEach(function(cpl, index) { %>
-                                    <option value="<%= cpl.code %>"><%= cpl.code %></option>
-                                    <% }) %>
-                                </select>
-                            </div
-                            <label>CPMK </label>
-                            <div class="form-group">
-                                <input type="text" placeholder="Masukkan cpmk"
-                                    class="form-control">
-                            </div>
-                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary"
-                                            data-bs-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Edit</span>
-                                            </button>
-                                        </div>
-                                    </form>
-                                </form>
                                 </div>
-                            </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary"
+                                    data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Close</span>
+                                    </button>
+                                    <button type="submit" class="btn btn-primary ml-1">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Edit</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
 
                     <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
-                        data-bs-target="#hapuscpmk"></i></button>
+                        data-bs-target="#hapuscpmk<%= index+1 %>"></i></button>
 
                     <!--Danger theme Modal -->
-                    <div class="modal fade text-left modal-borderless" id="hapuscpmk" tabindex="-1" role="dialog"
+                    <div class="modal fade text-left modal-borderless" id="hapuscpmk<%= index+1 %>" tabindex="-1" role="dialog"
                         aria-labelledby="myModalLabel120" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
@@ -122,7 +118,7 @@
 
                 </td>
             </tr>
-            
+            <% }) %> 
         </tbody>
     </table><br>
 
