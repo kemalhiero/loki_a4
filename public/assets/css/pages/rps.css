@@ -1,5 +1,4 @@
 .block_ {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     font-weight: bold;
@@ -125,7 +124,6 @@
     text-align: justify
     }
 .block_9 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     font-weight: bold;
@@ -140,7 +138,6 @@
     padding-top: 0
     }
 .block_10 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     line-height: 1.2;
@@ -155,7 +152,6 @@
     text-align: justify
     }
 .block_11 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     line-height: 1.2;
@@ -178,7 +174,6 @@
     padding-top: 0
     }
 .block_13 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     line-height: 1.2;
@@ -215,7 +210,6 @@
     padding-top: 0
     }
 .block_16 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     font-weight: bold;
@@ -1879,12 +1873,9 @@
     width: 498pt
     }
 .text_ {
-    background-color: yellow;
     font-style: italic
     }
-.text_1 {
-    background-color: yellow
-    }
+.text_1 {    }
 
 @page {
     margin-bottom: 5pt;
@@ -1892,7 +1883,6 @@
     }
 
 .block_ {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     font-weight: bold;
@@ -2018,7 +2008,6 @@
     text-align: justify
     }
 .block_9 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     font-weight: bold;
@@ -2033,7 +2022,6 @@
     padding-top: 0
     }
 .block_10 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     line-height: 1.2;
@@ -2048,7 +2036,6 @@
     text-align: justify
     }
 .block_11 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     line-height: 1.2;
@@ -2071,7 +2058,6 @@
     padding-top: 0
     }
 .block_13 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     line-height: 1.2;
@@ -2108,7 +2094,6 @@
     padding-top: 0
     }
 .block_16 {
-    background-color: yellow;
     display: block;
     font-size: 1.125em;
     font-weight: bold;
@@ -3772,12 +3757,9 @@
     width: 498pt
     }
 .text_ {
-    background-color: yellow;
     font-style: italic
     }
-.text_1 {
-    background-color: yellow
-    }
+.text_1 {    }
 
 @page {
     margin-bottom: 5pt;

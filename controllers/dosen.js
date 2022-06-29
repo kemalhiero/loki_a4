@@ -113,7 +113,7 @@ controller.revisiRPS = async function(req, res){
     //revisi pakai auto increment aja keknya 🤔
 }
 
-// ------------referensi------------
+// ------------REFERENSI------------
 
 controller.tambahReferensi = async function(req, res){
 
@@ -180,7 +180,7 @@ controller.tambahPertMingguan = async function(req, res){
 
     const { course_plan_id, week, material, method, student_experience } = req.body;
 
-    const weekExist = await model.course_plan_details.findOne({ where:{ week: req.body.week }});
+    const weekExist = await model.course_plan_details.findOne({ where:{[Op.and]: [{week}, {course_plan_id}]} });
     if (weekExist) return res.status(400).send('Pertemuan sudah ada');
 
     try {
@@ -239,7 +239,7 @@ controller.tambahKompPenilaian = async function(req, res){
 
     const { course_plan_id, name, percentage } = req.body;
 
-    const komponenExist = await model.course_plan_assessments.findOne({ where:{name} });
+    const komponenExist = await model.course_plan_assessments.findOne({ where:{[Op.and]: [{name}, {course_plan_id}]} });
     if (komponenExist) return res.status(400).send('Komponen penilaian sudah ada');
 
     const totalKompPenilaian = await model.course_plan_assessments.sum('percentage',{ where:{ course_plan_id }});
@@ -260,12 +260,10 @@ controller.tambahKompPenilaian = async function(req, res){
 
 controller.ubahKompPenilaian = async function(req, res){
 
-    const { id, course_plan_id, name, percentage } = req.body;
+    const { id, persentaseLama, course_plan_id, name, percentage } = req.body;
 
-    
-
-    // const totalKompPenilaian = await model.course_plan_assessments.sum('percentage',{ where:{ course_plan_id }});
-    // if (totalKompPenilaian+parseInt(percentage)>100) return res.status(400).send('Total bobot melebihi batas maksimum');
+    const totalKompPenilaian = await model.course_plan_assessments.sum('percentage',{ where:{ course_plan_id }});
+    if (totalKompPenilaian-parseInt(persentaseLama)+parseInt(percentage)>100) return res.status(400).send('Total bobot melebihi batas maksimum');
 
     try {
         await model.course_plan_assessments.update({

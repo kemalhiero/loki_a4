@@ -39,39 +39,13 @@
                         <table class="table mb-0 table-lg">
                             <thead>
                                 <tr>
+                                    <th>Kode CPL</th>
+                                    <th>CPL</th>
                                     <th>Kode CPMK</th>
                                     <th>CPMK</th>
-                                    <th>Kode CPML</th>
-                                    <th>CPML</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                </tr>
                                 <tr>
                                     <td class="text-bold-500"></td>
                                     <td></td>
@@ -94,49 +68,27 @@
                         <table class="table mb-0 table-lg">
                             <thead>
                                 <tr>
-                                    <th>KODE Matkul</th>
+                                    <th>Kode Matkul</th>
                                     <th>Nama Matkul</th>
-                                    <th>sks</th>
+                                    <th>SKS</th>
                                     <th>Jumlah Revisi</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <% rps.forEach(function(rpss, index) { %>
                                 <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-
+                                    <td class="text-bold-500"><%= rpss.code %></td>
+                                    <td><%= rpss.name %></td>
+                                    <td><%= rpss.credit %></td>
+                                    <td><%= rpss.rev %></td>
                                 </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="text-bold-500"></td>
-                                    <td></td>
-                                    <td class="text-bold-500"></td>
-
-                                </tr>
+                                <% }) %>
                             </tbody>
                         </table>
                     </div>
                 </div>          
             </div>
-          
+        
             <div class="card">
                 <div class="card-header">
                 <h4 class="card-title">Persentase RPS</h4>
@@ -147,7 +99,8 @@
                     sizing, focus states, and more.</p> -->
 
                     <div id="piechart"></div>
-        
+                        
+                    
                     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                     
                     <script type="text/javascript">
@@ -155,12 +108,15 @@
                     google.charts.load('current', {'packages':['corechart']});
                     google.charts.setOnLoadCallback(drawChart);
                     
+                    let projectbes = '<%-projectBase%>'
+                    let kesbes = '<%-caseBase%>'
+                        
                     // Draw the chart and set the chart values
                     function drawChart() {
                     var data = google.visualization.arrayToDataTable([
                     ['Task', 'Hours per Day'],
-                    ['Project Based', 8],
-                    ['Case Based Method', 2],
+                    ['Project Based', parseInt(projectbes)],
+                    ['Case Based Method', parseInt(kesbes)],
                     
                     ]);
                     
@@ -175,6 +131,7 @@
 
                 </div>          
             </div>
+            
         </div>
       </div>
     </section>

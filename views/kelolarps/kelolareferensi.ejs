@@ -5,7 +5,7 @@
       <th>#</th>
       <th>Judul</th>
       <th>Penulis</th>
-      <!-- <th>Kategori</th> -->
+      <th>Kategori</th>
       <th>Aksi</th>
     </tr>
   </thead>
@@ -15,10 +15,13 @@
       <td class="text-bold-500"><%= index+1 %></td>
       <td><%= ref.title %></td>
       <td><%= ref.author %></td>
-      <!-- <td>
-        <span class="badge bg-primary">Utama</span>
+      <td>
+        <% if (ref.description=="Utama") { %>
+          <span class="badge bg-primary">Utama</span>
+        <% } else if (ref.description=="Pendukung"){%>
         <span class="badge bg-secondary">Pendukung</span>
-      </td> -->
+        <% } %> 
+      </td>
       <td>
         <button class="btn"><i class="fa-solid fa-rectangle-list" data-bs-toggle="modal" data-bs-target="#detailreferensi<%= index+1 %>"></i></button>
 
@@ -100,7 +103,7 @@
                   </div>
                   <label>Kategori</label>
                   <div class="form-group">
-                    <select class="form-select" id="basicSelect">
+                    <select class="form-select" id="basicSelect" name="description">
                       <option value="Utama">Utama</option>
                       <option value="Pendukung">Pendukung</option>
                     </select>

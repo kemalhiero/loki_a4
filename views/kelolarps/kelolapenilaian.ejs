@@ -31,15 +31,10 @@
                 <div class="modal-body">
                   <input type="hidden" name="id" value="<%= pnln.id %>">
                   <input type="hidden" name="course_plan_id" value="<%= rps.id %>">
+                  <input type="hidden" name="persentaseLama" value="<%= pnln.percentage %>">
                   <label>Komponen Penilaian</label>
                   <div class="form-group">
-                    <select class="form-select" id="basicSelect" placeholder="Masukkan komponen penilaian" name="name" value="<%= pnln.name %>" required>
-                      <option>Project</option>
-                      <option>Tugas</option>
-                      <option>Quiz</option>
-                      <option>UTS</option>
-                      <option>UAS</option>
-                    </select>
+                    <input type="text" class="form-control" disabled value="<%= pnln.name %>">
                   </div>
                   <label>Bobot (%)</label>
                   <div class="form-group">

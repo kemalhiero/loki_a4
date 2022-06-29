@@ -2,7 +2,7 @@
 const indexcontroller = {};
 
 indexcontroller.admin = require("./admin");
-indexcontroller.mahasiswa_dll = require("./mahasiswa_dll");
+indexcontroller.mahasiswa = require("./mahasiswa");
 indexcontroller.dosen = require("./dosen");
 indexcontroller.users = require("./users");
 

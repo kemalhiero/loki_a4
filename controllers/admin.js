@@ -136,11 +136,24 @@ controller.tampilMenentukanDosen = async (req, res) => {
   }
 
 controller.tampilLaporanRpsMatkul = async function(req, res){
-    res.render("laporanrpsmatkul", { dasbordaktif: "", rpsaktif: "active" });
+
+    const projectBase = await model.course_plan_details.count({ where:{ method:"Project Based" }});
+    const caseBase = await model.course_plan_details.count({ where:{ method:"Cased Based" }});
+
+    const rps = await model.course_plans.findAll({attributes:['id', 'rev', 'code', 'name', 'credit']});
+
+    // res.json(caseBase)
+    res.render("laporanrpsmatkul", { dasbordaktif: "", rpsaktif: "active", projectBase, caseBase, rps });
 }
 
 controller.cetakLaporan = async function(req, res){
-    res.render("cetaklaporanrps");
+
+    const projectBase = await model.course_plan_details.count({ where:{ method:"Project Based" }});
+    const caseBase = await model.course_plan_details.count({ where:{ method:"Cased Based" }});
+
+    const rps = await model.course_plans.findAll({attributes:['id', 'rev', 'code', 'name', 'credit']});
+
+    res.render("cetaklaporanrps", { projectBase, caseBase, rps });
 }
 
 
