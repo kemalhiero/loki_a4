@@ -43,7 +43,10 @@
                     </div>
                     <label>Metode Pembelajaran</label>
                     <div class="form-group">
-                      <input type="text" class="form-control" id="readonlyInput" name="method" value="<%= pmgg.method %>" required />
+                      <select class="form-select" id="readonlyInput" placeholder="Masukkan Metode Pembelajaran" name="method" value="<%= pmgg.method %>" required>
+                        <option>Project Based</option>
+                        <option>Cased Based</option>
+                      </select>
                     </div>
                     <label>Pengalaman Belajar</label>
                     <div class="form-group">

@@ -32,7 +32,13 @@
                   <div class="modal-body">
                     <label>Komponen Penilaian</label>
                     <div class="form-group">
-                      <input type="text" placeholder="Masukkan komponen penilaian" class="form-control" name="name" value="<%= pnln.name %>" />
+                      <select class="form-select" id="basicSelect" placeholder="Masukkan komponen penilaian" name="name" value="<%= pnln.name %>" required>
+                        <option>Project</option>
+                        <option>Tugas</option>
+                        <option>Quiz</option>
+                        <option>UTS</option>
+                        <option>UAS</option>
+                      </select>
                     </div>
                     <label>Bobot (%)</label>
                     <div class="form-group">
