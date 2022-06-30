@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const { Op, QueryTypes  } = require("sequelize");
 const sequelize = model.dbconfig;
 
-//------------------DOSEN----------------
+//------------------Tampil RPS DOSEN----------------
 controller.rpsDosen = async function(req, res){
 
     const token = req.cookies.token
@@ -35,6 +35,15 @@ controller.tampilTambahRPS = async function(req, res){
     const pertMgg = await model.course_plan_details.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'week', 'material', 'method', 'student_experience']});
     const kompPenilaian = await model.course_plan_assessments.findAll({where:{course_plan_id : id} ,attributes: [ 'id', 'name', 'percentage']});
 
+    // const cpmk = await sequelize.query(
+    //     'SELECT course_lo_details.id AS iddetail, course_los.code AS kodecpmk, course_los.id, course_los.name, curriculum_los.code AS kodecpl FROM course_lo_details JOIN course_los ON course_lo_details.course_lo_id = course_los.id JOIN curriculum_los ON course_lo_details.curriculum_lo_id = curriculum_los.id WHERE course_los.course_plan_id= :idrps;',
+    //     {
+    //         replacements: { idrps: id },
+    //         type: QueryTypes.SELECT
+    //     }
+    // );
+
+    // res.send(cpmk)
     res.render("tambahrps", { dasbordaktif: "", rpsaktif: "active", rps, cpps, cpmk, referensi, pertMgg, kompPenilaian });
 }
 
@@ -233,7 +242,7 @@ controller.hapusPertMingguan = async function(req, res){
 }
 
 
-// ------------Komponen Penialaian------------
+// ------------KOMPONEN PENILAIAN------------
 
 controller.tambahKompPenilaian = async function(req, res){
 
@@ -294,6 +303,77 @@ controller.hapusKompPenilaian = async function(req, res){
 
 }
 
+// ------------CPMK------------
 
+controller.tambahCPMK = async function(req, res){
+
+    const { course_plan_id, cpl, name, code } = req.body;
+
+    const cpmkExist = await model.course_los.findOne({ where:{[Op.and]: [{code}, {course_plan_id}]} });
+    if (cpmkExist) return res.status(400).send('CPMK sudah ada');
+
+    try {
+        await model.course_los.create({
+            course_plan_id,
+            name,
+            code,
+            parent_id:1,
+            type:1
+        });
+
+        // const idcpmk = await model.course_los.findOne({where:{ code }, attributes: ['id']})
+
+        // await model.course_lo_details.create({
+        //     course_lo_id: idcpmk.id,
+        //     curriculum_lo_id: cpl
+        // });
+
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+controller.ubahCPMK = async function(req, res){
+
+    const { id, name, code, idcpl } = req.body;
+
+    try {
+        await model.course_los.update({
+            name,
+            code
+        },{ 
+            where:{ id }
+        });
+
+        // const idcpmk = await model.course_los.findOne({where:{ code }, attributes: ['id']})
+
+        // await model.course_lo_details.update({
+        //     course_lo_id: idcpmk.id,
+        //     curriculum_lo_id: idcpl
+        // });
+
+        console.log("berhasil ubah CPMK");
+        res.redirect('back');
+
+        res.send(idcpmk)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+controller.hapusCPMK = async function(req, res){
+
+    const id = req.params.idhapus;
+
+    try {
+        await model.course_los.destroy({ where:{ id }});
+
+        console.log("berhasil hapuss CPMK");
+        res.redirect('back');
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports = controller;

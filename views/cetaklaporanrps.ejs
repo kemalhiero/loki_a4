@@ -41,18 +41,20 @@
                             <table class="table mb-0 table-lg">
                                 <thead>
                                     <tr>
-                                        <th>Kode CPL</th>
-                                        <th>CPL</th>
+                                        <!-- <th>Kode CPL</th>
+                                        <th>CPL</th> -->
                                         <th>Kode CPMK</th>
                                         <th>CPMK</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-bold-500"></td>
-                                        <td></td>
-                                        <td class="text-bold-500"></td>
-                                        <td></td>
+                                        <% cpmk.forEach(function(cp, index) { %>
+                                        <!-- <td class="text-bold-500"></td>
+                                        <td></td> -->
+                                        <td class="text-bold-500"><%= cp.code %></td>
+                                        <td><%= cp.name %></td>
+                                        <% }) %>
                                     </tr>
                                 </tbody>
                             </table>

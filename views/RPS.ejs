@@ -44,7 +44,7 @@
 
 				<!-- cp program studi -->
 				<tr class="calibre2">
-					<td colspan="2" rowspan="6" class="td_20"><p class="block_1" lang="af">Capaian Pembelajaran (CP)</p></td>
+					<td colspan="2" rowspan="<%= rowspan+2 %>" class="td_20"><p class="block_1" lang="af">Capaian Pembelajaran (CP)</p></td>
 					<td colspan="4" class="td_21"><p class="block_1" lang="af"><span class="calibre4">CP Program Studi         </span></p></td>
 					<td colspan="7" class="td_22"><p class="block_5">&nbsp;</p></td>
 				</tr>
@@ -61,14 +61,14 @@
 					<td colspan="4" class="td_21"><p class="block_8" lang="af"><span class="calibre4">CP Mata Kuliah             </span></p></td>
 					<td colspan="7" class="td_22"><p class="block_5">&nbsp;</p></td>
 				</tr>
+
+				<% cpmk.forEach(function(cp, index) { %>
 				<tr class="calibre2">
-					<td class="td_23"><p class="block_6" lang="af">1</p></td>
-					<td colspan="10" class="td_24"><p class="block_7" lang="af">Mahasiswa mampu menjelaskan konsep dasar dan komponen aplikasi berbasis web (CP-1, CP-2)</p></td>
+					<td class="td_23"><p class="block_6" lang="af"><%= cp.code %></p></td>
+					<td colspan="10" class="td_24"><p class="block_7" lang="af"><%= cp.name %></p></td>
 				</tr>
-				<tr class="calibre2">
-					<td class="td_23"><p class="block_6" lang="af">2</p></td>
-					<td colspan="10" class="td_24"><p class="block_7" lang="af">Mahasiswa mampu menggunakan salah satu technology stack untuk membangun aplikasi berbasis web (CP-1, CP-2)</p></td>
-				</tr>
+				<% }) %>
+
 				<tr class="calibre2">
 					<td colspan="2" class="td_20"><p class="block_9" lang="af">Deskripsi Singkat</p><p class="block_9" lang="af">Mata Kuliah</p></td>
 					<td colspan="11" class="td_25"><p class="block_10" lang="af"><%= rps.description %></p></td>
@@ -110,7 +110,7 @@
 					<td colspan="4" class="td_33"><p class="block_1" lang="af">Perangkat keras :</p></td>
 				</tr>
 				<tr class="calibre2">
-					<td colspan="7" class="td_34"><p class="block_19" lang="af">Power point</p><p class="block_19" lang="af">Code Editor (VS Code)</p><p class="block_19" lang="af">Browser</p><p class="block_19" lang="af">NodeJS</p><p class="block_19" lang="af">Rest Client (Postman)</p><p class="block_19" lang="af">Database server (MySQL)</p><p class="block_19" lang="af">Version Control (Git)</p></td>
+					<td colspan="7" class="td_34"><p class="block_19" lang="af">Power point</p><p class="block_19" lang="af"></p></td>
 					<td colspan="4" class="td_35"><p class="block_19" lang="af">Projector</p><p class="block_19" lang="af">Laptop</p></td>
 				</tr>
 				<tr class="calibre2">
@@ -129,9 +129,9 @@
 				<tr class="calibre2">
 					<td colspan="2" class="td_36"><p class="block_1" lang="af">Matakuliah Syarat</p></td>
 					<td colspan="11" class="td_37">
-						<ol class="list_">
-							<li class="block_14"><span lang="af">Dasar-Dasar Pemrograman</span></li>
-						</ol>
+						<!-- <ol class="list_">
+							<li class="block_14"><span lang="af"></span></li>
+						</ol> -->
 					</td>
 				</tr>
 			</tbody>

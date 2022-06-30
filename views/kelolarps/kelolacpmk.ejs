@@ -1,10 +1,9 @@
     <!-- table hover -->
-    <table class="table table-hover mb-0">
+    <!-- <table class="table table-hover mb-0">
         <thead>
             <tr>
-                <th>#</th>
+                <th>Kode CPL</th>
                 <th>CP Program Studi</th>
-                <!-- <th>Aksi</th> -->
             </tr>
         </thead>
         <tbody>
@@ -12,115 +11,108 @@
             <tr>
                 <td class="text-bold-500"><%= cpl.code %></td>
                 <td><%= cpl.name %></td>
-                <!-- <td> </td> -->
             </tr>
             <% }) %>
         </tbody>
-    </table><br>
+    </table><br> -->
 
-    <table class="table table-hover mb-0">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>CPMK</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% cpmk.forEach(function(cp, index) { %>
-            <tr>
-                <td class="text-bold-500"><%= index+1 %></td>
-                <td><%= cp.title %></td>
-                <td>
-                    <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" 
-                        data-bs-target="#inlineEditForm<%= index+1 %>"></i> </button>
-                
-                
-                    <!--edit form Modal -->
-                    <div class="modal fade text-left" id="inlineEditForm<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered " role="document">
-                        <div class="modal-content">
-                            <form action="/dosen/ubahcpmk" method="post">
-                            <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel33">Edit CPMK </h4>
-                                <button type="button" class="close" data-bs-dismiss="modal"
-                                    aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>    
-                                <div class="modal-body">
-                                    <input type="hidden" name="id" value="<%= cp.id %>">
-                                    <label>Pilih CP Program Studi</label>
-                                    <div class="form-group">
-                                        <select class="choices form-select" multiple="multiple">
-                                            <% cpps.forEach(function(cpl, index) { %>
-                                            <option value="<%= cpl.code %>"><%= cpl.code %></option>
-                                            <% }) %>
-                                        </select>
-                                    </div
-                                    <label>CPMK </label>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Masukkan cpmk"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary"
-                                    data-bs-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Close</span>
-                                    </button>
-                                    <button type="submit" class="btn btn-primary ml-1">
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Edit</span>
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+<!-- table hover -->
+<table class="table table-hover mb-0">
+    <thead>
+      <tr>
+        <th>Kode CPMK</th>
+        <th>CPMK</th>
+        <!-- <th>Kode CP Program Studi</th> -->
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cpmk.forEach(function(cp, index) { %>
+      <tr>
+        <td><%= cp.code %></td>
+        <td><%= cp.name %></td>
+        <!-- <td><%= cp.kodecpl %></td> -->
+        <td>
+            <!-- tombol triger edit -->
+          <button class="btn"><i class="fas fa-edit" data-bs-toggle="modal" data-bs-target="#EditCPMK<%= index+1 %>"></i></button>
+  
+          <!--edit form Modal -->
+          <div class="modal fade text-left" id="EditCPMK<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel33" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <form action="/dosen/ubahcpmk" method="post">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel33">Edit Pertemuan Mingguan</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <i data-feather="x"></i>
+                    </button>
+                  </div>
+                  <form action="/dosen/ubahcpmk" method="post">
+                    <div class="modal-body">
+                      <input type="hidden" name="id" value="<%= cp.id %>" />
+
+                      <label>Kode CPMK </label>
+                      <div class="form-group">
+                          <input type="number" placeholder="Masukkan kode cpmk" name="code" value="<%= cp.code %>" disabled
+                              class="form-control">
+                      </div>
+                      <label>CPMK </label>
+                      <div class="form-group">
+                          <input type="text" placeholder="Masukkan cpmk" name="name" value="<%= cp.name %>"
+                              class="form-control">
+                      </div>
                     </div>
-
-                    <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal"
-                        data-bs-target="#hapuscpmk<%= index+1 %>"></i></button>
-
-                    <!--Danger theme Modal -->
-                    <div class="modal fade text-left modal-borderless" id="hapuscpmk<%= index+1 %>" tabindex="-1" role="dialog"
-                        aria-labelledby="myModalLabel120" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <form action="/dosen/hapuscpmk" method="get">
-                                    <div class="modal-header bg-danger">
-                                        <h5 class="modal-title white" id="myModalLabel120">Peringatan
-                                        </h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                            aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        
-                                        Yakin Ingin menghapus?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary"
-                                            data-bs-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Batal</span>
-                                        </button>
-                                        <button type="submit" class="btn btn-danger ml-1">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Hapus</span>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                      </button>
+                      <button type="submit" class="btn btn-primary ml-1">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Edit</span>
+                      </button>
                     </div>
-
-                </td>
-            </tr>
-            <% }) %> 
-        </tbody>
-    </table><br>
+                  </form>
+                </form>
+              </div>
+            </div>
+          </div>
+  
+          <button class="btn"><i class="fas fa-trash" data-bs-toggle="modal" data-bs-target="#hapusCPMK<%= index+1 %>"></i></button>
+  
+          <!--Danger theme Modal -->
+          <div class="modal fade text-left" id="hapusCPMK<%= index+1 %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel120" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+              <div class="modal-content">
+                <form action="/dosen/hapuscpmk-<%= cp.id %>" method="get">
+                  <div class="modal-header bg-danger">
+                    <h5 class="modal-title white" id="myModalLabel120">Peringatan</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                      <i data-feather="x"></i>
+                    </button>
+                  </div>
+                  <div class="modal-body">Yakin Ingin menghapus?</div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                      <i class="bx bx-x d-block d-sm-none"></i>
+                      <span class="d-none d-sm-block">Batal</span>
+                    </button>
+                    <button type="submit" class="btn btn-danger ml-1">
+                      <i class="bx bx-check d-block d-sm-none"></i>
+                      <span class="d-none d-sm-block">Hapus</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <br />
+ 
 
     <span>
         <!-- Button trigger for tambah form modal -->
@@ -140,21 +132,17 @@
                             <i data-feather="x"></i>
                         </button>
                     </div>
-                    <form action="#">
+                    <form action="/dosen/tambahcpmk" method="post">
                         <div class="modal-body">
-                            <label>Pilih CP Program Studi</label>
+                            <input type="hidden" name="course_plan_id" value="<%= rps.id %>" />
+                            <label>Kode CPMK </label>
                             <div class="form-group">
-                                <select class="choices form-select" multiple="multiple">
-                                    <option value="square">Square</option>
-                                    <option value="rectangle" selected>Rectangle</option>
-                                    <option value="rombo">Rombo</option>
-                                    <option value="traible" selected>Triangle</option>
-                                    <option value="polygon">Polygon</option>
-                                </select>
-                            </div
+                                <input type="number" placeholder="Masukkan kode cpmk" name="code" max="20" min="1"
+                                    class="form-control">
+                            </div>
                             <label>CPMK </label>
                             <div class="form-group">
-                                <input type="text" placeholder="Masukkan cpmk"
+                                <input type="text" placeholder="Masukkan cpmk" name="name"
                                     class="form-control">
                             </div>
                         </div>
@@ -164,8 +152,7 @@
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Tutup</span>
                             </button>
-                            <button type="submit" class="btn btn-primary ml-1"
-                                data-bs-dismiss="modal">
+                            <button type="submit" class="btn btn-primary ml-1">
                                 <i class="bx bx-check d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Tambah</span>
                             </button>

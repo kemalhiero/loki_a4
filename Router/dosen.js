@@ -29,20 +29,9 @@ router.put("/revisirps",(req,res) => {
 );
 
 //    ---CPMK---
-router.get("/tambahcpmk",(req,res) => {
-    res.send("Tambah CPMK");
-  }
-);
-
-router.get("/ubahcpmk",(req,res) => {
-    res.send("Ubah CPMK");
-  }
-);
-
-router.get("/hapuscpmk",(req,res) => {
-    res.send("Hapus CPMK");
-  }
-);
+router.post("/tambahcpmk", controller.dosen.tambahCPMK);
+router.post("/ubahcpmk", controller.dosen.ubahCPMK);
+router.get("/hapuscpmk-:idhapus", controller.dosen.hapusCPMK);
 
 //    ---REFERENSI---
 router.post("/tambahreferensi",controller.dosen.tambahReferensi);
