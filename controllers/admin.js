@@ -156,7 +156,7 @@ controller.cetakLaporan = async function(req, res){
     const cpmk = await model.course_los.findAll({attributes: [ 'id', 'code', 'name', 'type']})
     const rps = await model.course_plans.findAll({attributes:['id', 'rev', 'code', 'name', 'credit']});
 
-    res.render("cetaklaporanrps", { projectBase, caseBase, rps });
+    res.render("cetaklaporanrps", {cpmk, projectBase, caseBase, rps });
 }
 
 
